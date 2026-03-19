@@ -2,65 +2,57 @@
 
 import { motion } from 'framer-motion';
 import { CyclingWord } from './CyclingWord';
-import { HeroImage } from './HeroImage';
-
-const words = ['I', 'make', 'digital', 'brands', 'feel'];
+import { useWord } from '@/lib/WordContext';
+import { wordStyles } from '@/lib/wordStyles';
 
 export function Hero() {
-  return (
-    <section className="relative min-h-screen flex items-center px-6 md:px-10 pt-24 pb-16">
-      <div className="w-full" style={{ maxWidth: 'var(--max-width)', margin: '0 auto' }}>
-        <div className="grid grid-cols-1 md:grid-cols-[55fr_45fr] gap-8 md:gap-12 items-center">
-          {/* Left column — hero sentence */}
-          <div>
-            <h1 style={{ fontSize: 'var(--text-5xl)' }}>
-              {words.map((word, i) => (
-                <motion.span
-                  key={word}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    delay: i * 0.1,
-                    duration: 0.6,
-                    ease: [0.4, 0, 0.2, 1],
-                  }}
-                  className="inline-block mr-[0.25em]"
-                >
-                  {word}
-                </motion.span>
-              ))}
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: words.length * 0.1,
-                  duration: 0.6,
-                  ease: [0.4, 0, 0.2, 1],
-                }}
-                className="inline-block"
-              >
-                <CyclingWord />
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: words.length * 0.1 + 0.3, duration: 0.4 }}
-                className="inline-block"
-              >
-                .
-              </motion.span>
-            </h1>
-          </div>
+  const { activeWord } = useWord();
+  const style = wordStyles[activeWord];
 
-          {/* Right column — hero image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.6, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+  return (
+    <section className="relative" style={{ padding: '12.25rem 1.5rem 4rem' }}>
+      <div className="w-full md:pl-[calc(25%-5rem)]" style={{ maxWidth: '90rem', margin: '0 auto' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+          style={{ maxWidth: '42.5rem' }}
+        >
+          {/* Hero headline */}
+          <h1
+            className="leading-[1.1]"
+            style={{ fontFamily: "'Helvetica Neue', sans-serif", fontWeight: 400, minHeight: '9.75rem', fontSize: '4rem', letterSpacing: '-0.08rem' }}
           >
-            <HeroImage />
-          </motion.div>
-        </div>
+            I build digital brands<br />that feel{' '}
+            <CyclingWord />
+            <span style={{ visibility: 'hidden' }}>.</span>
+          </h1>
+
+          {/* Second sentence */}
+          <p
+            className="leading-[1.4]"
+            style={{ fontFamily: 'var(--font-hero-serif)', color: '#241013', maxWidth: '30rem', fontSize: '1.5rem', marginTop: '2rem' }}
+          >
+            If your team is outgrowing its design system and needs clarity on what to ship,{' '}
+            <a
+              href="#contact"
+              className="transition-colors duration-300"
+              style={{
+                color: style.color,
+                textDecoration: 'underline',
+                textUnderlineOffset: '0.1875rem',
+                textDecorationThickness: '0.0625rem',
+              }}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              let&apos;s talk
+            </a>
+            .
+          </p>
+        </motion.div>
       </div>
     </section>
   );

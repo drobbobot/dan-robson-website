@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { StyledButton } from './StyledButton';
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -13,43 +15,27 @@ export function Nav() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 transition-[backdrop-filter,background-color] duration-300 md:px-10"
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-[backdrop-filter,background-color] duration-300"
       style={{
-        backgroundColor: scrolled ? 'color-mix(in oklch, var(--background) 80%, transparent)' : 'transparent',
+        padding: '0 1.5rem',
+        height: '6.25rem',
+        backgroundColor: scrolled ? 'rgba(250, 247, 239, 0.85)' : 'transparent',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
       }}
     >
-      <a
-        href="#"
-        className="text-sm font-medium tracking-wide"
-        style={{
-          color: 'var(--foreground)',
-          fontFamily: 'var(--font-heading)',
-          fontWeight: 'var(--heading-weight)',
-        }}
-      >
-        Dan Robson
+      <a href="#" className="flex items-center">
+        <Image
+          src="/images/robson-studio-logo.png"
+          alt="Robson Studio"
+          width={180}
+          height={60}
+          style={{ height: '3.75rem', width: 'auto', marginLeft: '-0.5rem' }}
+          priority
+        />
       </a>
-      <a
-        href="mailto:dan@robson.studio"
-        className="inline-flex items-center px-5 py-2 text-sm font-medium transition-transform"
-        style={{
-          backgroundColor: 'var(--primary)',
-          color: 'var(--primary-foreground)',
-          borderRadius: 'var(--radius-full)',
-          fontFamily: 'var(--font-body)',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = `translateY(var(--hover-lift)) translateX(var(--hover-x-shift)) scale(var(--hover-scale))`;
-          e.currentTarget.style.opacity = `var(--hover-opacity-shift)`;
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'none';
-          e.currentTarget.style.opacity = '1';
-        }}
-      >
+      <StyledButton href="mailto:dan@robson.studio">
         Get in touch
-      </a>
+      </StyledButton>
     </nav>
   );
 }

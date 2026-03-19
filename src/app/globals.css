@@ -1,8 +1,4 @@
 @import "tailwindcss";
-@import "../styles/theme-human.css";
-@import "../styles/theme-bold.css";
-@import "../styles/theme-technical.css";
-@import "../styles/theme-intentional.css";
 
 @theme inline {
   --color-background: var(--background);
@@ -10,52 +6,45 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-muted: var(--muted);
+  --color-card-border: var(--card-border);
   --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-ring: var(--ring);
 }
 
-/* Global transition during theme switch only */
-html[data-transitioning] * {
-  transition: color var(--duration-normal) var(--ease-default),
-              background-color var(--duration-normal) var(--ease-default),
-              border-color var(--duration-normal) var(--ease-default),
-              border-radius var(--duration-normal) var(--ease-default),
-              box-shadow var(--duration-normal) var(--ease-default),
-              letter-spacing var(--duration-normal) var(--ease-default),
-              font-weight var(--duration-normal) var(--ease-default),
-              opacity var(--duration-normal) var(--ease-default),
-              transform var(--duration-normal) var(--ease-default) !important;
+/* Brand System — single theme, never changes */
+:root {
+  --background: #FAF7EF;
+  --foreground: #241013;
+  --card: #FAF7EF;
+  --card-border: #E9E5DD;
+  --primary: #FF3C1A;
+  --primary-foreground: #FAF7EF;
+  --muted-foreground: rgba(36, 16, 19, 0.8);
+  --logo-brown: #482D21;
+
+  --font-body: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --font-hero-serif: var(--font-eb-garamond), 'Georgia', serif;
+
+  --radius: 8px;
+  --radius-full: 100px;
+  --shadow-card: 0px 4px 16px rgba(0, 0, 0, 0.08);
+
+  --duration-normal: 300ms;
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Base body */
+html {
+  font-size: clamp(12px, 1.25vw + 6px, 16px) !important;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body);
-  font-weight: var(--body-weight);
-  letter-spacing: var(--body-tracking);
-  line-height: var(--leading-normal);
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: var(--heading-weight);
-  letter-spacing: var(--heading-tracking);
-  line-height: var(--heading-leading);
-  text-transform: var(--heading-transform, none);
-}
-
-/* Selection */
 ::selection {
   background: var(--primary);
   color: var(--primary-foreground);

@@ -1,40 +1,28 @@
 import type { Metadata } from 'next';
-import { Instrument_Serif } from 'next/font/google';
+import { EB_Garamond } from 'next/font/google';
 import localFont from 'next/font/local';
-import { GeistMono } from 'geist/font/mono';
-import { ThemeProvider } from '@/components/ThemeProvider';
+import { WordProvider } from '@/lib/WordContext';
+import { GridBackground } from '@/components/GridBackground';
 import './globals.css';
 
-const generalSans = localFont({
-  src: [
-    { path: '../../public/fonts/GeneralSans-Light.woff2', weight: '300', style: 'normal' },
-    { path: '../../public/fonts/GeneralSans-Regular.woff2', weight: '400', style: 'normal' },
-    { path: '../../public/fonts/GeneralSans-Medium.woff2', weight: '500', style: 'normal' },
-    { path: '../../public/fonts/GeneralSans-Semibold.woff2', weight: '600', style: 'normal' },
-  ],
-  variable: '--font-general-sans',
-  display: 'swap',
-});
-
-const switzer = localFont({
-  src: [
-    { path: '../../public/fonts/Switzer-Regular.woff2', weight: '400', style: 'normal' },
-    { path: '../../public/fonts/Switzer-Black.woff2', weight: '900', style: 'normal' },
-  ],
-  variable: '--font-switzer',
-  display: 'swap',
-});
-
-const instrumentSerif = Instrument_Serif({
-  weight: '400',
+const ebGaramond = EB_Garamond({
   subsets: ['latin'],
-  variable: '--font-instrument-serif',
+  weight: ['400'],
+  variable: '--font-eb-garamond',
+  display: 'swap',
+});
+
+const cooperBlackItalic = localFont({
+  src: '../../public/fonts/CooperBlack-Italic.otf',
+  weight: '900',
+  style: 'italic',
+  variable: '--font-cooper-black',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
   title: 'Dan Robson — Brand Systems / UX Designer',
-  description: 'I make digital brands feel human. Brand systems, interaction architecture, and agentic governance.',
+  description: 'I build digital brands that feel intentional. Brand systems, interaction architecture, and agentic governance.',
 };
 
 export default function RootLayout({
@@ -43,11 +31,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${generalSans.variable} ${switzer.variable} ${GeistMono.variable} ${instrumentSerif.variable}`}>
+    <html lang="en" className={`${ebGaramond.variable} ${cooperBlackItalic.variable}`}>
       <body>
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <WordProvider>
+          <GridBackground />
+          <div className="relative z-10">
+            {children}
+          </div>
+        </WordProvider>
       </body>
     </html>
   );
