@@ -34,7 +34,10 @@ function LogoStrip() {
 
 export function ClientLogos() {
   return (
-    <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden">
+    <div
+      className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden"
+      style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', maxWidth: '90rem', margin: '0 auto' }}
+    >
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
