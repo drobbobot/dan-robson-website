@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer';
 
 export default function Home() {
   return (
-    <>
+    <div style={{ maxWidth: '90rem', margin: '0 auto' }}>
       <Nav />
       <main>
         <Hero />
@@ -14,6 +14,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
