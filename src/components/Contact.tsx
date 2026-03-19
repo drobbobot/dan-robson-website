@@ -21,7 +21,7 @@ export function Contact() {
           style={{ gap: '1.5rem' }}
         >
           <h2
-            className="leading-[1.1] transition-all duration-300"
+            className="leading-[1.1] transition-all duration-300 text-[clamp(3rem,8vw,4rem)]"
             style={{
               fontFamily: style.contactStyle.fontFamily,
               color: style.contactStyle.color,
@@ -29,7 +29,6 @@ export function Contact() {
               fontStyle: style.contactStyle.fontStyle,
               letterSpacing: style.contactStyle.letterSpacing,
               maxWidth: '36.75rem',
-              fontSize: '4rem',
             }}
           >
             {style.letsTalkText}

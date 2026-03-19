@@ -20,8 +20,8 @@ export function Hero() {
         >
           {/* Hero headline */}
           <h1
-            className="leading-[1.1]"
-            style={{ fontFamily: "'Helvetica Neue', sans-serif", fontWeight: 400, minHeight: '9.75rem', fontSize: '4rem', letterSpacing: '-0.08rem' }}
+            className="leading-[1.1] text-[clamp(3rem,8vw,4rem)]"
+            style={{ fontFamily: "'Helvetica Neue', sans-serif", fontWeight: 400, minHeight: '9.75rem', letterSpacing: '-0.08rem' }}
           >
             I build digital<br className="md:hidden" /> brands<br className="hidden md:inline" /> that feel{' '}
             <CyclingWord />
