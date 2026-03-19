@@ -48,8 +48,9 @@ export function CyclingWord() {
             textDecorationSkipInk: 'none',
             textUnderlineOffset: '0.25rem',
             textDecorationThickness: '0.125rem',
-            lineHeight: 'inherit',
+            lineHeight: '1.1',
             fontSize: 'inherit',
+            verticalAlign: 'baseline',
             ...(style.gradient ? {
               backgroundImage: style.gradient,
               WebkitBackgroundClip: 'text',
