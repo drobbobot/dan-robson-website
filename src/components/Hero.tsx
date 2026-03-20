@@ -24,8 +24,10 @@ export function Hero() {
             style={{ fontFamily: "'Helvetica Neue', sans-serif", fontWeight: 400, minHeight: '9.75rem', letterSpacing: '-0.08rem' }}
           >
             I build digital<br className="md:hidden" /> brands<br className="hidden md:inline" /> that feel{' '}
-            <CyclingWord />
-            <span style={{ visibility: 'hidden' }}>.</span>
+            <span className="relative inline-block">
+              <span style={{ visibility: 'hidden' }}>trustworthy.&nbsp;&nbsp;&nbsp;</span>
+              <span className="absolute left-0 top-0"><CyclingWord /></span>
+            </span>
           </h1>
 
           {/* Second sentence */}

@@ -27,8 +27,8 @@ export function Nav() {
         <Image
           src="/images/robson-studio-logo.png"
           alt="Robson Studio"
-          width={180}
-          height={60}
+          width={336}
+          height={161}
           style={{ height: '3.75rem', width: 'auto', marginLeft: '-0.5rem' }}
           priority
         />

@@ -28,14 +28,14 @@ export function CyclingWord() {
   };
 
   return (
-    <span onClick={handleClick} className="cursor-pointer inline">
+    <span onClick={handleClick} className="cursor-pointer inline-flex items-baseline" style={{ lineHeight: '1.1', verticalAlign: 'baseline' }}>
       <AnimatePresence mode="wait">
         <motion.span
           key={activeWord}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
           className="relative inline-block pr-[0.05em]"
           style={{
             fontFamily: style.fontFamily,
@@ -51,6 +51,8 @@ export function CyclingWord() {
             lineHeight: '1.1',
             fontSize: 'inherit',
             verticalAlign: 'baseline',
+            position: 'relative',
+            top: style.baselineOffset || '0',
             ...(style.gradient ? {
               backgroundImage: style.gradient,
               WebkitBackgroundClip: 'text',
