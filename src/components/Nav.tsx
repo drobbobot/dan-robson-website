@@ -23,7 +23,7 @@ export function Nav() {
       }}
     >
       <div className="flex items-center justify-between h-full" style={{ maxWidth: '90rem', margin: '0 auto', padding: '0 1.5rem' }}>
-      <a href="#" className="flex items-center">
+      <a href="/" className="flex items-center">
         <Image
           src="/images/robson-studio-logo.png"
           alt="Robson Studio"
