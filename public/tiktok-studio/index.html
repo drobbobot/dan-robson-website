@@ -84,9 +84,81 @@
   #modal .copy-btn:hover { background: var(--rust); }
   footer { color: var(--muted); font-size: 12px; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--line); }
   .errbox { padding: 20px; color: var(--hot); font-family: ui-monospace, Menlo, monospace; font-size: 12px; white-space: pre-wrap; }
+
+  /* --- Passphrase gate (added 2026-05-18) --- */
+  #gate { position: fixed; inset: 0; background: var(--cream); z-index: 1000;
+    display: flex; align-items: center; justify-content: center; padding: 24px; }
+  #gate .gate-inner { max-width: 360px; width: 100%; text-align: center; }
+  #gate .brand { font-family: var(--gr); font-style: italic; font-size: 42px; line-height: 1; margin-bottom: 32px; }
+  #gate .brand em { color: var(--rust); font-style: italic; }
+  #gate .label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  #gate input { width: 100%; padding: 12px 14px; border: 1px solid var(--line);
+    font-family: var(--hn); font-size: 16px; outline: none; background: #fff; text-align: center; }
+  #gate input:focus { border-color: var(--rust); }
+  #gate .msg { color: var(--hot); font-size: 12px; margin-top: 10px; min-height: 16px; opacity: 0; transition: opacity .2s; }
+  #gate .msg.show { opacity: 1; }
+  #gate.unlocking { animation: gate-fade .25s ease-out forwards; }
+  @keyframes gate-fade { to { opacity: 0; pointer-events: none; } }
+  body.locked > .wrap { display: none; }
+
+  /* --- Mobile polish (added 2026-05-18) --- */
+  @media (max-width: 720px) {
+    html, body { font-size: 16px; overflow-x: hidden; }
+    .wrap { width: 100%; padding: 20px 14px 56px; }
+    header.site { display: block; padding-bottom: 14px; margin-bottom: 20px; }
+    header.site .brand { font-size: clamp(31px, 10vw, 40px); margin-bottom: 10px; }
+    header.site .meta { font-size: 12px; line-height: 1.45; }
+    h2 { font-size: 11px; margin-bottom: 10px; }
+    h3 { font-size: 24px; }
+    section { margin-bottom: 28px; }
+    .grid.two { grid-template-columns: 1fr; }
+    details > summary { padding: 10px 0; }
+    .dan-hint { display: block; margin: 4px 0 0 20px; }
+
+    .toolbar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px; }
+    .toolbar input[type=search] { grid-column: 1 / -1; width: 100%; min-width: 0; flex-basis: auto; font-size: 16px; }
+    .toolbar .chip { width: 100%; min-height: 36px; padding: 8px 9px; text-align: center; white-space: normal; }
+    .toolbar .stat { grid-column: 1 / -1; margin: 2px 0 0; }
+
+    .post-tile, .rcard { padding: 14px; }
+    .post-tile .top-row, .rcard .head { align-items: flex-start; gap: 4px; }
+    .post-tile .hook, .rcard .hook { font-size: 18px; }
+    .rcard.rich { padding-left: 14px; }
+    .rcard .views { width: 100%; }
+    .rcard .creator .v { display: block; margin: 2px 0 0; }
+    .rcard .tags { gap: 5px; }
+    .rcard .tag { max-width: 100%; overflow-wrap: anywhere; }
+
+    #modal { padding: 0; align-items: stretch; }
+    #modal .panel { min-height: 100dvh; max-width: none; padding: 56px 18px 28px; border: 0; }
+    #modal .close { position: fixed; top: 12px; right: 12px; width: 40px; height: 40px; border: 1px solid var(--line); background: #fff; z-index: 2; }
+    #modal h3 { font-size: 27px; }
+    #modal .src { overflow-wrap: anywhere; }
+    #modal .block .body, #modal li { overflow-wrap: anywhere; }
+    #modal .copy-btn { width: 100%; min-height: 44px; }
+
+    #gate { padding: 18px; }
+    #gate .brand { font-size: clamp(34px, 12vw, 42px); margin-bottom: 26px; }
+    #gate input { font-size: 16px; }
+  }
+
+  @media (max-width: 420px) {
+    .toolbar { grid-template-columns: 1fr; }
+    .chip { width: 100%; }
+    .post-tile .top-row, .rcard .head { display: block; }
+    .post-tile .metric, .rcard .views { display: block; margin-top: 3px; }
+  }
 </style>
 </head>
 <body>
+<div id="gate" aria-hidden="false">
+  <div class="gate-inner">
+    <div class="brand">tiktok <em>studio</em></div>
+    <div class="label">passphrase</div>
+    <input id="gate-input" type="password" autofocus autocomplete="off" autocapitalize="none" spellcheck="false" />
+    <div class="msg" id="gate-msg"></div>
+  </div>
+</div>
 
 <div class="wrap">
   <header class="site">
@@ -11397,7 +11469,13 @@
     recipesBox.innerHTML = '<div class="errbox">' + String(msg).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}) + '</div>';
   }
   window.addEventListener('error', function(e){
-    showError('JS error: ' + (e.message||e) + '\n' + (e.filename||'') + ':' + (e.lineno||''));
+    // Ignore opaque cross-origin/extension errors. Browsers report these as
+    // "Script error." with no useful file or line, and showing them replaces
+    // the whole library with a false alarm.
+    var msg = e && (e.message || String(e));
+    var hasLocation = !!(e && (e.filename || e.lineno || e.colno));
+    if (msg === 'Script error.' && !hasLocation) return;
+    showError('JS error: ' + msg + '\n' + (e.filename||'') + ':' + (e.lineno||''));
   });
 
   var DATA;
@@ -11597,5 +11675,85 @@
 })();
 </script>
 
+<script>
+(function () {
+  var EXPECTED = "571b0e35550136585f653a70460974d32f85879142300ecb361eff423ac62cd4";
+  var STORE_KEY = "tiktok-studio-unlocked-v1";
+  var body = document.body;
+  var gate = document.getElementById("gate");
+  var input = document.getElementById("gate-input");
+  var msg = document.getElementById("gate-msg");
+
+  function unlock() {
+    try { localStorage.setItem(STORE_KEY, "1"); } catch (e) {}
+    gate.classList.add("unlocking");
+    setTimeout(function () {
+      gate.style.display = "none";
+      body.classList.remove("locked");
+    }, 240);
+  }
+
+  function lockDown() {
+    body.classList.add("locked");
+  }
+
+  function hashHex(s) {
+    var enc = new TextEncoder();
+    return crypto.subtle.digest("SHA-256", enc.encode(s)).then(function (buf) {
+      return Array.from(new Uint8Array(buf))
+        .map(function (b) { return b.toString(16).padStart(2, "0"); })
+        .join("");
+    });
+  }
+
+  function tryUnlock(value, onFail) {
+    hashHex(value).then(function (h) {
+      if (h === EXPECTED) {
+        unlock();
+      } else if (onFail) {
+        onFail();
+      }
+    });
+  }
+
+  // Already unlocked in this browser?
+  try {
+    if (localStorage.getItem(STORE_KEY) === "1") {
+      gate.style.display = "none";
+      return;
+    }
+  } catch (e) {}
+
+  // URL bypass: ?gate=<passphrase>
+  var match = window.location.search.match(/[?&]gate=([^&]+)/);
+  if (match) {
+    var fromUrl = decodeURIComponent(match[1]);
+    tryUnlock(fromUrl, function () {
+      lockDown();
+      msg.textContent = "wrong passphrase in URL";
+      msg.classList.add("show");
+    });
+    if (gate.style.display !== "none") lockDown();
+  } else {
+    lockDown();
+  }
+
+  function attempt() {
+    var v = input.value.trim();
+    if (!v) return;
+    tryUnlock(v, function () {
+      msg.textContent = "nope";
+      msg.classList.add("show");
+      input.value = "";
+      input.focus();
+      setTimeout(function () { msg.classList.remove("show"); }, 1400);
+    });
+  }
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") { e.preventDefault(); attempt(); }
+  });
+})();
+</script>
 </body>
 </html>
