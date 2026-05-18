@@ -133,8 +133,9 @@
     .rcard .tags { gap: 5px; }
     .rcard .tag { min-width: 0; max-width: 100%; overflow-wrap: anywhere; word-break: break-word; }
 
-    #modal { padding: 0; align-items: stretch; }
-    #modal .panel { min-height: 100dvh; max-width: none; padding: 56px 18px 28px; border: 0; }
+    #modal { padding: 0; align-items: initial; justify-content: initial; background: var(--cream); }
+    #modal.open { display: block; }
+    #modal .panel { min-height: 100dvh; max-width: none; width: 100%; padding: 56px 18px 28px; border: 0; background: var(--cream); }
     #modal .close { position: fixed; top: 12px; right: 12px; width: 40px; height: 40px; border: 1px solid var(--line); background: #fff; z-index: 2; }
     #modal h3 { font-size: 27px; }
     #modal .src { overflow-wrap: anywhere; }
