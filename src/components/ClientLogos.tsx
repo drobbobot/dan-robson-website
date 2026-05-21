@@ -12,6 +12,7 @@ const logos = [
   { src: '/images/logo-money.png', alt: 'money.com.au', width: 692, height: 344 },
   { src: '/images/logo-compassion.png', alt: 'Compassion', width: 480, height: 344 },
   { src: '/images/logo-aurizon.png', alt: 'Aurizon', width: 572, height: 344 },
+  { src: '/images/logo-sweat.png', alt: 'Sweat', width: 412, height: 344 },
 ];
 
 function LogoStrip() {
