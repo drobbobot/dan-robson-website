@@ -1,25 +1,25 @@
 {
-  "source_md": "02 Studio/01 Projects/26 Personal Brand & Content/tiktok/06-voice-hooks.md",
+  "source_md": "01 Wiki/concepts/content/tiktok-voice-hooks.md",
   "voice_rules": [
     {
       "title": "First-line discipline",
-      "body": "First 5 words decide the watch. Either a specific number, a vulnerable admission, a pointed take, or a named anomaly. No setup, no \"Hi, today I want to talk about...\""
+      "body": "First 5 words decide the watch. Pick one shape: a specific number, a vulnerable admission, a pointed take, a named anomaly, or a **viewer-identification question** that names a tension the audience actually feels (\"How do you build something new without losing time with your family?\", \"Anyone else feel like AI is here and you don't know where you fit?\"). No setup, no \"Hi, today I want to talk about...\""
     },
     {
-      "title": "One sentence per beat",
-      "body": "TikTok pace doesn't carry multi-clause sentences the way prose does. Break it."
+      "title": "Length depends on format",
+      "body": "Punchy formats (Take / Frame / Reply) reward one sentence per beat — TikTok pace doesn't carry multi-clause sentences. Slower formats (self-intro, Build narratives, reflective Takes 60-75s) reward flowing prose with commas + conjunctions that reads like Dan talking at a dinner party. Don't force fragmentation on a video that wants to breathe."
     },
     {
-      "title": "Cut \"I think\" / \"for me\" / \"personally.\"",
-      "body": "They soften the take. The take is yours by virtue of you saying it. Don't double-flag."
+      "title": "Cut \"I think\" / \"for me\" / \"personally\" as hedges",
+      "body": "They soften the take. The take is yours by virtue of you saying it. Don't double-flag. **Nuance: \"I feel like\" is permitted 1–2× per script when it's naming a true felt state (\"I feel like I'm at a crossroads\") or a real feeling (\"I feel like I'll get left behind\"). Cut it whenever it's a verbal tic before a claim (\"I feel like I've spent my career...\" → just \"I've spent my career...\").**"
     },
     {
       "title": "Specifics over scaffolding",
-      "body": "\"5:25am\" beats \"early morning.\" \"One kid, second on the way\" beats \"growing family.\" \"Three sessions with Claude\" beats \"with AI.\""
+      "body": "\"5:25am\" beats \"early morning.\" \"One kid, second on the way\" beats \"growing family.\" \"Three sessions with Claude\" beats \"with AI.\" \"Humanitarian photographer for Compassion\" beats \"humanitarian photographer.\" \"Sold a small clothing company called Borne\" beats \"started a company once.\" Name the thing."
     },
     {
       "title": "The close is a plain statement, not a CTA",
-      "body": "\"Posting the work here so I keep going\" beats \"Follow for more!\""
+      "body": "\"Posting the work here so I keep going\" beats \"Follow for more!\" **Exception: a vulnerability-earned CTA works when the CTA is paid for by a real admission.** Example (V3 self-intro close): *\"I've never really made TikToks before. Follow along if you want to watch me figure this out.\"* The \"follow along\" is earned by the prior honesty about being new. Don't use CTAs without earning them."
     },
     {
       "title": "No music carrying the message",
@@ -28,6 +28,38 @@
     {
       "title": "Captions match what you say",
       "body": "Don't paraphrase yourself on-screen. Either the caption is the same words, or don't caption that line."
+    },
+    {
+      "title": "Dual-tension framing beats one-sided irony",
+      "body": "When naming the tension you're sitting in, name BOTH forces, not just one. Audience identifies more with named-both than named-one. Example: instead of just *\"the irony of less family time while building this isn't lost on me\"* (one side), say *\"If I don't build now, I'll get left behind. But I don't want to do that at the cost of my family having the best of me.\"* (both sides, no resolution claimed). The audience feels seen because both forces are theirs too."
+    },
+    {
+      "title": "Emotional pivot lines land plain",
+      "body": "When a line carries weight (\"family having the best of me\", \"earns while I'm doing bedtime\", \"posting the work so I keep going\"), say it without flourish, then stop. No music swell, no end-card, no rhetorical underline. The line does its own work. Pause slightly before, not after."
+    },
+    {
+      "title": "Tone-true overrides the rule",
+      "body": "If a phrase is exactly how Dan would say it out loud (\"moving so fast\", \"had a stint as\", \"Hi, I'm Dan\"), keep it even if it edges a voice rule. The rules are heuristics for \"sound like you talking.\" When a rule would make Dan sound less like himself, the rule loses. Use this exception sparingly — it's not a licence to break rules whenever convenient. Test: would Dan actually say this to a friend at a barbecue? If yes, it survives."
+    },
+    {
+      "title": "Quotes are relay, not delivery",
+      "body": "When the script quotes someone else, treat the line as relay. Say it the way the person said it to you, not the way a voiceover artist would. Don't perform it, don't milk it, don't add a dramatic pause. The \"Life moves fast, you'll be lucky to get eighteen, so make them count\" line in [[05-18-summers]] lands because it sits unperformed."
+    },
+    {
+      "title": "End on the sharpest line, not the warmest",
+      "body": "Discipline outlasts aspiration as a closing register. \"And a reminder to know when to leave it\" (discipline) beats \"I want to be there for all of them\" (aspiration). The video earns its weight by refusing the soft landing. Test: does the close add something or just repeat the warmth that's already in the visual? If it repeats, cut it."
+    },
+    {
+      "title": "Don't restate the hook at the close",
+      "body": "The hook establishes the premise — the count, the stakes, the maths. Restating it at the end is redundant and dulls the close. End on the line that adds, not the line that recaps. (Earlier 18 summers drafts ended on \"She's already one. Seventeen left.\" — true, but a repeat of the hook. The locked close ends on the discipline beat and lets the cut to Rowie carry the count.)"
+    },
+    {
+      "title": "Counterpoint visuals",
+      "body": "When the VO names a person or thing, cut to something else. The viewer does the joining work. Rowie isn't shown in [[05-18-summers]] until the final hold, after being implied throughout. The counterpoint principle applies to all texture/reflective shapes: don't cut to what you're saying, cut around it."
+    },
+    {
+      "title": "No spoken close on the visual hold",
+      "body": "The final cut on the kid, the desk, the artefact — let it sit in silence, with music carrying out, or no audio at all. Don't text-overlay your meaning. Don't VO over the hold. The cut IS the close. Resisting the urge to label the meaning is what separates this voice from a productivity reel."
     }
   ],
   "pillars": [
@@ -72,7 +104,7 @@
   "topics_out": [
     "Politics",
     "Competitors by name",
-    "Religion / faith deconstruction. Held back until the page has trust (video 8-12 earliest per [[02-ideas-log]])",
+    "Religion / faith deconstruction. Held back until the page has trust (video 8-12 earliest per [[02-bench]])",
     "Anything half-formed (test elsewhere first)",
     "NOBONK as a personal-brand chapter (it's freelance, not the next chapter)",
     "Compassion field photography. Held back until the page has trust",
@@ -90,7 +122,7 @@
       "template": "I can't believe I'm admitting this publicly...",
       "fit_notes": "Low-cringe if anchored in real admission. Matches V1 register.",
       "example_url": null,
-      "example_label": "v1-decision-paralysis (Dan, scheduled)",
+      "example_label": "01-decision-paralysis (Dan, scheduled)",
       "example_pending": false,
       "pillars": []
     },
@@ -381,21 +413,144 @@
     {
       "id": "dans-lane-i-m-genuinely-terrible-at-being-my-own-client",
       "source": "dans-lane",
-      "source_heading": "Dan's lane (personal admissions)",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
       "pattern_name": null,
       "template": "I'm genuinely terrible at being my own client.",
-      "fit_notes": "Founder. Used.",
+      "fit_notes": "Founder. Used. Vulnerable-admission shape.",
       "example_url": null,
-      "example_label": "v1-decision-paralysis",
+      "example_label": "01-decision-paralysis",
       "example_pending": false,
       "pillars": [
         "founder"
       ]
     },
     {
+      "id": "dans-lane-how-do-you-build-something-new-without-losing-time",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
+      "pattern_name": null,
+      "template": "How do you build something new without losing time with your family?",
+      "fit_notes": "Founder / Dad / AI / tooling. Used (V3 self-intro hook). Viewer-question shape — names the tension the audience is also sitting in.",
+      "example_url": null,
+      "example_label": "04-self-intro",
+      "example_pending": false,
+      "pillars": [
+        "dad",
+        "founder",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "dans-lane-someone-told-me-once-you-only-get-eighteen-summers",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
+      "pattern_name": null,
+      "template": "Someone told me once you only get eighteen summers with your kid.",
+      "fit_notes": "Dad / Founder. Used. Story-led reflective shape — anchors the video in a real moment with a real person, sets up the eight-beat structure (see above). Pattern: \"Someone told me once X\" → \"I asked what he meant\" → relayed quote → context → \"but the line stuck\" → physical artefact → reminder → visual close.",
+      "example_url": null,
+      "example_label": "05-18-summers",
+      "example_pending": false,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "dans-lane-what-if-you-could-x-i-wanted-to-see-if-it-was-poss",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
+      "pattern_name": null,
+      "template": "What if you could [X]? I wanted to see if it was possible, so I [did X].",
+      "fit_notes": "Founder / Dad / AI / tooling / Design. What-if experiment shape — positions Dan as the experimenter, not the expert. Creates an intrigue gap (what was the X? what happened?) without preaching. Works because Dan is genuinely in the middle of figuring something out, not reporting from the other side. Variants: \"What if you could build a business while raising kids? I wanted to see if it was possible, so I started.\" / \"What if you could design without ever defaulting to black? I wanted to see if it was possible, so I made the rule.\"",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "design-craft",
+        "dad",
+        "founder",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "dans-lane-a-little-reminder-of-why-i-m-trying-to-build-ambit",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
+      "pattern_name": null,
+      "template": "A little reminder of why I'm trying to build [ambition]. And a reminder to know when to [discipline].",
+      "fit_notes": "Founder / Dad. Used. Ambition + discipline pairing as a closing beat.",
+      "example_url": null,
+      "example_label": "05-18-summers",
+      "example_pending": false,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "dans-lane-i-don-t-want-to-do-that-at-the-cost-of-my-family-h",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
+      "pattern_name": null,
+      "template": "I don't want to do that at the cost of my family having the best of me.",
+      "fit_notes": "Founder / Dad. Used (V3 self-intro emotional pivot). Lands plain, no flourish.",
+      "example_url": null,
+      "example_label": "04-self-intro",
+      "example_pending": false,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "dans-lane-anyone-else-feel-like-ai-is-here-and-you-don-t-kno",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
+      "pattern_name": null,
+      "template": "Anyone else feel like AI is here and you don't know where you fit?",
+      "fit_notes": "Founder / AI / tooling. Considered for V3, not used. Viewer-question shape (felt-experience).",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "founder",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "dans-lane-anyone-else-feel-like-ai-is-moving-too-fast-and-yo",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
+      "pattern_name": null,
+      "template": "Anyone else feel like AI is moving too fast, and you don't know whether to run or wait?",
+      "fit_notes": "Founder / AI / tooling. Considered for V3, not used. Viewer-question shape (indecision).",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "founder",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "dans-lane-does-anyone-else-feel-the-ai-gold-rush-happening-r",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
+      "pattern_name": null,
+      "template": "Does anyone else feel the AI gold rush happening right now?",
+      "fit_notes": "Founder / AI / tooling. Considered for V3, not used. Viewer-question shape (metaphor).",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "founder",
+        "ai-tooling"
+      ]
+    },
+    {
       "id": "dans-lane-i-feel-a-bit-silly-talking-to-a-camera-here-s-why-",
       "source": "dans-lane",
-      "source_heading": "Dan's lane (personal admissions)",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
       "pattern_name": null,
       "template": "I feel a bit silly talking to a camera. Here's why I'm doing it anyway.",
       "fit_notes": "Founder / Dad.",
@@ -410,12 +565,12 @@
     {
       "id": "dans-lane-hardest-thing-i-ve-tried-building-products-that-ea",
       "source": "dans-lane",
-      "source_heading": "Dan's lane (personal admissions)",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
       "pattern_name": null,
       "template": "Hardest thing I've tried: building products that earn while I'm at bedtime.",
-      "fit_notes": "Founder / Dad. Used (V3 close).",
+      "fit_notes": "Founder / Dad. From V3 (original chronological version, preserved).",
       "example_url": null,
-      "example_label": "v3-how-i-got-here",
+      "example_label": "03-how-i-got-here",
       "example_pending": false,
       "pillars": [
         "dad",
@@ -425,7 +580,7 @@
     {
       "id": "dans-lane-i-m-30-one-kid-second-on-the-way-and-i-just-quit-b",
       "source": "dans-lane",
-      "source_heading": "Dan's lane (personal admissions)",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
       "pattern_name": null,
       "template": "I'm 30. One kid, second on the way. And I just quit being someone else's employee in my head.",
       "fit_notes": "Founder / Dad.",
@@ -440,7 +595,7 @@
     {
       "id": "dans-lane-i-m-not-scared-of-failing-i-m-scared-of-stagnating",
       "source": "dans-lane",
-      "source_heading": "Dan's lane (personal admissions)",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
       "pattern_name": null,
       "template": "I'm not scared of failing. I'm scared of stagnating during the biggest tech shift of my lifetime.",
       "fit_notes": "Founder / AI / tooling.",
@@ -455,7 +610,7 @@
     {
       "id": "dans-lane-i-ve-used-ai-on-every-project-this-year-the-job-ha",
       "source": "dans-lane",
-      "source_heading": "Dan's lane (personal admissions)",
+      "source_heading": "Dan's lane (personal admissions + viewer-questions)",
       "pattern_name": null,
       "template": "I've used AI on every project this year. The job hasn't shrunk, it's shifted.",
       "fit_notes": "AI / tooling / Design.",
@@ -545,7 +700,7 @@
   ],
   "apple_notes_routing": {
     "signals": [
-      "Title starts with `tt:` (the established prefix from [[00-workflow]]) or contains \"tiktok\"",
+      "Title starts with `tt:` (the established prefix from [[tiktok-workflow]]) or contains \"tiktok\"",
       "Body mentions hook, video idea, script, post, reel, vlog, or a creator handle",
       "Body references a TikTok URL"
     ],
@@ -557,12 +712,12 @@
       },
       {
         "sub_type": "Video idea",
-        "destination": "[[02-ideas-log]] `## Bench`",
+        "destination": "[[02-bench]] `## Bench`",
         "notes": "Existing inbound per the workflow"
       },
       {
         "sub_type": "Thought / reflection",
-        "destination": "[[02-ideas-log]] `## Reflections` (created if missing)",
+        "destination": "[[02-bench]] `## Reflections` (created if missing)",
         "notes": "New section for longer-form context"
       },
       {
