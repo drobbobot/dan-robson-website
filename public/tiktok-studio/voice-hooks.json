@@ -1,0 +1,580 @@
+{
+  "source_md": "02 Studio/01 Projects/26 Personal Brand & Content/tiktok/06-voice-hooks.md",
+  "voice_rules": [
+    {
+      "title": "First-line discipline",
+      "body": "First 5 words decide the watch. Either a specific number, a vulnerable admission, a pointed take, or a named anomaly. No setup, no \"Hi, today I want to talk about...\""
+    },
+    {
+      "title": "One sentence per beat",
+      "body": "TikTok pace doesn't carry multi-clause sentences the way prose does. Break it."
+    },
+    {
+      "title": "Cut \"I think\" / \"for me\" / \"personally.\"",
+      "body": "They soften the take. The take is yours by virtue of you saying it. Don't double-flag."
+    },
+    {
+      "title": "Specifics over scaffolding",
+      "body": "\"5:25am\" beats \"early morning.\" \"One kid, second on the way\" beats \"growing family.\" \"Three sessions with Claude\" beats \"with AI.\""
+    },
+    {
+      "title": "The close is a plain statement, not a CTA",
+      "body": "\"Posting the work here so I keep going\" beats \"Follow for more!\""
+    },
+    {
+      "title": "No music carrying the message",
+      "body": "Voice carries. Music is a bed."
+    },
+    {
+      "title": "Captions match what you say",
+      "body": "Don't paraphrase yourself on-screen. Either the caption is the same words, or don't caption that line."
+    }
+  ],
+  "pillars": [
+    {
+      "slug": "design-craft",
+      "label": "Design / craft",
+      "scope": "Type pairing, brand tokens, Figma, design judgement, governance over generation, UI taste calls",
+      "example_subjects": "Sweat redesign, Money.com.au, Grays.com.au, a typeface decision, a brand system trade-off"
+    },
+    {
+      "slug": "dad",
+      "label": "Dad",
+      "scope": "Parenting layer, family rhythm, structured freedom in practice",
+      "example_subjects": "Rowie (born Oct 2024), Hannah, second kid due September 2026, 5:25am, bath time, the engineered day"
+    },
+    {
+      "slug": "founder",
+      "label": "Founder",
+      "scope": "Building things you own, shipping moments, decisions and trade-offs",
+      "example_subjects": "Lia, NOBONK packaging, Voxquote, OpenScripture, robson.studio, Loupe, freelance"
+    },
+    {
+      "slug": "tastemaker",
+      "label": "Tastemaker",
+      "scope": "What good looks like and why. Trains the viewer's eye",
+      "example_subjects": "Vignelli, Eames, Eno, 1970s skateboarding, restraint, a building in Newcastle, a typeface, a campaign in the wild"
+    },
+    {
+      "slug": "ai-tooling",
+      "label": "AI / tooling",
+      "scope": "How tools actually work in your hand",
+      "example_subjects": "Claude (CLAUDE.md, skills folder), Cursor, Tokens Studio, Figma + AI workflows, agentic patterns, Wispr Flow"
+    }
+  ],
+  "topics_in_by_pillar": {
+    "design-craft": "Typography, brand systems, UI judgement, governance over generation, design taste calls, real client work anonymised specifically (\"a fintech design system rollout\"), Figma craft, the senior-designer-with-AI thesis.",
+    "dad": "The 5:25am routine, structured freedom in practice (the day engineered backwards from bedtime), parenting choices (authoritative approach, high warmth high standards), the second pregnancy, what it actually takes to keep deep work and family running together.",
+    "founder": "Building Lia (in-progress, specific decisions, what's hard), NOBONK packaging and brand work (project work, not personal product, per 5 May decision), Voxquote scope generation pipeline, OpenScripture MVP, robson.studio launch, freelance moments, decisions made and trade-offs accepted.",
+    "tastemaker": "A designer Dan respects (and why specifically), a building, a typeface, a campaign in the wild, photography references, Newcastle as place (the light, the pace, specific spots), restraint as a design value, references from outside design (skateboarding, music, architecture).",
+    "ai-tooling": "How tools actually work in your hand: Claude with CLAUDE.md + skills folder, Cursor for coding, Tokens Studio in the design-system loop, Wispr Flow for dictation, Figma + AI workflows, agentic patterns, the prompts and setups that are actually doing work (not abstract takes)."
+  },
+  "topics_out": [
+    "Politics",
+    "Competitors by name",
+    "Religion / faith deconstruction. Held back until the page has trust (video 8-12 earliest per [[02-ideas-log]])",
+    "Anything half-formed (test elsewhere first)",
+    "NOBONK as a personal-brand chapter (it's freelance, not the next chapter)",
+    "Compassion field photography. Held back until the page has trust",
+    "The Lia ICP-specific design-governance take in raw form (sharpen for Lia content separately)",
+    "Anything that needs more than 60s to land properly (that's YouTube material, not TikTok)",
+    "Generic productivity advice",
+    "Hot takes for the sake of hot takes"
+  ],
+  "hook_bank": [
+    {
+      "id": "apple-note-2026-05-18-i-can-t-believe-i-m-admitting-this-pub",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "I can't believe I'm admitting this publicly...",
+      "fit_notes": "Low-cringe if anchored in real admission. Matches V1 register.",
+      "example_url": null,
+      "example_label": "v1-decision-paralysis (Dan, scheduled)",
+      "example_pending": false,
+      "pillars": []
+    },
+    {
+      "id": "apple-note-2026-05-18-things-no-one-warned-me-about-before-s",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "Things no one warned me about before starting (X).",
+      "fit_notes": "Works for Dad, Founder.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "apple-note-2026-05-18-i-used-to-believe-x-until-i-started-y",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "I used to believe (X) until I started (Y).",
+      "fit_notes": "Strong fit, anchors in change of mind.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": []
+    },
+    {
+      "id": "apple-note-2026-05-18-what-no-one-mentions-when-talking-abou",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "What no one mentions when talking about (X).",
+      "fit_notes": "Works for Design / craft + AI / tooling takes.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "design-craft",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "apple-note-2026-05-18-everything-i-d-do-differently-if-i-sta",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "Everything I'd do differently if I started (X) again.",
+      "fit_notes": "Works for Founder (Borne, freelance, design career).",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "design-craft",
+        "founder"
+      ]
+    },
+    {
+      "id": "apple-note-2026-05-18-if-yours-looks-like-this-instead-of-th",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "If yours looks like this instead of this...",
+      "fit_notes": "Works for Design / craft comparison (with care, not gotcha).",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "design-craft"
+      ]
+    },
+    {
+      "id": "apple-note-2026-05-18-one-of-the-most-overlooked-skills-you-",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "One of the most overlooked skills you can build.",
+      "fit_notes": "Fits Tastemaker (taste as skill).",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "tastemaker"
+      ]
+    },
+    {
+      "id": "apple-note-2026-05-18-realistic-sacrifices-you-should-make-t",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "Realistic sacrifices you should make to (X).",
+      "fit_notes": "Fits Dad + Founder (structured freedom thesis).",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "recipe-corpus-contrarian-reframe",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Contrarian reframe",
+      "template": "I don't think you (verb) X. I think you (active verb) it.",
+      "fit_notes": "Design / craft, AI / tooling, Founder. Use sparingly, sits near the \"Not X but Y\" trap.",
+      "example_url": "https://www.tiktok.com/@sahilbloom/video/7620506361322884365",
+      "example_label": "sahilbloom — The truth about finding \"The One\"",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "founder",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "recipe-corpus-research-backed-hook",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Research-backed hook",
+      "template": "Evidence shows (tiny behaviour) reduces (important outcome).",
+      "fit_notes": "AI / tooling, Design / craft. Works only with real evidence.",
+      "example_url": "https://www.tiktok.com/@sahilbloom/video/7623447610073943310",
+      "example_label": "sahilbloom — Your phone is destroying your relationships",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "recipe-corpus-permission-frame",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Permission frame",
+      "template": "You are not responsible for (other people's reaction to your growth).",
+      "fit_notes": "Founder, Dad.",
+      "example_url": "https://www.tiktok.com/@sahilbloom/video/7621216038222433550",
+      "example_label": "sahilbloom — Focus on you",
+      "example_pending": false,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "recipe-corpus-named-concept-hook",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Named-concept hook",
+      "template": "There's a name for (the thing you're feeling).",
+      "fit_notes": "Design / craft, Tastemaker.",
+      "example_url": "https://www.tiktok.com/@sahilbloom/video/7625294441863040269",
+      "example_label": "sahilbloom — Why you feel stuck",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "tastemaker"
+      ]
+    },
+    {
+      "id": "recipe-corpus-status-reversal",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Status reversal",
+      "template": "The real (status trait) isn't (obvious thing). It's (something controllable).",
+      "fit_notes": "Tastemaker, Founder. Careful, can read gnomic.",
+      "example_url": "https://www.tiktok.com/@sahilbloom/video/7621478800932572430",
+      "example_label": "sahilbloom — This is the most attractive trait",
+      "example_pending": false,
+      "pillars": [
+        "founder",
+        "tastemaker"
+      ]
+    },
+    {
+      "id": "recipe-corpus-process-reveal",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Process reveal",
+      "template": "Open with the workflow itself, no setup.",
+      "fit_notes": "Design / craft, AI / tooling.",
+      "example_url": "https://www.tiktok.com/@stefanmkunz/video/7336854624810405153",
+      "example_label": "stefanmkunz — animation starter",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "recipe-corpus-three-level-skill-ladder",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Three-level skill ladder",
+      "template": "Beginner does X. Intermediate does Y. Senior does Z.",
+      "fit_notes": "Design / craft, AI / tooling.",
+      "example_url": "https://www.tiktok.com/@stefanmkunz/video/7345510682219040033",
+      "example_label": "stefanmkunz — three-level animation ladder",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "recipe-corpus-etymology-cultural-arc",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Etymology + cultural arc",
+      "template": "X wasn't meant to be Y, but that's what makes it iconic.\" Five-beat: anomaly, origin, name, turning point, cultural moment.",
+      "fit_notes": "Tastemaker, Design / craft.",
+      "example_url": "https://www.tiktok.com/@drewjoiner/video/7617598915692580109",
+      "example_label": "drewjoiner — Kangol origin",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "tastemaker"
+      ]
+    },
+    {
+      "id": "recipe-corpus-constrained-timeline-scale-autonomy",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Constrained timeline + scale + autonomy",
+      "template": "I have N days to do M.\" Numbers do the work.",
+      "fit_notes": "Founder, Design / craft.",
+      "example_url": "https://www.tiktok.com/@bilalrehmanstudio/video/7616577981712010509",
+      "example_label": "bilalrehmanstudio — 14 days, 8000sqft",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "founder"
+      ]
+    },
+    {
+      "id": "recipe-corpus-stitch-rebuttal-with-personal-counter",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Stitch-rebuttal with personal counter",
+      "template": "Voice the take you disagree with, then counter from personal experience.",
+      "fit_notes": "Any pillar.",
+      "example_url": "https://www.tiktok.com/@mino.mp4/video/7615398437034396958",
+      "example_label": "mino.mp4 — flat broke rebuttal",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "dad",
+        "founder",
+        "tastemaker",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "recipe-corpus-caption-carries-visuals-prove",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Caption-carries, visuals-prove",
+      "template": "Caption tells the arc, visuals prove. No piece-to-camera monologue. Low-cringe credibility posts.",
+      "fit_notes": "Founder, Dad.",
+      "example_url": "https://www.tiktok.com/@jeremiahbrent/video/7616802034276142349",
+      "example_label": "jeremiahbrent — unconventional career path",
+      "example_pending": false,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "recipe-corpus-quote-led-hook",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Quote-led hook",
+      "template": "Open with a memorable external quote, then your read.",
+      "fit_notes": "Tastemaker, Founder.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "founder",
+        "tastemaker"
+      ]
+    },
+    {
+      "id": "dans-lane-i-m-genuinely-terrible-at-being-my-own-client",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions)",
+      "pattern_name": null,
+      "template": "I'm genuinely terrible at being my own client.",
+      "fit_notes": "Founder. Used.",
+      "example_url": null,
+      "example_label": "v1-decision-paralysis",
+      "example_pending": false,
+      "pillars": [
+        "founder"
+      ]
+    },
+    {
+      "id": "dans-lane-i-feel-a-bit-silly-talking-to-a-camera-here-s-why-",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions)",
+      "pattern_name": null,
+      "template": "I feel a bit silly talking to a camera. Here's why I'm doing it anyway.",
+      "fit_notes": "Founder / Dad.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "dans-lane-hardest-thing-i-ve-tried-building-products-that-ea",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions)",
+      "pattern_name": null,
+      "template": "Hardest thing I've tried: building products that earn while I'm at bedtime.",
+      "fit_notes": "Founder / Dad. Used (V3 close).",
+      "example_url": null,
+      "example_label": "v3-how-i-got-here",
+      "example_pending": false,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "dans-lane-i-m-30-one-kid-second-on-the-way-and-i-just-quit-b",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions)",
+      "pattern_name": null,
+      "template": "I'm 30. One kid, second on the way. And I just quit being someone else's employee in my head.",
+      "fit_notes": "Founder / Dad.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "dans-lane-i-m-not-scared-of-failing-i-m-scared-of-stagnating",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions)",
+      "pattern_name": null,
+      "template": "I'm not scared of failing. I'm scared of stagnating during the biggest tech shift of my lifetime.",
+      "fit_notes": "Founder / AI / tooling.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "founder",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "dans-lane-i-ve-used-ai-on-every-project-this-year-the-job-ha",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions)",
+      "pattern_name": null,
+      "template": "I've used AI on every project this year. The job hasn't shrunk, it's shifted.",
+      "fit_notes": "AI / tooling / Design.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "design-craft",
+        "ai-tooling"
+      ]
+    }
+  ],
+  "common_to_hook": [
+    {
+      "common": "I'm a UX designer at Endava working on Lia",
+      "hook": "Hardest design problem I've taken on: a product for musicians, while still designing for SaaS clients.",
+      "pillars": [
+        "founder"
+      ]
+    },
+    {
+      "common": "AI is changing how I design",
+      "hook": "I've used AI on every project this year. Here's what actually changed about the job.",
+      "pillars": [
+        "ai-tooling"
+      ]
+    },
+    {
+      "common": "I built a small clothing company",
+      "hook": "I sold t-shirts that scared away mosquitoes for two years. Here's what it taught me about brand.",
+      "pillars": [
+        "founder"
+      ]
+    },
+    {
+      "common": "Working on Lia with CQ and Luke",
+      "hook": "Three friends, three days off, one question: should we actually do this?",
+      "pillars": [
+        "founder"
+      ]
+    },
+    {
+      "common": "Structured freedom is my operating philosophy",
+      "hook": "I'm trying to build a life where what I earn isn't tied to the hours I work. Six months in, here's what's working.",
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "common": "I'm scared about building a company with two kids",
+      "hook": "I'm scared of stagnating during the biggest tech shift of my lifetime. So I'm building.",
+      "pillars": [
+        "founder"
+      ]
+    },
+    {
+      "common": "I do AI-product design",
+      "hook": "AI generates 200 versions in seconds. Senior design now is choosing which one ships.",
+      "pillars": [
+        "design-craft",
+        "ai-tooling"
+      ]
+    },
+    {
+      "common": "Newcastle is a good place to live",
+      "hook": "Five reasons I work better in Newcastle than I did in Melbourne.",
+      "pillars": [
+        "tastemaker"
+      ]
+    },
+    {
+      "common": "I get up at 5:25am",
+      "hook": "Up at 5:25. Gym by 5:45. Why I built the day backwards from bedtime.",
+      "pillars": [
+        "dad"
+      ]
+    },
+    {
+      "common": "I'm running my own ideas like client work",
+      "hook": "I built my studio site in three sessions after sitting on the Figma for two years. Here's what changed.",
+      "pillars": [
+        "design-craft",
+        "founder"
+      ]
+    }
+  ],
+  "apple_notes_routing": {
+    "signals": [
+      "Title starts with `tt:` (the established prefix from [[00-workflow]]) or contains \"tiktok\"",
+      "Body mentions hook, video idea, script, post, reel, vlog, or a creator handle",
+      "Body references a TikTok URL"
+    ],
+    "routes": [
+      {
+        "sub_type": "Hook template / hook idea",
+        "destination": "Hook bank section above (`flag: audit-needed` on first pass)",
+        "notes": "Dan confirms or strikes during Sunday review"
+      },
+      {
+        "sub_type": "Video idea",
+        "destination": "[[02-ideas-log]] `## Bench`",
+        "notes": "Existing inbound per the workflow"
+      },
+      {
+        "sub_type": "Thought / reflection",
+        "destination": "[[02-ideas-log]] `## Reflections` (created if missing)",
+        "notes": "New section for longer-form context"
+      },
+      {
+        "sub_type": "Script fragment / line",
+        "destination": "`04-scripts/_drafts/` as candidate material",
+        "notes": "Triaged Friday before batch shoot"
+      },
+      {
+        "sub_type": "Reference / inspiration",
+        "destination": "`01 Wiki/sources/tiktok-intelligence/inbox/` for the next monthly re-rank",
+        "notes": "Sits alongside the existing corpus inputs"
+      }
+    ]
+  }
+}

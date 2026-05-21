@@ -56,19 +56,30 @@
   .chip.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
   .chip.rich.active { background: var(--hot); border-color: var(--hot); }
   .stat { font-size: 12px; color: var(--muted); margin-left: auto; }
-  #recipes { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
-  .rcard { min-width: 0; max-width: 100%; background: #fff; border: 1px solid var(--line); padding: 18px 20px; cursor: pointer; }
-  .rcard:hover { border-color: var(--rust); }
-  .rcard.rich { border-left: 3px solid var(--hot); padding-left: 18px; }
-  .rcard .head { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; flex-wrap: wrap; }
-  .rcard .creator { font-weight: 500; font-size: 14px; }
-  .rcard .creator .v { color: var(--muted); font-weight: 400; font-size: 12px; margin-left: 6px; text-transform: uppercase; letter-spacing: .08em; }
-  .rcard .views { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
-  .rcard .hook { font-family: var(--gr); font-style: italic; font-size: 19px; margin: 8px 0 4px; line-height: 1.3; }
-  .rcard .recipe-name { color: var(--rust); font-size: 13px; margin-top: 4px; }
-  .rcard .post-link { margin-top: 8px; font-size: 13px; }
-  .rcard .tags { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
-  .rcard .tag { font-size: 11px; color: var(--muted); border: 1px solid var(--line); padding: 2px 6px; background: var(--cream); }
+  #recipes { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 12px; }
+  .rcard { min-width: 0; max-width: 100%; background: #fff; border: 1px solid var(--line);
+    padding: 16px 18px; cursor: pointer; display: flex; flex-direction: column; gap: 6px;
+    transition: transform .2s cubic-bezier(.2,.7,.3,1), border-color .15s, box-shadow .2s; }
+  .rcard:hover { border-color: var(--rust); transform: translateY(-1px);
+    box-shadow: 0 4px 14px -8px rgba(36,16,19,.25); }
+  .rcard.rich { border-left: 3px solid var(--hot); padding-left: 16px; }
+  .rcard .head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; flex-wrap: nowrap; }
+  .rcard .creator { font-weight: 500; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .rcard .creator .v { color: var(--muted); font-weight: 400; font-size: 10px; margin-left: 4px;
+    text-transform: uppercase; letter-spacing: .1em; }
+  .rcard .views { color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums;
+    letter-spacing: .04em; flex: 0 0 auto; }
+  .rcard .hook { font-family: var(--gr); font-style: italic; font-size: 18px; margin: 2px 0 0;
+    line-height: 1.25; letter-spacing: -0.005em; color: var(--ink);
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .rcard .recipe-name { color: var(--rust); font-size: 10px; letter-spacing: .1em;
+    text-transform: uppercase; font-weight: 500;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rcard .post-link { display: none; }
+  .rcard .tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 2px; }
+  .rcard .tag { font-size: 9px; color: var(--muted); border: 1px solid var(--line);
+    padding: 2px 6px; background: var(--cream); letter-spacing: .06em; text-transform: uppercase;
+    font-weight: 500; white-space: nowrap; }
   .rcard.rich .tag.rich { color: var(--hot); border-color: var(--hot); }
   #modal { position: fixed; inset: 0; background: rgba(36,16,19,.6); z-index: 50;
     display: none; align-items: flex-start; justify-content: center; padding: 60px 20px; overflow-y: auto; }
@@ -152,6 +163,213 @@
     .post-tile .top-row, .rcard .head { display: block; }
     .post-tile .metric, .rcard .views { display: block; margin-top: 3px; }
   }
+
+  /* --- Strategy panel (redesigned 2026-05-19 for camera) --- */
+  #strategy { margin-bottom: 36px; }
+  .pillar-tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+  .pillar-tile { background: #fff; border: 1px solid var(--line); padding: 22px 18px 18px;
+    cursor: pointer; display: flex; flex-direction: column; gap: 10px; min-width: 0;
+    position: relative; overflow: hidden;
+    transition: transform .25s cubic-bezier(.2,.7,.3,1), border-color .15s, box-shadow .25s; }
+  .pillar-tile::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 4px;
+    background: var(--rust); transform-origin: left; transform: scaleX(0); transition: transform .35s cubic-bezier(.2,.7,.3,1); }
+  .pillar-tile:hover { border-color: var(--rust); transform: translateY(-2px); box-shadow: 0 6px 20px -10px rgba(36,16,19,.25); }
+  .pillar-tile:hover::before { transform: scaleX(1); }
+  .pillar-tile.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .pillar-tile.active::before { background: var(--hot); transform: scaleX(1); }
+  .pillar-tile.active .pillar-pct, .pillar-tile.active .pillar-count { color: var(--cream); }
+  .pillar-tile.active .pillar-name { color: var(--cream); }
+  .pillar-tile .pillar-name { font-family: var(--gr); font-style: italic; font-size: 22px; line-height: 1.1;
+    color: var(--ink); overflow-wrap: anywhere; letter-spacing: -0.01em; }
+  .pillar-tile .pillar-count { font-family: var(--hn); font-size: 44px; font-weight: 300; line-height: 1;
+    font-variant-numeric: tabular-nums; color: var(--ink); letter-spacing: -0.03em; }
+  .pillar-tile .pillar-pct { font-size: 10px; color: var(--muted); letter-spacing: .14em;
+    text-transform: uppercase; font-weight: 500; }
+  .pillar-tile .pillar-bar { height: 2px; background: var(--line); margin-top: auto; position: relative; }
+  .pillar-tile .pillar-bar > i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--rust);
+    display: block; transition: width .5s cubic-bezier(.2,.7,.3,1); }
+  .pillar-tile.active .pillar-bar { background: rgba(250,247,239,.25); }
+  .pillar-tile.active .pillar-bar > i { background: var(--cream); }
+
+  /* --- Featured carousel (added 2026-05-19 — the camera moment) --- */
+  #featured { margin-bottom: 36px; position: relative; }
+  #featured h2 { display: flex; align-items: center; gap: 12px; }
+  #featured h2 .featured-progress { flex: 0 0 auto; display: flex; gap: 4px; margin-left: auto; }
+  #featured h2 .featured-progress > i { display: block; width: 18px; height: 2px; background: var(--line);
+    transition: background .3s; }
+  #featured h2 .featured-progress > i.active { background: var(--rust); }
+  .featured-card { background: #fff; border: 1px solid var(--line); padding: 48px 56px;
+    position: relative; min-height: 280px; display: grid; gap: 18px;
+    grid-template-columns: minmax(0, 1fr) 200px; align-items: start;
+    cursor: pointer; transition: border-color .15s, box-shadow .25s;
+    opacity: 1; }
+  .featured-card.fading { opacity: 0; transition: opacity .35s; }
+  .featured-card:hover { border-color: var(--ink); box-shadow: 0 10px 30px -15px rgba(36,16,19,.3); }
+  .featured-card .featured-eyebrow { font-size: 11px; color: var(--rust); letter-spacing: .14em;
+    text-transform: uppercase; font-weight: 500; margin-bottom: 4px; }
+  .featured-card .featured-hook { font-family: var(--gr); font-style: italic; font-size: 36px;
+    line-height: 1.15; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 14px;
+    overflow-wrap: anywhere; }
+  .featured-card .featured-creator { font-family: var(--hn); font-size: 13px; color: var(--muted);
+    letter-spacing: .04em; margin-bottom: 12px; }
+  .featured-card .featured-creator strong { color: var(--ink); font-weight: 500; }
+  .featured-card .featured-recipe-name { font-family: var(--gr); font-style: italic; font-size: 16px;
+    color: var(--rust); line-height: 1.3; }
+  .featured-card .featured-sidebar { display: flex; flex-direction: column; gap: 14px; align-items: flex-end;
+    text-align: right; padding-left: 24px; border-left: 1px solid var(--line); height: 100%; min-height: 200px; }
+  .featured-card .featured-stat { display: flex; flex-direction: column; gap: 2px; }
+  .featured-card .featured-stat .stat-num { font-family: var(--hn); font-size: 28px; font-weight: 300;
+    color: var(--ink); line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .featured-card .featured-stat .stat-label { font-size: 10px; color: var(--muted); letter-spacing: .14em;
+    text-transform: uppercase; font-weight: 500; }
+  .featured-card .featured-cta { margin-top: auto; align-self: flex-end; background: var(--ink); color: var(--cream);
+    border: 0; padding: 10px 16px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+    cursor: pointer; font-family: var(--hn); transition: background .15s; }
+  .featured-card .featured-cta:hover { background: var(--rust); }
+  @media (max-width: 720px) {
+    .featured-card { padding: 28px 22px; grid-template-columns: 1fr; min-height: 0; gap: 16px; }
+    .featured-card .featured-hook { font-size: 24px; margin-bottom: 8px; }
+    .featured-card .featured-sidebar { flex-direction: row; flex-wrap: wrap; justify-content: flex-start;
+      align-items: center; text-align: left; padding-left: 0; padding-top: 16px;
+      border-left: 0; border-top: 1px solid var(--line); min-height: 0; height: auto; gap: 20px; }
+    .featured-card .featured-cta { margin-top: 0; align-self: flex-start; }
+  }
+
+  /* --- Formats sticky strip (added 2026-05-19) --- */
+  #formats { margin-bottom: 32px; }
+  #formats h2 .formats-hint { color: var(--muted); font-weight: 400; font-size: 11px; margin-left: 8px;
+    text-transform: none; letter-spacing: 0; }
+  .format-tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+  .format-tile { background: var(--cream); border: 1px solid var(--line); padding: 10px 12px;
+    display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .format-tile .format-name { font-family: var(--gr); font-style: italic; font-size: 15px; line-height: 1.15;
+    color: var(--ink); }
+  .format-tile .format-len { font-size: 11px; color: var(--rust); letter-spacing: .06em;
+    font-variant-numeric: tabular-nums; }
+  .format-tile .format-desc { font-size: 12px; color: var(--muted); line-height: 1.35; }
+  @media (max-width: 720px) {
+    .format-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .format-tile .format-name { font-size: 14px; }
+  }
+
+  /* --- Tab navigation --- */
+  .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--line); margin-bottom: 24px;
+    flex-wrap: wrap; }
+  .tab-btn { background: transparent; border: 0; border-bottom: 2px solid transparent;
+    color: var(--muted); font-family: var(--hn); font-size: 13px; letter-spacing: .12em;
+    text-transform: uppercase; padding: 12px 16px; cursor: pointer; margin-bottom: -1px; }
+  .tab-btn:hover { color: var(--ink); }
+  .tab-btn.active { color: var(--ink); border-bottom-color: var(--rust); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .pillar-filter-banner { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--rust);
+    padding: 8px 14px; margin-bottom: 14px; font-size: 13px; display: flex; justify-content: space-between;
+    align-items: center; gap: 12px; }
+  .pillar-filter-banner button { background: transparent; border: 0; color: var(--rust); cursor: pointer;
+    font-size: 12px; padding: 2px 6px; }
+  .pillar-filter-banner button:hover { text-decoration: underline; }
+
+  /* --- Drafts tab --- */
+  #drafts-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 12px; }
+  .draft-card { background: #fff; border: 1px solid var(--line); padding: 16px 18px; cursor: pointer;
+    display: flex; flex-direction: column; gap: 6px; min-width: 0;
+    transition: transform .2s cubic-bezier(.2,.7,.3,1), border-color .15s, box-shadow .2s; }
+  .draft-card:hover { border-color: var(--rust); transform: translateY(-1px);
+    box-shadow: 0 4px 14px -8px rgba(36,16,19,.25); }
+  .draft-card .top-row { display: flex; justify-content: space-between; align-items: baseline;
+    gap: 10px; flex-wrap: nowrap; }
+  .draft-card .title { font-family: var(--gr); font-style: italic; font-size: 17px; line-height: 1.2;
+    color: var(--ink); min-width: 0; flex: 1 1 auto;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .draft-card .meta { font-size: 10px; color: var(--muted); letter-spacing: .06em; white-space: nowrap; flex: 0 0 auto; }
+  .draft-card .hook { font-size: 13px; color: var(--muted); line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .draft-card .footer-row { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 2px; }
+  .pill { font-size: 11px; padding: 2px 8px; border: 1px solid var(--line); background: var(--cream);
+    text-transform: uppercase; letter-spacing: .08em; }
+  .pill.status-ready-to-shoot { border-color: var(--hot); color: var(--hot); }
+  .pill.status-draft { color: var(--muted); }
+  .pill.status-posted { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .pill.pillar { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .pill.pillar-secondary { background: var(--cream); color: var(--ink); border-color: var(--ink); }
+
+  /* --- Voice & Hooks tab --- */
+  .vh-block { margin-bottom: 32px; }
+  .voice-rules-block summary { padding: 4px 0; }
+  .voice-rules-list { margin-top: 12px; display: grid; gap: 10px; }
+  .voice-rule { background: #fff; border: 1px solid var(--line); padding: 12px 14px; }
+  .voice-rule .vr-title { font-family: var(--hn); font-weight: 500; font-size: 13px; margin-bottom: 4px; }
+  .voice-rule .vr-body { color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+  #hook-bank-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 10px; }
+  .hook-card { background: #fff; border: 1px solid var(--line); padding: 14px 16px;
+    display: flex; flex-direction: column; gap: 6px; min-width: 0;
+    transition: transform .2s cubic-bezier(.2,.7,.3,1), border-color .15s, box-shadow .2s; }
+  .hook-card:hover { border-color: var(--rust); transform: translateY(-1px);
+    box-shadow: 0 4px 14px -8px rgba(36,16,19,.25); }
+  .hook-card .hook-template { font-family: var(--gr); font-style: italic; font-size: 17px; line-height: 1.25;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .hook-card .hook-pattern { font-size: 10px; color: var(--rust); letter-spacing: .12em;
+    text-transform: uppercase; font-weight: 500; }
+  .hook-card .hook-notes { font-size: 12px; color: var(--muted); line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .hook-card .hook-example { font-size: 12px; }
+  .hook-card .hook-footer { display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
+    border-top: 1px dashed var(--line); padding-top: 8px; margin-top: 4px; }
+  .pending-badge { font-size: 11px; padding: 2px 8px; background: var(--cream); color: var(--muted);
+    border: 1px dashed var(--line); letter-spacing: .06em; text-transform: uppercase; }
+
+  .reframe-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); }
+  .reframe-table th, .reframe-table td { padding: 10px 12px; border-bottom: 1px solid var(--line);
+    text-align: left; vertical-align: top; font-size: 14px; }
+  .reframe-table th { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+    font-weight: 500; background: var(--cream); }
+  .reframe-table td.reframe-common { color: var(--muted); width: 40%; }
+  .reframe-table td.reframe-hook { font-family: var(--gr); font-style: italic; font-size: 15px; }
+  .reframe-table tr:last-child td { border-bottom: 0; }
+
+  .topic-block { background: #fff; border: 1px solid var(--line); padding: 12px 14px; margin-bottom: 8px; }
+  .topic-block h4 { margin: 0 0 6px; font-family: var(--hn); font-size: 12px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .topic-block p { margin: 0; font-size: 14px; line-height: 1.5; }
+  .topics-out-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .topics-out-list .topic-out { background: #fff; border: 1px solid var(--line); padding: 6px 10px;
+    font-size: 13px; color: var(--muted); }
+
+  .reframe-playground { background: #fff; border: 1px solid var(--line); padding: 18px 20px; }
+  .reframe-playground .coming-soon { color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+  /* --- Markdown body (drafts modal full script) --- */
+  .md-body { font-size: 14px; line-height: 1.5; }
+  .md-body h1, .md-body h2, .md-body h3, .md-body h4 {
+    font-family: var(--gr); font-style: italic; font-weight: 400;
+    margin: 18px 0 8px; line-height: 1.2;
+  }
+  .md-body h1 { font-size: 22px; margin-top: 0; }
+  .md-body h2 { font-size: 18px; color: var(--ink); }
+  .md-body h3 { font-size: 16px; color: var(--rust); }
+  .md-body h4 { font-size: 14px; color: var(--muted); text-transform: uppercase;
+    font-family: var(--hn); font-style: normal; letter-spacing: .08em; font-weight: 500; }
+  .md-body p { margin: 0 0 10px; }
+  .md-body blockquote { margin: 8px 0; padding: 8px 12px;
+    border-left: 3px solid var(--hot); background: var(--cream);
+    font-family: var(--gr); font-style: italic; font-size: 15px; }
+  .md-body ul, .md-body ol { margin: 8px 0 12px 20px; padding: 0; }
+  .md-body li { margin-bottom: 4px; }
+  .md-body code { background: var(--cream); border: 1px solid var(--line);
+    padding: 1px 5px; font-size: 12px; }
+  .md-body hr { border: 0; border-top: 1px solid var(--line); margin: 16px 0; }
+  .md-body strong { font-weight: 600; }
+
+  @media (max-width: 720px) {
+    .pillar-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pillar-tile .pillar-name { font-size: 16px; }
+    .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; flex-wrap: nowrap; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab-btn { flex: 0 0 auto; padding: 10px 12px; font-size: 12px; }
+    .reframe-table th, .reframe-table td { padding: 8px 10px; font-size: 13px; }
+    .reframe-table td.reframe-common { width: 45%; }
+  }
 </style>
 </head>
 <body>
@@ -170,33 +388,170 @@
     <div class="meta">Robson Studio · generated <span id="gen-date"></span> · <span id="counts"></span></div>
   </header>
 
-  <section id="library">
-    <h2>Recipe library — <span id="lib-count">loading...</span></h2>
-    <div class="toolbar">
-      <input type="search" id="q" placeholder="Search hook, caption, creator, recipe..." />
-      <div class="filters" aria-label="Recipe filters">
-        <span class="chip rich" data-filter="rich">Rich only</span>
-        <span class="chip" data-filter="follow">Follow tier</span>
-        <span class="chip" data-filter="watch">Watch</span>
-        <span class="chip" data-filter="dad">Dad-hustle</span>
-        <span class="chip" data-filter="top">Top performer</span>
-        <span class="chip active" data-filter="hide_anti">Hide anti-pattern</span>
-      </div>
-      <span class="stat" id="result-stat"></span>
-    </div>
-    <div id="recipes"><div class="errbox">Loading...</div></div>
+  <section id="strategy" aria-label="Pillar strategy">
+    <h2>Strategy</h2>
+    <div class="pillar-tiles" id="pillar-tiles"></div>
   </section>
 
-  <section id="this-week">
-    <details>
-      <summary><h2 style="display:inline">This week — @dan..robson <span class="dan-hint">(click to expand)</span></h2></summary>
-      <div class="grid two" id="dan-grid" style="margin-top:14px"></div>
-    </details>
+  <section id="featured" aria-label="Featured recipe carousel">
+    <h2>Featured
+      <div class="featured-progress" id="featured-progress" aria-hidden="true"></div>
+    </h2>
+    <div class="featured-card" id="featured-card" role="button" tabindex="0">
+      <div>
+        <div class="featured-eyebrow" id="featured-eyebrow"></div>
+        <div class="featured-hook" id="featured-hook">Loading…</div>
+        <div class="featured-creator" id="featured-creator"></div>
+        <div class="featured-recipe-name" id="featured-recipe-name"></div>
+      </div>
+      <div class="featured-sidebar">
+        <div class="featured-stat"><span class="stat-num" id="featured-views">—</span><span class="stat-label">Views</span></div>
+        <div class="featured-stat"><span class="stat-num" id="featured-likes">—</span><span class="stat-label">Likes</span></div>
+        <button class="featured-cta" id="featured-cta" type="button">View recipe →</button>
+      </div>
+    </div>
   </section>
+
+  <section id="formats" aria-label="Content formats">
+    <h2>Formats <span class="formats-hint">— sticky reminder of the five repeatable shapes from <code>01-plan.md</code></span></h2>
+    <div class="format-tiles">
+      <div class="format-tile" title="Talking head, one opinion or thought, plainly stated. Spine of the page.">
+        <div class="format-name">The Take</div>
+        <div class="format-len">45–90s</div>
+        <div class="format-desc">Talking head, one opinion or thought, plainly stated. Spine of the page.</div>
+      </div>
+      <div class="format-tile" title="Work-in-public. Real piece of design or AI work being figured out. Show, don't tell.">
+        <div class="format-name">The Build</div>
+        <div class="format-len">~60s</div>
+        <div class="format-desc">Work-in-public. Real design or AI work being figured out. Show, don't tell.</div>
+      </div>
+      <div class="format-tile" title="Life cuts. Ricoh stills + 1-2s clips from the week. Voice-over with one observation.">
+        <div class="format-name">The Texture</div>
+        <div class="format-len">30–45s</div>
+        <div class="format-desc">Life cuts. Ricoh stills + 1–2s clips from the week. Voice-over, one observation.</div>
+      </div>
+      <div class="format-tile" title="Taste. Something Dan likes, why. Trains the viewer's eye.">
+        <div class="format-name">The Frame</div>
+        <div class="format-len">45–60s</div>
+        <div class="format-desc">Taste. Something Dan likes, why. Trains the viewer's eye.</div>
+      </div>
+      <div class="format-tile" title="Stitch or quick reaction. Lower-effort filler. Sparingly.">
+        <div class="format-name">The Reply</div>
+        <div class="format-len">15–30s</div>
+        <div class="format-desc">Stitch or quick reaction. Lower-effort filler. Use sparingly.</div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="tabs" role="tablist" aria-label="TikTok Studio sections">
+    <button class="tab-btn active" data-tab="recipes" role="tab" aria-selected="true">Recipes</button>
+    <button class="tab-btn" data-tab="drafts" role="tab" aria-selected="false">Drafts</button>
+    <button class="tab-btn" data-tab="my-posts" role="tab" aria-selected="false">My Posts</button>
+    <button class="tab-btn" data-tab="voice-hooks" role="tab" aria-selected="false">Voice &amp; Hooks</button>
+  </nav>
+
+  <div id="pillar-filter-banner" class="pillar-filter-banner" style="display:none;">
+    <span>Filtered by <strong id="pillar-filter-label"></strong> across all tabs.</span>
+    <button id="clear-pillar-filter">Clear filter ×</button>
+  </div>
+
+  <div class="tab-panel active" data-tab-panel="recipes" role="tabpanel">
+    <section id="library">
+      <h2>Recipe library — <span id="lib-count">loading...</span></h2>
+      <div class="toolbar">
+        <input type="search" id="q" placeholder="Search hook, caption, creator, recipe..." />
+        <div class="filters" aria-label="Recipe filters">
+          <span class="chip rich" data-filter="rich">Rich only</span>
+          <span class="chip" data-filter="follow">Follow tier</span>
+          <span class="chip" data-filter="watch">Watch</span>
+          <span class="chip" data-filter="dad">Dad-hustle</span>
+          <span class="chip" data-filter="top">Top performer</span>
+          <span class="chip active" data-filter="hide_anti">Hide anti-pattern</span>
+        </div>
+        <span class="stat" id="result-stat"></span>
+      </div>
+      <div id="recipes"><div class="errbox">Loading...</div></div>
+    </section>
+  </div>
+
+  <div class="tab-panel" data-tab-panel="drafts" role="tabpanel">
+    <section id="drafts-section">
+      <h2>Drafts — <span id="drafts-count">loading...</span></h2>
+      <div class="toolbar">
+        <input type="search" id="drafts-q" placeholder="Search drafts..." />
+        <div class="filters" id="drafts-filters" aria-label="Draft filters">
+          <span class="chip" data-drafts-filter-status="ready-to-shoot">Ready to shoot</span>
+          <span class="chip" data-drafts-filter-status="draft">Draft</span>
+          <span class="chip" data-drafts-filter-status="posted">Posted</span>
+        </div>
+        <span class="stat" id="drafts-stat"></span>
+      </div>
+      <div id="drafts-list"><div class="errbox">Loading...</div></div>
+    </section>
+  </div>
+
+  <div class="tab-panel" data-tab-panel="my-posts" role="tabpanel">
+    <section id="my-posts-section">
+      <h2>My Posts — <span id="my-posts-count">@dan..robson</span></h2>
+      <div class="toolbar">
+        <span class="stat" id="my-posts-stat"></span>
+      </div>
+      <div class="grid two" id="dan-grid"><div class="errbox">Loading...</div></div>
+    </section>
+  </div>
+
+  <div class="tab-panel" data-tab-panel="voice-hooks" role="tabpanel">
+    <section id="voice-hooks-section">
+      <div class="vh-block">
+        <details class="voice-rules-block">
+          <summary><h2 style="display:inline">Voice rules <span class="dan-hint">(click to expand)</span></h2></summary>
+          <div class="voice-rules-list" id="voice-rules-list"></div>
+        </details>
+      </div>
+
+      <div class="vh-block">
+        <h2>Reframe playground</h2>
+        <div class="reframe-playground">
+          <div class="coming-soon">Coming soon. Paste a common Dan-thing in, get 2-3 hook rewrites per pillar via Claude. For v1, use the static hook bank and reframes below as the working surface.</div>
+        </div>
+      </div>
+
+      <div class="vh-block">
+        <h2>Hook bank — <span id="hook-bank-count"></span></h2>
+        <div class="toolbar">
+          <input type="search" id="hook-q" placeholder="Search hooks..." />
+          <div class="filters" id="hook-filters" aria-label="Hook source filters">
+            <span class="chip" data-hook-source="apple-note-2026-05-18">Apple Note</span>
+            <span class="chip" data-hook-source="recipe-corpus">Recipe corpus</span>
+            <span class="chip" data-hook-source="dans-lane">Dan's lane</span>
+          </div>
+          <span class="stat" id="hook-bank-stat"></span>
+        </div>
+        <div id="hook-bank-list"><div class="errbox">Loading...</div></div>
+      </div>
+
+      <div class="vh-block">
+        <h2>Common things → hook reframes</h2>
+        <div id="common-to-hook-list"></div>
+      </div>
+
+      <div class="vh-block">
+        <h2>Topics in (by pillar)</h2>
+        <div id="topics-in-list"></div>
+      </div>
+
+      <div class="vh-block">
+        <h2>Topics out</h2>
+        <div class="topics-out-list" id="topics-out-list"></div>
+      </div>
+    </section>
+  </div>
 
   <footer>
     Data source: <code>01 Wiki/sources/tiktok-intelligence/reports/recipes.json</code>
     · <a href="data.json">Raw bundle</a>
+    · <a href="drafts.json">Drafts</a>
+    · <a href="voice-hooks.json">Voice &amp; hooks</a>
   </footer>
 </div>
 
@@ -206,6 +561,721 @@
     <div id="modal-body"></div>
   </div>
 </div>
+
+<script id="drafts-bundle" type="application/json">{
+  "source_dir": "02 Studio/01 Projects/26 Personal Brand & Content/tiktok/04-scripts",
+  "drafts": [
+    {
+      "id": "v3-how-i-got-here",
+      "filename": "v3-how-i-got-here.md",
+      "title": "V3 — The Take, How I got here (evolved with stakes close)",
+      "video_id": "V3",
+      "format": "The Take",
+      "status": "ready-to-shoot",
+      "length_target": "65-75s",
+      "tags": [
+        "personal-brand",
+        "tiktok",
+        "script",
+        "take",
+        "personal",
+        "biographical"
+      ],
+      "hook": "I'm a designer in Newcastle. One kid, second on the way. Here's how I got here, and what I'm trying to build now.",
+      "close": "Trying to build something that earns while I'm at bedtime. Hardest thing I've tried. Posting the work here so I keep going.",
+      "caption": "Sixty-second version of how I got here. The plan now is to build products that compound so I'm not trading time for money for the next thirty years. Posting the work here so I keep going.",
+      "hashtags": [
+        "#ux",
+        "#uxdesign",
+        "#designsystems",
+        "#aiindesign",
+        "#dadlife",
+        "#newcastle"
+      ],
+      "body_path": "02 Studio/01 Projects/26 Personal Brand & Content/tiktok/04-scripts/v3-how-i-got-here.md",
+      "body_markdown": "# V3 — The Take: How I got here (evolved)\n\nEvolution of the lean arc in [[01-plan]]. Same 10-chapter body. Evolved hook and close to name the stakes and the bet. Forward-facing landing where the original ended on \"Pick a chapter.\"\n\n## Why this evolution\n\nThe original V3 reads as biography. The 19 May info dump (silly-on-camera, the terror, decouple time from value) wanted to land somewhere in the seed batch. Two paths: write a fresh \"why I'm doing this\" video, or evolve V3 to do both jobs. Picked the evolution because biography + stakes is more interesting than either alone, and it keeps the seed batch shape intact.\n\nTrade-off accepted: tonal shift in the last 10 seconds. Mitigated by keeping the body rhythmic and the close plain. No buildup, no clever flip.\n\n---\n\n## Script\n\n**Hook (0-3s)**, talking head, chest-up:\n\n> \"I'm a designer in Newcastle. One kid, second on the way. Here's how I got here, and what I'm trying to build now.\"\n\n**Beats** (each ~4-5s, hard cut between, text overlay = chapter title):\n\n1. *Newcastle*\n   > Grew up here. Dad's Aussie, mum's Malaysian. Third of four kids.\n\n2. *Netherlands*\n   > Moved to the Netherlands at fourteen. Skated for two years. Design clicked for me there.\n\n3. *Back home*\n   > Came back. Finished school on my own at sixteen. Spent a gap year building a motorbike.\n\n4. *Melbourne*\n   > Moved to Melbourne. Studied communication design at RMIT.\n\n5. *STREAT*\n   > First job: graphic design at STREAT. Social enterprise.\n\n6. *Compassion*\n   > Moved back to Newcastle for a job at Compassion. Started as a graphic designer. Became a field photographer. Took photos of extreme poverty.\n\n7. *Borne*\n   > Quit. Got into freelance. Started a t-shirt company with mates.\n\n8. *On the road*\n   > Six months around Australia during COVID with Hannah and my best mate.\n\n9. *Mudbath*\n   > Came back. Took a UX job at Mudbath. Reskilled.\n\n10. *Now*\n    > Senior UX designer at Endava. Building Lia on the side. Married Hannah. One kid, second on the way.\n\n**Close (55-70s)**, back to talking head, plain:\n\n> \"Trying to build something that earns while I'm at bedtime. Hardest thing I've tried. Posting the work here so I keep going.\"\n\n**Word count**: ~175 words. Target 65-75s at TikTok pace.\n\n---\n\n## Production notes\n\n- Same setup as V1. Lock visual signature.\n- Two head positions or two angles. Hard cut between every beat.\n- Text overlay per chapter. Same font and position every time.\n- No music. Voice carries.\n- Beat 6 (Compassion field photography) is the heaviest. Say it plainly and move. Don't dwell. The dedicated video on that chapter is slotted for video 8-12 per [[02-ideas-log]].\n- The close lands on \"Hardest thing I've tried.\" Say it without weight. Plain admission, not confessional.\n- Optional: one Ricoh still on the close (Newcastle morning, the desk, Rowie's bath, the bike) if it adds rather than distracts.\n\n## Caption (TikTok post)\n\nDraft:\n\n> Sixty-second version of how I got here. The plan now is to build products that compound so I'm not trading time for money for the next thirty years. Posting the work here so I keep going.\n\n## Hashtags\n\n`#ux` `#uxdesign` `#designsystems` `#aiindesign` `#dadlife` `#newcastle`\n\n4-6 max.\n\n---\n\n## Source material\n\n- [[01-plan]] V3 lean arc (the original draft)\n- [[dan-life-arc]] (biographical source)\n- [[profile]] (stagnation-not-failure framing)\n- [[goals_and_values]] (creative courage gap, structured freedom)\n- Conversation 2026-05-19 (the info dump that triggered the evolution)\n\n## Pre-shoot checklist\n\n- [ ] Lock the shirt + chair + window (use the same as V1)\n- [ ] Print or memorise the 10 chapter beats so each is one-take\n- [ ] Decide whether the close is single-shot or has one Ricoh still\n- [ ] Confirm caption + hashtags\n- [ ] Handle and bio-line live before scheduling\n\n## Related\n\n- [[01-plan]] (Spine)\n- [[v1-decision-paralysis]] (Companion video, opens the page)\n- [[03-queue]]\n- [[06-voice-hooks]] (Voice rules informing this script)\n- [[tov]]\n- [[personal-brand]]",
+      "pillar_primary": "founder",
+      "pillar_secondary": "dad",
+      "created": "2026-05-19",
+      "updated": "2026-05-19"
+    },
+    {
+      "id": "v3-self-intro",
+      "filename": "v3-self-intro.md",
+      "title": "V3 — Lead UX self-intro (locked)",
+      "video_id": "V3-alt",
+      "format": "The Take",
+      "status": "ready-to-shoot",
+      "length_target": "65-75s",
+      "tags": [
+        "personal-brand",
+        "tiktok",
+        "script",
+        "take",
+        "intro",
+        "identity"
+      ],
+      "hook": "How do you build something new without losing time with your family?",
+      "close": "I've never really made TikToks before, so follow along if you want to watch me figure this out.",
+      "caption": "Lead UX designer + dad + side-building a company that earns when I'm not in a meeting. Posting the work so I keep going.",
+      "hashtags": [
+        "#ux",
+        "#uxdesign",
+        "#designsystems",
+        "#aiindesign",
+        "#dadlife",
+        "#newcastle"
+      ],
+      "body_path": "02 Studio/01 Projects/26 Personal Brand & Content/tiktok/04-scripts/v3-self-intro.md",
+      "body_markdown": "# V3 — Lead UX self-intro\n\nPinned self-intro video. Replaces the original chronological-CV V3 (preserved at [[v3-how-i-got-here]]). Built off the research in [[07-intro-script-patterns]] and the audience definition in [[08-audience]].\n\nIteration history (2026-05-19, full day):\n- Chip-stack version → too braggy, stop-start\n- Conversational-prose version with bet + irony + team → closer but corporate-ish in places\n- Snappy manifesto cut → genuinely too short, lost the texture, \"not me\" per Dan\n- Longer return with biographical arc + dual anxiety + Compassion → almost there but smug hook (\"made for this moment\")\n- **Locked version** (this one): viewer-question hook (\"How do you build something new without losing time with your family?\"), flowing prose, Compassion named, dropped \"two friends\" (solo framing), dropped dual-anxiety bullets in favor of the integrated \"best of me\" line.\n\nVoice signature: Dan-confirmed as his tone. \"This is my tone of voice. I'm really happy with this.\"\n\n## Why this shape\n\nThe original V3 read as Wikipedia: 10 chronological location/job beats with no narrative pull. Research showed (a) zero follow-tier creators use that format, (b) the working pattern is a viewer-identification hook + a compressed personal arc + a felt-tension/anxiety beat + a forward-looking activity + a vulnerable close.\n\nThe locked shape:\n1. **Viewer-question hook** (\"How do you build something new without losing time with your family?\") — names the exact tension the rest of the script answers. Reads as a peer asking the same question, not an expert offering wisdom. Sets up \"follow along if you want to watch me figure this out\" as a perfect close.\n2. **Identity + arc** (one flowing paragraph) — half-Malaysian, half-Australian + Lead UX + Newcastle + global tech agency. Then the compressed 3-beat arc: traditional graphic design → humanitarian photographer (Compassion) → UX reskill. Then current: lead by day, studio on side, Borne built-and-sold. All in one paragraph that reads like Dan introducing himself at a dinner party.\n3. **Crossroads + dual feeling** — names the crossroads, names family priority + September deadline, names the AI moment urgency, names the career skills, names the FOMO anxiety, names the family-cost concern. Final line (\"family having the best of me\") is the script's emotional pivot.\n4. **Activity + documenting** — what Dan is actually doing (building creative products and workflows alongside the rest of life, documenting the process).\n5. **Vulnerability close** — \"never really made TikToks before, follow along.\"\n\nNo childhood. No 10-beat geography. No LinkedIn bullets. The deeper personal arc (road trip, Netherlands, the motorbike year, the full Compassion field-photography chapter, Borne in detail, named individual products like Lia/NOBONK/Voxquote/OpenScripture) becomes individual dedicated videos later — slotted per [[02-ideas-log]].\n\n---\n\n## Script\n\nLOCKED 2026-05-19. Conversational pace, flowing prose. Mostly talking head with optional light B-roll. Hard cuts at paragraph boundaries, not within paragraphs.\n\n**Hook (0-5s)**, talking head, chest-up, plain, locked V1 visual signature:\n\n> \"How do you build something new without losing time with your family?\"\n\n**Identity + arc (5-30s)**, talking head, optional brief B-roll on the \"Compassion\" mention (a single still from the field-photography era if available, or stay on Dan):\n\n> \"Hi, I'm Dan. I'm half Malaysian, half Australian, and I'm a Lead UX designer in Newcastle working at a global tech agency. I started in traditional graphic design and had a stint as a humanitarian photographer for Compassion before reskilling into UX. Now I lead design teams by day and run my own studio on the side. I've even built and sold a small clothing company called Borne along the way.\"\n\n**Crossroads + felt tension (30-55s)**, talking head, plain. Land \"family having the best of me\" with the most weight — slight pause before it if it feels right on camera:\n\n> \"Right now I feel like I'm at a crossroads. Family is my top priority, and we have a second kid due in September. But the AI world is moving so fast, and I've spent my career building the exact set of skills I can use to make something of this moment. If I don't build now, I feel like I'll get left behind. But I don't want to do that at the cost of my family having the best of me.\"\n\n**Activity (55-65s)**, talking head, plain. Optional B-roll over \"creative products and workflows\" — a side-project screen or Claude window:\n\n> \"That's why I'm spending the next few months building creative products and workflows alongside the rest of life. I'm going to document the whole process.\"\n\n**Close (65-72s)**, back to talking head, plain. No B-roll. Say it and stop:\n\n> \"I've never really made TikToks before, so follow along if you want to watch me figure this out.\"\n\nDelivery note: Dan delivers Activity + Close as one continuous breath on camera (single paragraph in spoken flow). The split here is structural for the script doc + bundle parser, not a pause-cue.\n\n**Word count**: ~215 words. ~65-72s at conversational pace.\n\n---\n\n## Production notes\n\n- Same visual signature as V1. Lock the shirt + chair + window. Treat this as the second pinned video; visual consistency with V1 establishes the page identity.\n- Mostly talking head, conversational pace (not staccato). Hard cuts at paragraph boundaries, not within paragraphs.\n- **Delivery beats** for the locked script:\n  - Hook is the scroll-stopper — say it like you're genuinely asking, not announcing. Eye contact matters.\n  - Identity + arc paragraph runs as one flowing breath (it's long but it should feel like Dan introducing himself at a dinner party, not a CV recital).\n  - \"Family having the best of me\" is the script's emotional pivot. Land it with a slight pause before, no pause after. Don't milk it; let it sit.\n  - Close should sound mildly self-deprecating but warm — \"I've never really made TikToks before\" is the honesty that earns the follow.\n- **B-roll opportunities** (light, not required for the script to land — voice carries):\n  - Identity paragraph, \"Compassion\" mention — optional single still from the field-photography era if a usable shot exists in the archive; otherwise stay on Dan.\n  - Identity paragraph, \"Borne\" mention — optional Borne brand mark or a shirt-on-rack still; otherwise stay on Dan.\n  - Activity paragraph, \"creative products and workflows\" line — optional cut to a real side-project screen (Lia design file, NOBONK packaging, Voxquote app, robson.studio recording, Claude window). Don't name them on camera. The visual hints at the work without making the video about specific products.\n  - Hook + crossroads + close — talking head, plain. No B-roll.\n- Captions on every spoken line, same font + position as V1.\n- No music. Voice carries.\n- Close lands plain. No music swell, no end-card flourish, no logo. Say it and stop.\n- Read the script out loud before shooting. Cut whatever feels forced — Dan to trim 1-2 sentences on camera if pacing demands.\n\n## Material saved for future videos (deliberately not in this script)\n\nThe earlier longer iterations included material that's strong but didn't fit the snappy manifesto shape. Save for dedicated videos:\n\n- **Borne Clothing exit** — its own video about lessons from building and selling a small clothing company.\n- **Humanitarian photography arc** (Compassion field photography) — its own video, already slotted V8-12 per [[02-ideas-log]].\n- **Client work** (King Living, Sweat, Compassion, Prezzee) — specific design-process videos (logo brainstorm, brand decisions, system trade-offs) drawing from real client work.\n- **Named side projects** (Lia, NOBONK, Voxquote, OpenScripture) — each gets its own Build / Frame video as appropriate. The intro deliberately doesn't name them so each one gets to land on its own video without the audience already having a frame for it.\n- **The bet sentence** (\"a company that earns while I'm doing bedtime\") — strong stake but cut from this version to keep the manifesto shape. Belongs in a Founder-pillar video about the actual bet structure.\n- **The AI-as-unlock framing** (\"Claude in the loop, the unlock I've been waiting for\") — belongs in an AI / tooling video about the specific workflow change.\n\n## Caption (TikTok post)\n\nDraft:\n\n> Lead UX designer + dad + side-building a company that earns when I'm not in a meeting. Posting the work so I keep going.\n\n## Hashtags (low priority, lock once)\n\n`#ux` `#uxdesign` `#designsystems` `#aiindesign` `#dadlife` `#newcastle`\n\n4-6 max.\n\n---\n\n## Open variables — resolved 2026-05-19\n\n1. **Replace V3 in the seed batch, or run as V3-alt alongside the original chronological-CV V3?** Resolved: replace (Dan-confirmed). Original chronological-CV V3 stays preserved at [[v3-how-i-got-here]] for the iteration record, but this version is the canonical V3 for the seed batch.\n2. **B-roll decision**: Resolved — Dan to figure out at shoot. Script doesn't depend on B-roll to land; can ship as pure talking head if B-roll prep adds friction.\n3. **Visual signature**: Resolved — re-use V1's signature. Dan-confirmed: \"yeah, it's fine. Let's leave that as is. I don't need to be worried about that at this level.\"\n4. **Compassion B-roll**: Resolved — same as #2, Dan to figure out at shoot.\n\n## Decisions logged (no longer open)\n\n- **Script content locked 2026-05-19.** Dan-confirmed: \"This is my tone of voice. I'm really happy with this.\"\n- **Viewer-question hook** (\"How do you build something new without losing time with your family?\") over identity-first opener. Frames Dan as a peer asking the same question; earns the \"watch me figure this out\" close.\n- **Flowing prose over staccato chip-stack.** Script reads as Dan introducing himself at a dinner party. Conversational pace, ~65-75s.\n- **Compassion named** in the identity paragraph. Humanitarian-photography arc is now a single specific credential, not vague past work.\n- **Two friends NOT named.** Solo framing intentional. Team mention reserved for Build-pillar videos where the cofounders are part of the content.\n- **No bet sentence** (\"company that earns while doing bedtime\") — saved for a Founder-pillar video. The \"family having the best of me\" line carries the emotional stake instead.\n- **No client names spoken on camera.** Reserved for design-process videos.\n- **No individual product names** (Lia / NOBONK / Voxquote / OpenScripture). Reserved for individual Build / Frame videos.\n- **No timeframe delta** in the hook. The viewer-question pattern doesn't need one.\n- **Vulnerability close** (\"never really made TikToks before, follow along\") — earned honesty, not engagement-bait. On-voice for warm-up scale.\n- **No em dashes anywhere.** Voice rule compliance.\n- **\"I feel like\" used 2x intentionally** — once to frame the crossroads (felt state), once to name the FOMO (the actual feeling). Middle use dropped per voice rule.\n- **\"Moving so fast\"** kept — Dan-confirmed as how he actually talks. The \"so\" intensifier survives the voice rule because it's tone-true.\n\n## Source material\n\n- [[07-intro-script-patterns]] (research + 4 rewrite options memo)\n- [[v3-how-i-got-here]] (preserved chronological-CV original)\n- [[v1-decision-paralysis]] (working comparison — close matches the bet shape)\n- [[06-voice-hooks]] (voice rules informing every beat)\n- robson.studio (client logo source: Prezzee, NobleOak, Grays, King Living, Scenic, money.com.au, Compassion, Aurizon)\n- Dan-confirmed: Borne Clothing built and sold ~2025\n\n## Pre-shoot checklist\n\n- [ ] Source Borne Clothing brand mark + a shirt-on-rack still\n- [ ] Source clean logo versions of King Living, Sweat, Compassion, plus optional Prezzee / NobleOak / money.com.au\n- [ ] Capture Lia / NOBONK / Voxquote / OpenScripture B-roll (real WIP, not mockups)\n- [ ] Capture Claude / Cursor screen recording (representative current project)\n- [ ] Lock the visual signature (use V1's shirt + chair + window)\n- [ ] Confirm caption + hashtags\n- [ ] Decide: replace V3 in seed batch, or ship as V3-alt\n- [ ] Confirm hook delivery on camera before committing to take\n\n## Related\n\n- [[01-plan]] (TikTok spine)\n- [[02-ideas-log]] (Compassion field photography slotted V8-12 as its own video)\n- [[03-queue]]\n- [[06-voice-hooks]]\n- [[07-intro-script-patterns]] (the research that drove this rewrite)\n- [[v3-how-i-got-here]] (chronological CV alternative — preserved)\n- [[v1-decision-paralysis]]\n- [[tov]]\n- [[personal-brand]]\n- [[tiktok-studio]] (will surface in Drafts tab on next bundle rebuild)",
+      "pillar_primary": "founder",
+      "pillar_secondary": "ai-tooling",
+      "created": "2026-05-19",
+      "updated": "2026-05-19"
+    },
+    {
+      "id": "lia-offsite-day-1-draft",
+      "filename": "lia-offsite-day-1-draft.md",
+      "title": "Lia Offsite — Day 1 (draft)",
+      "video_id": null,
+      "format": "Texture-Build hybrid",
+      "status": "draft",
+      "length_target": "45-55s",
+      "tags": [
+        "personal-brand",
+        "tiktok",
+        "script",
+        "draft",
+        "lia",
+        "offsite"
+      ],
+      "hook": "Chris, Luke and I have set aside three days to align on what this year could look like as we look to start a business together. Excited and nervous all at once. Day 1.",
+      "close": "Day 2 is for [what tomorrow is for]. More tomorrow.",
+      "caption": null,
+      "hashtags": [],
+      "body_path": "02 Studio/01 Projects/26 Personal Brand & Content/tiktok/04-scripts/lia-offsite-day-1-draft.md",
+      "body_markdown": "# Lia Offsite — Day 1 (draft)\n\nFor the three-day cofounder getaway with [[chris-quinton]] and [[luke-odea]]. Posted as the first of a four-part arc (intro/setup → Day 1 → Day 2 → Day 3) or as a standalone hybrid post that carries its own intro.\n\nFormat: **Texture-Build hybrid**. The visuals do the show-not-tell work (cofounder offsite is inherently filmic), the voiceover lands one real moment from the day.\n\nLia thesis (musician admin problem, modular tools, etc.) is held back from the intro on purpose. Personal stakes lead. The business context can reveal over Day 2 and Day 3.\n\n---\n\n## Script\n\n**Intro (0-12s)** — talking head, locked visual signature (same shirt/chair/window as V1), OR shot at the location on arrival:\n> \"Chris, Luke and I have set aside three days to align on what this year could look like as we look to start a business together. Excited and nervous all at once. Day 1.\"\n\n**Beat 1 (12-25s)** — montage: arrival, the space, Chris and Luke, gear unpacked, whiteboards, food, the view:\n> \"Today we mapped the year. Who does what. When we actually start. What the first thing we make is.\"\n\n**Beat 2 (25-40s)** — quieter shot, one specific image:\n> \"[A real moment from the day. A line one of you said. A whiteboard photo. The view at the end of it. Fill this in after Day 1.]\"\n\n**Close (40-50s)** — light fading, or three of you in frame:\n> \"Day 2 is for [what tomorrow is for]. More tomorrow.\"\n\n**Word count**: ~85 words. ~45-50s.\n\n---\n\n## Production notes\n\nCapture throughout the day, not at the end:\n\n- Ricoh GR IV stills: arrival, the space, food, hands, whiteboards, walks, light at different times of day, the three of you. Confirm camera + posting consent with CQ and Luke before Day 1 starts.\n- Phone video: 2-3s of motion per moment, not minutes. Easier to edit, harder to ramble.\n- Whiteboard photos at the end of each session. They double as B-roll and as session notes for the shared Lia vault.\n- One quiet shot at the end of Day 1 (light, view, empty room). Hold it 3-4s. That becomes the close.\n\nEdit constraints:\n\n- No music or very low ambient.\n- 1-2s per shot mostly. Land the close on something held longer.\n- Captions on every spoken line, same font/position as V1.\n- Same visual signature for the intro talking head as V1 (locks the page identity across content).\n\n---\n\n## Voice direction (iterated from session 2026-05-10)\n\nInitial draft led with the musician-admin problem (\"Most independent musicians spend more time on admin than on the actual music...\"). Dan pushed back: too thesis-y, too explainer-y for an intro. Resolved by leading with the human stakes (\"Chris, Luke and I have set aside three days...\"), and pulling the business specifics down a layer (\"Who does what. When we actually start. What the first thing we make is.\").\n\nTrade-off accepted: viewers don't learn what Lia is in Day 1. That tension carries them into Day 2 and Day 3.\n\n---\n\n## Alternative structure (Option B: standalone setup video)\n\nIf filming + posting before the trip starts:\n\n- Post a 20-30s \"setup\" video using just the Intro segment expanded slightly. Day 1, 2, 3 then ride on it as tight ~30-45s Texture posts without needing to re-explain context.\n- Reads as a four-part arc rather than three disconnected daily updates.\n- Only viable if there's time before the trip kicks off.\n\n---\n\n## Day 2 and Day 3 stubs (fill in during/after the trip)\n\n### Day 2\n\n**Hook (0-3s)**: [Day 2 frame. What today is for.]\n\n**Beat 1 (3-20s)**: [The hardest decision of the day. The argument worth naming.]\n\n**Beat 2 (20-35s)**: [Specific moment — a line, a whiteboard, a view.]\n\n**Close (35-45s)**: [What Day 3 is for.]\n\n### Day 3\n\n**Hook (0-3s)**: [Day 3 frame. Last day.]\n\n**Beat 1 (3-20s)**: [What we're leaving with. The decisions that stuck.]\n\n**Beat 2 (20-35s)**: [Final moment — driving home shot, last whiteboard, a quiet view.]\n\n**Close (35-45s)**: [The plain statement. What happens next. Or just: \"Done. Going home.\"]\n\n---\n\n## Related\n\n- [[lia]] — the project the offsite is about\n- [[chris-quinton]]\n- [[luke-odea]]\n- [[life-in-adventure]] — the philosophical anchor\n- [[01-plan]] — TikTok spine\n- [[03-queue]] — promote to queue once trip dates are locked\n- [[04-scripts/README|Templates]]\n- [[tov]]",
+      "pillar_primary": "founder",
+      "pillar_secondary": null,
+      "created": "2026-05-10",
+      "updated": "2026-05-10"
+    },
+    {
+      "id": "v1-decision-paralysis",
+      "filename": "v1-decision-paralysis.md",
+      "title": "V1 — The Take, Decision Paralysis (terrible at being my own client)",
+      "video_id": "V1",
+      "format": "The Take",
+      "status": "ready-to-shoot",
+      "length_target": "60-70s",
+      "tags": [
+        "personal-brand",
+        "tiktok",
+        "script",
+        "take",
+        "personal"
+      ],
+      "hook": "I'm genuinely terrible at being my own client.",
+      "close": "Posting it here keeps me honest. I'm Dan, designer in Newcastle. Most weeks I'll post a piece of work, or something from the life behind it.",
+      "caption": "Most designers I know have the same problem. We build well for clients and badly for ourselves. Studio site sat in Figma for two years. Loupe sat in my head for years. AI tooling has changed the equation. Posting the work here so I keep going.",
+      "hashtags": [
+        "#ux",
+        "#uxdesign",
+        "#designsystems",
+        "#aiindesign",
+        "#decisionparalysis",
+        "#newcastle"
+      ],
+      "body_path": "02 Studio/01 Projects/26 Personal Brand & Content/tiktok/04-scripts/v1-decision-paralysis.md",
+      "body_markdown": "# V1 — The Take: Decision Paralysis\n\nFirst video on the page. Personal admission opening, forward direction underneath. Substitutes for the original \"Thesis Take\" V1 in [[01-plan]] per [[03-queue]].\n\n## Why this video opens the page\n\nIt opens with a vulnerable line that lots of designers and founders will recognise. No portfolio language, no thesis monologue. The work shows up as evidence inside the admission, not as the lead. Pulls from material that has already landed on LinkedIn (Robson Studio launch post, Loupe announcement, the \"creative courage\" draft).\n\nTrade-off accepted: doesn't establish the page's full scope on day one. That's fine, V2 (texture) and V3 (arc) round out the spine in week one.\n\n---\n\n## Script\n\n**Hook (0-3s)** — talking head, chest-up, soft window light, plain:\n> \"I'm genuinely terrible at being my own client.\"\n\n**Beat 1 (3-15s)** — talking head:\n> \"I build fast and high quality for paid work. For my own ideas, decision paralysis wins. Most designers I know have the same problem.\"\n\n**Beat 2 (15-35s)** — cut to B-roll: robson.studio site, Loupe app on phone, Figma file timestamps showing months of dust:\n> \"My studio site sat in Figma for two years. I built the live version in three sessions with Claude. An app I'd wanted to make for years took less than a day. Both were waiting on me, not on the tools.\"\n\n**Beat 3 (35-55s)** — back to talking head:\n> \"What changed is I started running my own stuff like client work. Brief. Build context. Set rules. Ship rough. Refine. Same loop I run for paid work, applied to me. With AI tooling the loop is fast enough that I actually finish things now.\"\n\n**Close (55-65s)** — talking head, plain:\n> \"Posting it here keeps me honest. I'm Dan, designer in Newcastle. Most weeks I'll post a piece of work, or something from the life behind it.\"\n\n**Word count**: ~143 words. Target 60-65s at TikTok pace.\n\n---\n\n## Production notes\n\n- Talking head bookends. Lock the visual signature on this video. Same shirt, same chair, same window for every Take going forward.\n- B-roll for beat 2:\n  - Screen recording of robson.studio (scroll the page, hover the cursor grid, the cycling hero word)\n  - Screen recording or phone capture of Loupe (open the app, the lens screen)\n  - Optional: Figma file thumbnail with the \"edited 2 years ago\" timestamp visible\n- Cuts tight. No shot longer than 3-4s on a static frame.\n- Captions on every line, same font and position you'll use forward.\n- No music. Or very low ambient.\n- Word \"genuinely\" in the hook lands as a Dan-voice marker (it's how you actually open the LinkedIn version of this). Keep it.\n\n## Caption (TikTok post)\n\nDraft:\n> Most designers I know have the same problem. We build well for clients and badly for ourselves. Studio site sat in Figma for two years. Loupe sat in my head for years. AI tooling has changed the equation. Posting the work here so I keep going.\n\n## Hashtags (low priority, lock once)\n\n`#ux` `#uxdesign` `#designsystems` `#aiindesign` `#decisionparalysis` `#newcastle`\n\n4-6 max. Don't over-tag.\n\n---\n\n## Source material this draws from\n\n- LinkedIn: Robson Studio launch post (1mo ago, 797 impressions) — \"Every designer I know has some version of this problem. You build brilliantly for clients and then stall completely on your own stuff (decision paralysis is real).\"\n- LinkedIn: Loupe announcement (2mo ago, 608 impressions) — \"I have always found it hard to prioritise my own passion projects, but with agentic tooling that equation has changed completely.\"\n- Vault draft: [[08-creative-courage]] — \"I'm genuinely terrible at being my own client.\"\n- [[personal-brand]]\n- [[lia]]\n\n## Pre-shoot checklist\n\n- [ ] Pick the shirt for the talking head (lock for all future Takes/Builds)\n- [ ] Decide the chair + window angle (slight low angle, soft light)\n- [ ] Test screen recording for robson.studio (1080x1920 vertical or square crop)\n- [ ] Capture Loupe screen flow (or take a clean phone-in-hand shot)\n- [ ] Confirm caption + hashtags\n- [ ] Confirm handle and bio-line are live before scheduling\n\n## Related\n\n- [[01-plan]]\n- [[03-queue]]\n- [[04-scripts/README|Templates]]\n- [[tov]]\n- [[personal-brand]]",
+      "pillar_primary": "founder",
+      "pillar_secondary": "design-craft",
+      "created": "2026-05-10",
+      "updated": "2026-05-10"
+    }
+  ]
+}</script>
+
+<script id="voice-hooks-bundle" type="application/json">{
+  "source_md": "02 Studio/01 Projects/26 Personal Brand & Content/tiktok/06-voice-hooks.md",
+  "voice_rules": [
+    {
+      "title": "First-line discipline",
+      "body": "First 5 words decide the watch. Either a specific number, a vulnerable admission, a pointed take, or a named anomaly. No setup, no \"Hi, today I want to talk about...\""
+    },
+    {
+      "title": "One sentence per beat",
+      "body": "TikTok pace doesn't carry multi-clause sentences the way prose does. Break it."
+    },
+    {
+      "title": "Cut \"I think\" / \"for me\" / \"personally.\"",
+      "body": "They soften the take. The take is yours by virtue of you saying it. Don't double-flag."
+    },
+    {
+      "title": "Specifics over scaffolding",
+      "body": "\"5:25am\" beats \"early morning.\" \"One kid, second on the way\" beats \"growing family.\" \"Three sessions with Claude\" beats \"with AI.\""
+    },
+    {
+      "title": "The close is a plain statement, not a CTA",
+      "body": "\"Posting the work here so I keep going\" beats \"Follow for more!\""
+    },
+    {
+      "title": "No music carrying the message",
+      "body": "Voice carries. Music is a bed."
+    },
+    {
+      "title": "Captions match what you say",
+      "body": "Don't paraphrase yourself on-screen. Either the caption is the same words, or don't caption that line."
+    }
+  ],
+  "pillars": [
+    {
+      "slug": "design-craft",
+      "label": "Design / craft",
+      "scope": "Type pairing, brand tokens, Figma, design judgement, governance over generation, UI taste calls",
+      "example_subjects": "Sweat redesign, Money.com.au, Grays.com.au, a typeface decision, a brand system trade-off"
+    },
+    {
+      "slug": "dad",
+      "label": "Dad",
+      "scope": "Parenting layer, family rhythm, structured freedom in practice",
+      "example_subjects": "Rowie (born Oct 2024), Hannah, second kid due September 2026, 5:25am, bath time, the engineered day"
+    },
+    {
+      "slug": "founder",
+      "label": "Founder",
+      "scope": "Building things you own, shipping moments, decisions and trade-offs",
+      "example_subjects": "Lia, NOBONK packaging, Voxquote, OpenScripture, robson.studio, Loupe, freelance"
+    },
+    {
+      "slug": "tastemaker",
+      "label": "Tastemaker",
+      "scope": "What good looks like and why. Trains the viewer's eye",
+      "example_subjects": "Vignelli, Eames, Eno, 1970s skateboarding, restraint, a building in Newcastle, a typeface, a campaign in the wild"
+    },
+    {
+      "slug": "ai-tooling",
+      "label": "AI / tooling",
+      "scope": "How tools actually work in your hand",
+      "example_subjects": "Claude (CLAUDE.md, skills folder), Cursor, Tokens Studio, Figma + AI workflows, agentic patterns, Wispr Flow"
+    }
+  ],
+  "topics_in_by_pillar": {
+    "design-craft": "Typography, brand systems, UI judgement, governance over generation, design taste calls, real client work anonymised specifically (\"a fintech design system rollout\"), Figma craft, the senior-designer-with-AI thesis.",
+    "dad": "The 5:25am routine, structured freedom in practice (the day engineered backwards from bedtime), parenting choices (authoritative approach, high warmth high standards), the second pregnancy, what it actually takes to keep deep work and family running together.",
+    "founder": "Building Lia (in-progress, specific decisions, what's hard), NOBONK packaging and brand work (project work, not personal product, per 5 May decision), Voxquote scope generation pipeline, OpenScripture MVP, robson.studio launch, freelance moments, decisions made and trade-offs accepted.",
+    "tastemaker": "A designer Dan respects (and why specifically), a building, a typeface, a campaign in the wild, photography references, Newcastle as place (the light, the pace, specific spots), restraint as a design value, references from outside design (skateboarding, music, architecture).",
+    "ai-tooling": "How tools actually work in your hand: Claude with CLAUDE.md + skills folder, Cursor for coding, Tokens Studio in the design-system loop, Wispr Flow for dictation, Figma + AI workflows, agentic patterns, the prompts and setups that are actually doing work (not abstract takes)."
+  },
+  "topics_out": [
+    "Politics",
+    "Competitors by name",
+    "Religion / faith deconstruction. Held back until the page has trust (video 8-12 earliest per [[02-ideas-log]])",
+    "Anything half-formed (test elsewhere first)",
+    "NOBONK as a personal-brand chapter (it's freelance, not the next chapter)",
+    "Compassion field photography. Held back until the page has trust",
+    "The Lia ICP-specific design-governance take in raw form (sharpen for Lia content separately)",
+    "Anything that needs more than 60s to land properly (that's YouTube material, not TikTok)",
+    "Generic productivity advice",
+    "Hot takes for the sake of hot takes"
+  ],
+  "hook_bank": [
+    {
+      "id": "apple-note-2026-05-18-i-can-t-believe-i-m-admitting-this-pub",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "I can't believe I'm admitting this publicly...",
+      "fit_notes": "Low-cringe if anchored in real admission. Matches V1 register.",
+      "example_url": null,
+      "example_label": "v1-decision-paralysis (Dan, scheduled)",
+      "example_pending": false,
+      "pillars": []
+    },
+    {
+      "id": "apple-note-2026-05-18-things-no-one-warned-me-about-before-s",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "Things no one warned me about before starting (X).",
+      "fit_notes": "Works for Dad, Founder.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "apple-note-2026-05-18-i-used-to-believe-x-until-i-started-y",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "I used to believe (X) until I started (Y).",
+      "fit_notes": "Strong fit, anchors in change of mind.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": []
+    },
+    {
+      "id": "apple-note-2026-05-18-what-no-one-mentions-when-talking-abou",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "What no one mentions when talking about (X).",
+      "fit_notes": "Works for Design / craft + AI / tooling takes.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "design-craft",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "apple-note-2026-05-18-everything-i-d-do-differently-if-i-sta",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "Everything I'd do differently if I started (X) again.",
+      "fit_notes": "Works for Founder (Borne, freelance, design career).",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "design-craft",
+        "founder"
+      ]
+    },
+    {
+      "id": "apple-note-2026-05-18-if-yours-looks-like-this-instead-of-th",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "If yours looks like this instead of this...",
+      "fit_notes": "Works for Design / craft comparison (with care, not gotcha).",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "design-craft"
+      ]
+    },
+    {
+      "id": "apple-note-2026-05-18-one-of-the-most-overlooked-skills-you-",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "One of the most overlooked skills you can build.",
+      "fit_notes": "Fits Tastemaker (taste as skill).",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "tastemaker"
+      ]
+    },
+    {
+      "id": "apple-note-2026-05-18-realistic-sacrifices-you-should-make-t",
+      "source": "apple-note-2026-05-18",
+      "source_heading": "From the 2026-05-18 Apple Note (`Tiktok hooks`), audited for fit",
+      "pattern_name": null,
+      "template": "Realistic sacrifices you should make to (X).",
+      "fit_notes": "Fits Dad + Founder (structured freedom thesis).",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "recipe-corpus-contrarian-reframe",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Contrarian reframe",
+      "template": "I don't think you (verb) X. I think you (active verb) it.",
+      "fit_notes": "Design / craft, AI / tooling, Founder. Use sparingly, sits near the \"Not X but Y\" trap.",
+      "example_url": "https://www.tiktok.com/@sahilbloom/video/7620506361322884365",
+      "example_label": "sahilbloom — The truth about finding \"The One\"",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "founder",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "recipe-corpus-research-backed-hook",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Research-backed hook",
+      "template": "Evidence shows (tiny behaviour) reduces (important outcome).",
+      "fit_notes": "AI / tooling, Design / craft. Works only with real evidence.",
+      "example_url": "https://www.tiktok.com/@sahilbloom/video/7623447610073943310",
+      "example_label": "sahilbloom — Your phone is destroying your relationships",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "recipe-corpus-permission-frame",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Permission frame",
+      "template": "You are not responsible for (other people's reaction to your growth).",
+      "fit_notes": "Founder, Dad.",
+      "example_url": "https://www.tiktok.com/@sahilbloom/video/7621216038222433550",
+      "example_label": "sahilbloom — Focus on you",
+      "example_pending": false,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "recipe-corpus-named-concept-hook",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Named-concept hook",
+      "template": "There's a name for (the thing you're feeling).",
+      "fit_notes": "Design / craft, Tastemaker.",
+      "example_url": "https://www.tiktok.com/@sahilbloom/video/7625294441863040269",
+      "example_label": "sahilbloom — Why you feel stuck",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "tastemaker"
+      ]
+    },
+    {
+      "id": "recipe-corpus-status-reversal",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Status reversal",
+      "template": "The real (status trait) isn't (obvious thing). It's (something controllable).",
+      "fit_notes": "Tastemaker, Founder. Careful, can read gnomic.",
+      "example_url": "https://www.tiktok.com/@sahilbloom/video/7621478800932572430",
+      "example_label": "sahilbloom — This is the most attractive trait",
+      "example_pending": false,
+      "pillars": [
+        "founder",
+        "tastemaker"
+      ]
+    },
+    {
+      "id": "recipe-corpus-process-reveal",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Process reveal",
+      "template": "Open with the workflow itself, no setup.",
+      "fit_notes": "Design / craft, AI / tooling.",
+      "example_url": "https://www.tiktok.com/@stefanmkunz/video/7336854624810405153",
+      "example_label": "stefanmkunz — animation starter",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "recipe-corpus-three-level-skill-ladder",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Three-level skill ladder",
+      "template": "Beginner does X. Intermediate does Y. Senior does Z.",
+      "fit_notes": "Design / craft, AI / tooling.",
+      "example_url": "https://www.tiktok.com/@stefanmkunz/video/7345510682219040033",
+      "example_label": "stefanmkunz — three-level animation ladder",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "recipe-corpus-etymology-cultural-arc",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Etymology + cultural arc",
+      "template": "X wasn't meant to be Y, but that's what makes it iconic.\" Five-beat: anomaly, origin, name, turning point, cultural moment.",
+      "fit_notes": "Tastemaker, Design / craft.",
+      "example_url": "https://www.tiktok.com/@drewjoiner/video/7617598915692580109",
+      "example_label": "drewjoiner — Kangol origin",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "tastemaker"
+      ]
+    },
+    {
+      "id": "recipe-corpus-constrained-timeline-scale-autonomy",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Constrained timeline + scale + autonomy",
+      "template": "I have N days to do M.\" Numbers do the work.",
+      "fit_notes": "Founder, Design / craft.",
+      "example_url": "https://www.tiktok.com/@bilalrehmanstudio/video/7616577981712010509",
+      "example_label": "bilalrehmanstudio — 14 days, 8000sqft",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "founder"
+      ]
+    },
+    {
+      "id": "recipe-corpus-stitch-rebuttal-with-personal-counter",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Stitch-rebuttal with personal counter",
+      "template": "Voice the take you disagree with, then counter from personal experience.",
+      "fit_notes": "Any pillar.",
+      "example_url": "https://www.tiktok.com/@mino.mp4/video/7615398437034396958",
+      "example_label": "mino.mp4 — flat broke rebuttal",
+      "example_pending": false,
+      "pillars": [
+        "design-craft",
+        "dad",
+        "founder",
+        "tastemaker",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "recipe-corpus-caption-carries-visuals-prove",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Caption-carries, visuals-prove",
+      "template": "Caption tells the arc, visuals prove. No piece-to-camera monologue. Low-cringe credibility posts.",
+      "fit_notes": "Founder, Dad.",
+      "example_url": "https://www.tiktok.com/@jeremiahbrent/video/7616802034276142349",
+      "example_label": "jeremiahbrent — unconventional career path",
+      "example_pending": false,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "recipe-corpus-quote-led-hook",
+      "source": "recipe-corpus",
+      "source_heading": "From the rich-recipe corpus",
+      "pattern_name": "Quote-led hook",
+      "template": "Open with a memorable external quote, then your read.",
+      "fit_notes": "Tastemaker, Founder.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "founder",
+        "tastemaker"
+      ]
+    },
+    {
+      "id": "dans-lane-i-m-genuinely-terrible-at-being-my-own-client",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions)",
+      "pattern_name": null,
+      "template": "I'm genuinely terrible at being my own client.",
+      "fit_notes": "Founder. Used.",
+      "example_url": null,
+      "example_label": "v1-decision-paralysis",
+      "example_pending": false,
+      "pillars": [
+        "founder"
+      ]
+    },
+    {
+      "id": "dans-lane-i-feel-a-bit-silly-talking-to-a-camera-here-s-why-",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions)",
+      "pattern_name": null,
+      "template": "I feel a bit silly talking to a camera. Here's why I'm doing it anyway.",
+      "fit_notes": "Founder / Dad.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "dans-lane-hardest-thing-i-ve-tried-building-products-that-ea",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions)",
+      "pattern_name": null,
+      "template": "Hardest thing I've tried: building products that earn while I'm at bedtime.",
+      "fit_notes": "Founder / Dad. Used (V3 close).",
+      "example_url": null,
+      "example_label": "v3-how-i-got-here",
+      "example_pending": false,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "dans-lane-i-m-30-one-kid-second-on-the-way-and-i-just-quit-b",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions)",
+      "pattern_name": null,
+      "template": "I'm 30. One kid, second on the way. And I just quit being someone else's employee in my head.",
+      "fit_notes": "Founder / Dad.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "id": "dans-lane-i-m-not-scared-of-failing-i-m-scared-of-stagnating",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions)",
+      "pattern_name": null,
+      "template": "I'm not scared of failing. I'm scared of stagnating during the biggest tech shift of my lifetime.",
+      "fit_notes": "Founder / AI / tooling.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "founder",
+        "ai-tooling"
+      ]
+    },
+    {
+      "id": "dans-lane-i-ve-used-ai-on-every-project-this-year-the-job-ha",
+      "source": "dans-lane",
+      "source_heading": "Dan's lane (personal admissions)",
+      "pattern_name": null,
+      "template": "I've used AI on every project this year. The job hasn't shrunk, it's shifted.",
+      "fit_notes": "AI / tooling / Design.",
+      "example_url": null,
+      "example_label": null,
+      "example_pending": true,
+      "pillars": [
+        "design-craft",
+        "ai-tooling"
+      ]
+    }
+  ],
+  "common_to_hook": [
+    {
+      "common": "I'm a UX designer at Endava working on Lia",
+      "hook": "Hardest design problem I've taken on: a product for musicians, while still designing for SaaS clients.",
+      "pillars": [
+        "founder"
+      ]
+    },
+    {
+      "common": "AI is changing how I design",
+      "hook": "I've used AI on every project this year. Here's what actually changed about the job.",
+      "pillars": [
+        "ai-tooling"
+      ]
+    },
+    {
+      "common": "I built a small clothing company",
+      "hook": "I sold t-shirts that scared away mosquitoes for two years. Here's what it taught me about brand.",
+      "pillars": [
+        "founder"
+      ]
+    },
+    {
+      "common": "Working on Lia with CQ and Luke",
+      "hook": "Three friends, three days off, one question: should we actually do this?",
+      "pillars": [
+        "founder"
+      ]
+    },
+    {
+      "common": "Structured freedom is my operating philosophy",
+      "hook": "I'm trying to build a life where what I earn isn't tied to the hours I work. Six months in, here's what's working.",
+      "pillars": [
+        "dad",
+        "founder"
+      ]
+    },
+    {
+      "common": "I'm scared about building a company with two kids",
+      "hook": "I'm scared of stagnating during the biggest tech shift of my lifetime. So I'm building.",
+      "pillars": [
+        "founder"
+      ]
+    },
+    {
+      "common": "I do AI-product design",
+      "hook": "AI generates 200 versions in seconds. Senior design now is choosing which one ships.",
+      "pillars": [
+        "design-craft",
+        "ai-tooling"
+      ]
+    },
+    {
+      "common": "Newcastle is a good place to live",
+      "hook": "Five reasons I work better in Newcastle than I did in Melbourne.",
+      "pillars": [
+        "tastemaker"
+      ]
+    },
+    {
+      "common": "I get up at 5:25am",
+      "hook": "Up at 5:25. Gym by 5:45. Why I built the day backwards from bedtime.",
+      "pillars": [
+        "dad"
+      ]
+    },
+    {
+      "common": "I'm running my own ideas like client work",
+      "hook": "I built my studio site in three sessions after sitting on the Figma for two years. Here's what changed.",
+      "pillars": [
+        "design-craft",
+        "founder"
+      ]
+    }
+  ],
+  "apple_notes_routing": {
+    "signals": [
+      "Title starts with `tt:` (the established prefix from [[00-workflow]]) or contains \"tiktok\"",
+      "Body mentions hook, video idea, script, post, reel, vlog, or a creator handle",
+      "Body references a TikTok URL"
+    ],
+    "routes": [
+      {
+        "sub_type": "Hook template / hook idea",
+        "destination": "Hook bank section above (`flag: audit-needed` on first pass)",
+        "notes": "Dan confirms or strikes during Sunday review"
+      },
+      {
+        "sub_type": "Video idea",
+        "destination": "[[02-ideas-log]] `## Bench`",
+        "notes": "Existing inbound per the workflow"
+      },
+      {
+        "sub_type": "Thought / reflection",
+        "destination": "[[02-ideas-log]] `## Reflections` (created if missing)",
+        "notes": "New section for longer-form context"
+      },
+      {
+        "sub_type": "Script fragment / line",
+        "destination": "`04-scripts/_drafts/` as candidate material",
+        "notes": "Triaged Friday before batch shoot"
+      },
+      {
+        "sub_type": "Reference / inspiration",
+        "destination": "`01 Wiki/sources/tiktok-intelligence/inbox/` for the next monthly re-rank",
+        "notes": "Sits alongside the existing corpus inputs"
+      }
+    ]
+  }
+}</script>
 
 <script id="bundle" type="application/json">{
   "generated_at": "2026-05-18",
@@ -219,7 +1289,9 @@
       "likes": 0,
       "hook": "My favorite thing about working from home\nCo-waves",
       "hook_source": "spoken",
-      "needs_review": false
+      "needs_review": false,
+      "pillar_primary": "dad",
+      "pillar_secondary": "design-craft"
     },
     {
       "pid": "7640427653358734599",
@@ -230,7 +1302,9 @@
       "likes": 5,
       "hook": "So, tomorrow morning, I'm going surf skiing for the first time.",
       "hook_source": "spoken",
-      "needs_review": false
+      "needs_review": false,
+      "pillar_primary": "tastemaker",
+      "pillar_secondary": null
     },
     {
       "pid": "7640388057472060679",
@@ -241,7 +1315,9 @@
       "likes": 12,
       "hook": "we love a sunrise 🌅",
       "hook_source": "caption",
-      "needs_review": true
+      "needs_review": true,
+      "pillar_primary": "tastemaker",
+      "pillar_secondary": null
     },
     {
       "pid": "7639988516570664210",
@@ -252,7 +1328,9 @@
       "likes": 3,
       "hook": "I don't know why more designs don't do this.",
       "hook_source": "spoken",
-      "needs_review": false
+      "needs_review": false,
+      "pillar_primary": "design-craft",
+      "pillar_secondary": "tastemaker"
     },
     {
       "pid": "7639672509071199496",
@@ -263,7 +1341,9 @@
       "likes": 8,
       "hook": "I feel like I appreciate life more when I scroll through my camera ro",
       "hook_source": "caption",
-      "needs_review": true
+      "needs_review": true,
+      "pillar_primary": "tastemaker",
+      "pillar_secondary": null
     },
     {
       "pid": "7639651852077894919",
@@ -274,7 +1354,9 @@
       "likes": 29,
       "hook": "This is what AI guided prototyping looks like right now.",
       "hook_source": "spoken",
-      "needs_review": false
+      "needs_review": false,
+      "pillar_primary": "ai-tooling",
+      "pillar_secondary": "design-craft"
     },
     {
       "pid": "7639612625856318728",
@@ -285,7 +1367,9 @@
       "likes": 3,
       "hook": "dreaming up a company on a rainy monday morning",
       "hook_source": "caption",
-      "needs_review": true
+      "needs_review": true,
+      "pillar_primary": "founder",
+      "pillar_secondary": null
     },
     {
       "pid": "7638410947408792839",
@@ -296,7 +1380,9 @@
       "likes": 10,
       "hook": "[no spoken hook — see caption]",
       "hook_source": "caption",
-      "needs_review": true
+      "needs_review": true,
+      "pillar_primary": null,
+      "pillar_secondary": null
     },
     {
       "pid": "7638408877360319752",
@@ -307,7 +1393,9 @@
       "likes": 6,
       "hook": "I am genuinely terrible at being my own client.",
       "hook_source": "spoken",
-      "needs_review": false
+      "needs_review": false,
+      "pillar_primary": "founder",
+      "pillar_secondary": "design-craft"
     }
   ],
   "recipes": [
@@ -11507,21 +12595,41 @@
   document.getElementById('counts').textContent =
     (DATA.recipes||[]).length + ' posts · ' + (DATA.rich_count||0) + ' rich · ' + (DATA.dan_account||[]).length + ' on @dan..robson';
 
-  (function renderDan(){
-    var posts = DATA.dan_account || [];
+  function renderDan(){
+    var posts = (DATA.dan_account || []).slice();
+    var totalCount = posts.length;
+    // Order by posted_at desc
+    posts.sort(function(a, b){ return String(b.date||'').localeCompare(String(a.date||'')); });
+    // Cross-tab pillar filter
+    if (ACTIVE_PILLAR) {
+      posts = posts.filter(function(p){
+        return p.pillar_primary === ACTIVE_PILLAR || p.pillar_secondary === ACTIVE_PILLAR;
+      });
+    }
     var max = Math.max.apply(null, posts.map(function(p){return p.views||0;}).concat([0]));
     var html = posts.map(function(p){
       var hi = (p.views||0) === max && max > 0;
       var flag = p.needs_review ? '<span class="flag" title="Auto-extracted from caption; not verified">⚠</span>' : '';
+      var pillarHtml = '';
+      if (p.pillar_primary) {
+        pillarHtml = '<span class="pill pillar" title="Primary pillar">' + esc(PILLAR_LABELS[p.pillar_primary] || p.pillar_primary) + '</span>';
+        if (p.pillar_secondary) {
+          pillarHtml += ' <span class="pill pillar-secondary" title="Secondary pillar">' + esc(PILLAR_LABELS[p.pillar_secondary] || p.pillar_secondary) + '</span>';
+        }
+      }
       return '<div class="post-tile' + (hi?' hi':'') + '">' +
         '<div class="top-row"><span>' + esc(p.date) + '</span><span class="metric">' + fmtNum(p.views) + ' views · ' + fmtNum(p.likes) + ' likes</span></div>' +
         '<div class="hook">' + esc(p.hook) + ' ' + flag + '</div>' +
         '<div class="cap">' + esc(p.caption) + '</div>' +
+        (pillarHtml ? '<div style="margin-top:6px">' + pillarHtml + '</div>' : '') +
         '<div style="margin-top:8px"><a href="' + esc(p.url) + '" target="_blank" rel="noopener">view post →</a></div>' +
         '</div>';
     }).join('');
-    document.getElementById('dan-grid').innerHTML = html;
-  })();
+    var grid = document.getElementById('dan-grid');
+    grid.innerHTML = html || '<div class="errbox" style="color:var(--muted)">No posts match this pillar filter.</div>';
+    var stat = document.getElementById('my-posts-stat');
+    if (stat) stat.textContent = posts.length + ' of ' + totalCount + ' posts';
+  }
 
   var FILTERS = { search: '', rich: false, follow: false, watch: false, dad: false, top: false, hide_anti: true };
   function filteredRecipes() {
@@ -11558,7 +12666,7 @@
       var v = r.verdict ? '<span class="v">' + esc(r.verdict) + '</span>' : '';
       var rn = rec.title || rec.name || '';
       var tagSource = (rec.rich_tags && rec.rich_tags.length) ? rec.rich_tags : (r.tags || []);
-      var tagsHtml = tagSource.slice(0,5).map(function(t){
+      var tagsHtml = tagSource.slice(0,3).map(function(t){
         return '<span class="tag' + (rec.rich?' rich':'') + '">' + esc(t) + '</span>';
       }).join('');
       return '<div class="rcard ' + (rec.rich?'rich':'') + '" data-idx="' + i + '">' +
@@ -11579,7 +12687,7 @@
     });
   }
 
-  document.querySelectorAll('.chip').forEach(function(c){
+  document.querySelectorAll('.chip[data-filter]').forEach(function(c){
     c.addEventListener('click', function(){
       var f = c.dataset.filter;
       FILTERS[f] = !FILTERS[f];
@@ -11688,7 +12796,542 @@
     if (e.target.id === 'modal') document.getElementById('modal').classList.remove('open');
   });
 
+  // ============================================================
+  // Extended wiring (2026-05-19): strategy, tabs, drafts, voice/hooks
+  // ============================================================
+
+  // --- Parse the new bundles ---
+  var DRAFTS = [];
+  var VOICE_HOOKS = {};
+  try {
+    var dEl = document.getElementById('drafts-bundle');
+    if (dEl) DRAFTS = (JSON.parse(dEl.textContent).drafts) || [];
+  } catch (e) { showError('Drafts bundle parse failed: ' + e); }
+  try {
+    var vEl = document.getElementById('voice-hooks-bundle');
+    if (vEl) VOICE_HOOKS = JSON.parse(vEl.textContent) || {};
+  } catch (e) { showError('Voice-hooks bundle parse failed: ' + e); }
+
+  // --- Pillar taxonomy + cross-tab state ---
+  var PILLAR_SLUGS = ['design-craft', 'dad', 'founder', 'tastemaker', 'ai-tooling'];
+  var PILLAR_LABELS = {
+    'design-craft': 'Design / craft',
+    'dad': 'Dad',
+    'founder': 'Founder',
+    'tastemaker': 'Tastemaker',
+    'ai-tooling': 'AI / tooling'
+  };
+  var ACTIVE_PILLAR = null;            // null or slug
+  var ACTIVE_TAB = (function(){
+    try { return localStorage.getItem('tts-active-tab') || 'recipes'; }
+    catch (e) { return 'recipes'; }
+  })();
+
+  function setActiveTab(name) {
+    if (!name) name = 'recipes';
+    ACTIVE_TAB = name;
+    try { localStorage.setItem('tts-active-tab', name); } catch (e) {}
+    document.querySelectorAll('.tab-btn').forEach(function(b){
+      var is = b.dataset.tab === name;
+      b.classList.toggle('active', is);
+      b.setAttribute('aria-selected', is ? 'true' : 'false');
+    });
+    document.querySelectorAll('.tab-panel').forEach(function(p){
+      p.classList.toggle('active', p.dataset.tabPanel === name);
+    });
+  }
+
+  function setActivePillar(slug) {
+    ACTIVE_PILLAR = slug || null;
+    var banner = document.getElementById('pillar-filter-banner');
+    if (ACTIVE_PILLAR) {
+      banner.style.display = 'flex';
+      document.getElementById('pillar-filter-label').textContent = PILLAR_LABELS[ACTIVE_PILLAR] || ACTIVE_PILLAR;
+    } else {
+      banner.style.display = 'none';
+    }
+    document.querySelectorAll('.pillar-tile').forEach(function(t){
+      t.classList.toggle('active', t.dataset.pillar === ACTIVE_PILLAR);
+    });
+    renderDan();
+    renderDrafts();
+    renderHookBank();
+    renderCommonToHook();
+  }
+
+  // --- Strategy panel ---
+  function renderStrategy() {
+    var posts = DATA.dan_account || [];
+    var total = posts.length;
+    var counts = {};
+    PILLAR_SLUGS.forEach(function(s){ counts[s] = 0; });
+    posts.forEach(function(p){
+      if (p && p.pillar_primary && counts[p.pillar_primary] !== undefined) {
+        counts[p.pillar_primary]++;
+      }
+    });
+    var max = Math.max.apply(null, PILLAR_SLUGS.map(function(s){return counts[s];}).concat([1]));
+    var html = PILLAR_SLUGS.map(function(s){
+      var c = counts[s] || 0;
+      var pct = total ? Math.round(c / total * 100) : 0;
+      var bar = max ? Math.round(c / max * 100) : 0;
+      var act = ACTIVE_PILLAR === s ? ' active' : '';
+      return '<div class="pillar-tile' + act + '" data-pillar="' + s + '" role="button" tabindex="0">' +
+        '<div class="pillar-name">' + esc(PILLAR_LABELS[s]) + '</div>' +
+        '<div class="pillar-count">' + c + '</div>' +
+        '<div class="pillar-pct">' + pct + '% of ' + total + '</div>' +
+        '<div class="pillar-bar"><i style="width:' + bar + '%"></i></div>' +
+        '</div>';
+    }).join('');
+    document.getElementById('pillar-tiles').innerHTML = html;
+    document.querySelectorAll('.pillar-tile').forEach(function(el){
+      el.addEventListener('click', function(){
+        var p = el.dataset.pillar;
+        setActivePillar(ACTIVE_PILLAR === p ? null : p);
+      });
+      el.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          el.click();
+        }
+      });
+    });
+  }
+
+  // --- Drafts tab ---
+  var DRAFT_FILTERS = { search: '', status: null };
+  function filteredDrafts() {
+    var q = (DRAFT_FILTERS.search || '').toLowerCase();
+    return DRAFTS.filter(function(d){
+      if (DRAFT_FILTERS.status && d.status !== DRAFT_FILTERS.status) return false;
+      if (ACTIVE_PILLAR && d.pillar_primary !== ACTIVE_PILLAR && d.pillar_secondary !== ACTIVE_PILLAR) return false;
+      if (q) {
+        var blob = [d.title, d.hook, d.close, d.caption, d.format, (d.tags||[]).join(' ')].join(' ').toLowerCase();
+        if (blob.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+  }
+  var lastDraftList = [];
+  function renderDrafts() {
+    var list = filteredDrafts();
+    lastDraftList = list;
+    document.getElementById('drafts-count').textContent = list.length + (list.length === 1 ? ' draft' : ' drafts');
+    document.getElementById('drafts-stat').textContent = list.length + ' of ' + DRAFTS.length;
+    var html = list.map(function(d, i){
+      var statusClass = d.status ? 'status-' + d.status : '';
+      var statusHtml = d.status ? '<span class="pill ' + statusClass + '">' + esc(d.status) + '</span>' : '';
+      var formatHtml = d.format ? '<span class="pill">' + esc(d.format) + '</span>' : '';
+      var lenHtml = d.length_target ? '<span class="pill">' + esc(d.length_target) + '</span>' : '';
+      var primary = d.pillar_primary ? '<span class="pill pillar">' + esc(PILLAR_LABELS[d.pillar_primary] || d.pillar_primary) + '</span>' : '';
+      var secondary = d.pillar_secondary ? '<span class="pill pillar-secondary">' + esc(PILLAR_LABELS[d.pillar_secondary] || d.pillar_secondary) + '</span>' : '';
+      var hook = d.hook || '';
+      var hookShort = hook.length > 110 ? hook.slice(0, 107) + '…' : hook;
+      return '<div class="draft-card" data-draft-idx="' + i + '">' +
+        '<div class="top-row"><div class="title">' + esc(d.title || d.id) + '</div>' +
+          '<div class="meta">' + esc(d.updated || d.created || '') + '</div></div>' +
+        (hookShort ? '<div class="hook">' + esc(hookShort) + '</div>' : '') +
+        '<div class="footer-row">' + statusHtml + formatHtml + lenHtml + primary + secondary + '</div>' +
+        '</div>';
+    }).join('');
+    document.getElementById('drafts-list').innerHTML = html ||
+      '<div class="errbox" style="color:var(--muted)">No drafts match. Clear filters above.</div>';
+    document.querySelectorAll('.draft-card').forEach(function(el){
+      el.addEventListener('click', function(){ openDraftModal(lastDraftList[+el.dataset.draftIdx]); });
+    });
+  }
+
+  // Minimal markdown -> HTML renderer. Handles the patterns used in the
+  // 04-scripts/*.md drafts: headings, bold, italic, blockquotes, ordered +
+  // unordered lists, inline code, links, [[wikilinks]] (rendered as italic),
+  // horizontal rules, paragraphs.
+  function mdToHtml(md) {
+    if (!md) return '';
+    var lines = md.replace(/\r\n/g, '\n').split('\n');
+    var out = [];
+    var i = 0;
+    function escHtml(s){
+      return s.replace(/[&<>]/g, function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});
+    }
+    function inline(s){
+      s = escHtml(s);
+      // Code spans first so other patterns don't apply inside
+      s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+      // Bold then italic
+      s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      s = s.replace(/(^|[\s(])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+      s = s.replace(/(^|[\s(])_([^_\n]+)_/g, '$1<em>$2</em>');
+      // Markdown links [text](url)
+      s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener">$1</a>');
+      // Obsidian-style [[wikilinks]] or [[link|alias]] -> italic alias/link
+      s = s.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, function(_, t, a){
+        return '<em>' + (a || t) + '</em>';
+      });
+      return s;
+    }
+    while (i < lines.length) {
+      var line = lines[i];
+      // Skip blank lines between blocks
+      if (line.trim() === '') { i++; continue; }
+      // Horizontal rule
+      if (/^---+\s*$/.test(line)) { out.push('<hr/>'); i++; continue; }
+      // Headings
+      var hm = line.match(/^(#{1,6})\s+(.*)$/);
+      if (hm) {
+        var lvl = hm[1].length;
+        out.push('<h' + lvl + '>' + inline(hm[2]) + '</h' + lvl + '>');
+        i++; continue;
+      }
+      // Blockquote (consume contiguous lines)
+      if (/^>\s?/.test(line)) {
+        var qBuf = [];
+        while (i < lines.length && /^>\s?/.test(lines[i])) {
+          qBuf.push(lines[i].replace(/^>\s?/, ''));
+          i++;
+        }
+        out.push('<blockquote>' + inline(qBuf.join(' ')) + '</blockquote>');
+        continue;
+      }
+      // Ordered list
+      if (/^\d+\.\s+/.test(line)) {
+        var olBuf = [];
+        while (i < lines.length && /^\d+\.\s+/.test(lines[i])) {
+          olBuf.push('<li>' + inline(lines[i].replace(/^\d+\.\s+/, '')) + '</li>');
+          i++;
+        }
+        out.push('<ol>' + olBuf.join('') + '</ol>');
+        continue;
+      }
+      // Unordered list
+      if (/^[-*+]\s+/.test(line)) {
+        var ulBuf = [];
+        while (i < lines.length && /^[-*+]\s+/.test(lines[i])) {
+          ulBuf.push('<li>' + inline(lines[i].replace(/^[-*+]\s+/, '')) + '</li>');
+          i++;
+        }
+        out.push('<ul>' + ulBuf.join('') + '</ul>');
+        continue;
+      }
+      // Paragraph (consume contiguous non-empty, non-block lines)
+      var pBuf = [];
+      while (i < lines.length && lines[i].trim() !== '' &&
+             !/^#{1,6}\s+/.test(lines[i]) &&
+             !/^>\s?/.test(lines[i]) &&
+             !/^\d+\.\s+/.test(lines[i]) &&
+             !/^[-*+]\s+/.test(lines[i]) &&
+             !/^---+\s*$/.test(lines[i])) {
+        pBuf.push(lines[i]);
+        i++;
+      }
+      out.push('<p>' + inline(pBuf.join(' ')) + '</p>');
+    }
+    return out.join('\n');
+  }
+
+  function openDraftModal(d) {
+    if (!d) return;
+    var statusHtml = d.status ? '<span class="pill status-' + d.status + '">' + esc(d.status) + '</span>' : '';
+    var formatHtml = d.format ? '<span class="pill">' + esc(d.format) + '</span>' : '';
+    var primary = d.pillar_primary ? '<span class="pill pillar">' + esc(PILLAR_LABELS[d.pillar_primary] || d.pillar_primary) + '</span>' : '';
+    var secondary = d.pillar_secondary ? '<span class="pill pillar-secondary">' + esc(PILLAR_LABELS[d.pillar_secondary] || d.pillar_secondary) + '</span>' : '';
+    var hashtags = (d.hashtags && d.hashtags.length) ? d.hashtags.map(function(h){return '<code>' + esc(h) + '</code>';}).join(' ') : '';
+    var bodyHtml = d.body_markdown ? mdToHtml(d.body_markdown) : '';
+    var body =
+      '<h3>' + esc(d.title || d.id) + '</h3>' +
+      '<div class="src">' +
+        statusHtml + ' ' + formatHtml + ' ' + primary + ' ' + secondary +
+        (d.length_target ? ' · ' + esc(d.length_target) : '') +
+        (d.updated ? ' · updated ' + esc(d.updated) : '') +
+      '</div>' +
+      (d.hook ? '<div class="block"><div class="label">Hook</div><div class="body">' + esc(d.hook) + '</div></div>' : '') +
+      (d.close ? '<div class="block"><div class="label">Close</div><div class="body">' + esc(d.close) + '</div></div>' : '') +
+      (d.caption ? '<div class="block"><div class="label">Caption</div><div class="body">' + linkifyEsc(d.caption) + '</div></div>' : '') +
+      (hashtags ? '<div class="block"><div class="label">Hashtags</div><div class="body">' + hashtags + '</div></div>' : '') +
+      (bodyHtml ? '<div class="block"><div class="label">Full script + notes</div><div class="body md-body">' + bodyHtml + '</div></div>' : '') +
+      (d.body_path ? '<div class="block"><div class="label">Source</div><div class="body"><code>' + esc(d.body_path) + '</code></div></div>' : '') +
+      (d.video_id ? '<div class="block"><div class="label">Video ID</div><div class="body">' + esc(d.video_id) + '</div></div>' : '');
+    document.getElementById('modal-body').innerHTML = body;
+    document.getElementById('modal').classList.add('open');
+  }
+
+  // --- Voice & Hooks tab ---
+  function renderVoiceRules() {
+    var rules = VOICE_HOOKS.voice_rules || [];
+    var list = document.getElementById('voice-rules-list');
+    if (!list) return;
+    list.innerHTML = rules.map(function(r){
+      return '<div class="voice-rule">' +
+        '<div class="vr-title">' + esc(r.title) + '</div>' +
+        '<div class="vr-body">' + linkifyEsc(r.body) + '</div>' +
+        '</div>';
+    }).join('') || '<div class="errbox" style="color:var(--muted)">No voice rules in bundle.</div>';
+  }
+
+  var HOOK_FILTERS = { search: '', source: null };
+  function filteredHooks() {
+    var q = (HOOK_FILTERS.search || '').toLowerCase();
+    return (VOICE_HOOKS.hook_bank || []).filter(function(h){
+      if (HOOK_FILTERS.source && h.source !== HOOK_FILTERS.source) return false;
+      if (ACTIVE_PILLAR && (h.pillars || []).indexOf(ACTIVE_PILLAR) === -1) return false;
+      if (q) {
+        var blob = [h.template, h.pattern_name, h.fit_notes, h.example_label, (h.pillars||[]).join(' ')].join(' ').toLowerCase();
+        if (blob.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+  }
+  function renderHookBank() {
+    var list = filteredHooks();
+    var total = (VOICE_HOOKS.hook_bank || []).length;
+    var c = document.getElementById('hook-bank-count');
+    var s = document.getElementById('hook-bank-stat');
+    if (c) c.textContent = list.length;
+    if (s) s.textContent = list.length + ' of ' + total;
+    var html = list.map(function(h){
+      var patternHtml = h.pattern_name ? '<div class="hook-pattern">' + esc(h.pattern_name) + '</div>' : '';
+      var notesHtml = h.fit_notes ? '<div class="hook-notes">' + esc(h.fit_notes) + '</div>' : '';
+      var pillars = (h.pillars || []).map(function(slug){
+        return '<span class="pill pillar">' + esc(PILLAR_LABELS[slug] || slug) + '</span>';
+      }).join(' ');
+      var sourceLabel = ({
+        'apple-note-2026-05-18': 'Apple Note',
+        'recipe-corpus': 'Recipe corpus',
+        'dans-lane': "Dan's lane"
+      })[h.source] || h.source || '';
+      var sourceHtml = sourceLabel ? '<span class="pill">' + esc(sourceLabel) + '</span>' : '';
+      var exampleHtml = '';
+      if (h.example_pending) {
+        exampleHtml = '<span class="pending-badge">example pending</span>';
+      } else if (h.example_url) {
+        exampleHtml = '<a class="hook-example" href="' + esc(h.example_url) + '" target="_blank" rel="noopener">' +
+          esc(h.example_label || 'view example →') + '</a>';
+      } else if (h.example_label) {
+        exampleHtml = '<span class="hook-example" style="color:var(--muted)">' + esc(h.example_label) + '</span>';
+      }
+      return '<div class="hook-card">' +
+        patternHtml +
+        '<div class="hook-template">' + esc(h.template) + '</div>' +
+        notesHtml +
+        '<div class="hook-footer">' + sourceHtml + ' ' + pillars + ' ' + exampleHtml + '</div>' +
+        '</div>';
+    }).join('');
+    document.getElementById('hook-bank-list').innerHTML = html ||
+      '<div class="errbox" style="color:var(--muted)">No hooks match. Clear filters above.</div>';
+  }
+
+  function renderCommonToHook() {
+    var rows = (VOICE_HOOKS.common_to_hook || []).filter(function(r){
+      if (!ACTIVE_PILLAR) return true;
+      return (r.pillars || []).indexOf(ACTIVE_PILLAR) !== -1;
+    });
+    if (!rows.length) {
+      document.getElementById('common-to-hook-list').innerHTML =
+        '<div class="errbox" style="color:var(--muted)">No reframes match this pillar.</div>';
+      return;
+    }
+    var html = '<table class="reframe-table">' +
+      '<thead><tr><th>Common thing</th><th>Hook reframe</th><th>Pillars</th></tr></thead>' +
+      '<tbody>' +
+      rows.map(function(r){
+        var pillars = (r.pillars || []).map(function(slug){
+          return '<span class="pill pillar">' + esc(PILLAR_LABELS[slug] || slug) + '</span>';
+        }).join(' ');
+        return '<tr>' +
+          '<td class="reframe-common">' + esc(r.common) + '</td>' +
+          '<td class="reframe-hook">' + esc(r.hook) + '</td>' +
+          '<td>' + pillars + '</td>' +
+          '</tr>';
+      }).join('') +
+      '</tbody></table>';
+    document.getElementById('common-to-hook-list').innerHTML = html;
+  }
+
+  function renderTopicsIn() {
+    var tbp = VOICE_HOOKS.topics_in_by_pillar || {};
+    var html = PILLAR_SLUGS.map(function(slug){
+      var body = tbp[slug];
+      if (!body) return '';
+      return '<div class="topic-block">' +
+        '<h4>' + esc(PILLAR_LABELS[slug]) + '</h4>' +
+        '<p>' + linkifyEsc(body) + '</p>' +
+        '</div>';
+    }).join('');
+    document.getElementById('topics-in-list').innerHTML = html ||
+      '<div class="errbox" style="color:var(--muted)">No topics_in_by_pillar in bundle.</div>';
+  }
+
+  function renderTopicsOut() {
+    var items = VOICE_HOOKS.topics_out || [];
+    document.getElementById('topics-out-list').innerHTML = items.map(function(t){
+      return '<span class="topic-out">' + esc(t) + '</span>';
+    }).join('') || '<div class="errbox" style="color:var(--muted)">No topics_out in bundle.</div>';
+  }
+
+  // --- Init: tab switching + filter event wiring ---
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){ setActiveTab(btn.dataset.tab); });
+  });
+  var clearBtn = document.getElementById('clear-pillar-filter');
+  if (clearBtn) clearBtn.addEventListener('click', function(){ setActivePillar(null); });
+
+  var draftQ = document.getElementById('drafts-q');
+  if (draftQ) draftQ.addEventListener('input', function(e){
+    DRAFT_FILTERS.search = e.target.value;
+    renderDrafts();
+  });
+  document.querySelectorAll('.chip[data-drafts-filter-status]').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var s = chip.dataset.draftsFilterStatus;
+      DRAFT_FILTERS.status = DRAFT_FILTERS.status === s ? null : s;
+      document.querySelectorAll('.chip[data-drafts-filter-status]').forEach(function(c){
+        c.classList.toggle('active', c.dataset.draftsFilterStatus === DRAFT_FILTERS.status);
+      });
+      renderDrafts();
+    });
+  });
+
+  var hookQ = document.getElementById('hook-q');
+  if (hookQ) hookQ.addEventListener('input', function(e){
+    HOOK_FILTERS.search = e.target.value;
+    renderHookBank();
+  });
+  document.querySelectorAll('.chip[data-hook-source]').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var s = chip.dataset.hookSource;
+      HOOK_FILTERS.source = HOOK_FILTERS.source === s ? null : s;
+      document.querySelectorAll('.chip[data-hook-source]').forEach(function(c){
+        c.classList.toggle('active', c.dataset.hookSource === HOOK_FILTERS.source);
+      });
+      renderHookBank();
+    });
+  });
+
+  // --- Featured cycling carousel (added 2026-05-19) ---
+  var FEATURED_INTERVAL_MS = 5000;
+  var FEATURED_FADE_MS = 350;
+  var FEATURED_MAX = 8;
+  var featuredItems = [];
+  var featuredIdx = 0;
+  var featuredTimer = null;
+  var featuredPaused = false;
+
+  function buildFeaturedItems() {
+    var recipes = (DATA.recipes || []).filter(function(r){
+      return r && r.recipe && r.recipe.rich && r.hook && r.hook.length > 4;
+    });
+    // Sort by views desc, take top FEATURED_MAX, randomly shuffle first 12 for variety per load
+    var top = recipes.slice().sort(function(a,b){ return (b.views||0) - (a.views||0); }).slice(0, 12);
+    for (var i = top.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = top[i]; top[i] = top[j]; top[j] = t;
+    }
+    featuredItems = top.slice(0, FEATURED_MAX);
+  }
+
+  function pillarLabelFromTags(r) {
+    var rec = r.recipe || {};
+    var ang = rec.best_angle;
+    if (ang && ANGLES[ang]) return ANGLES[ang].label;
+    if (r.lane) return r.lane.replace(/-/g, ' ').replace(/\b\w/g, function(c){return c.toUpperCase();});
+    return '';
+  }
+
+  function renderFeaturedCard(idx, opts) {
+    if (!featuredItems.length) return;
+    opts = opts || {};
+    var r = featuredItems[idx];
+    var rec = r.recipe || {};
+    var card = document.getElementById('featured-card');
+    var apply = function() {
+      var label = pillarLabelFromTags(r);
+      var eyebrow = label ? label.toUpperCase() : '@' + (r.creator || '');
+      document.getElementById('featured-eyebrow').textContent = eyebrow;
+      document.getElementById('featured-hook').textContent = r.hook || '';
+      var creatorHtml = '<strong>@' + esc(r.creator || '') + '</strong>' +
+        (r.verdict ? ' · ' + esc(r.verdict) : '') +
+        (r.date ? ' · ' + esc(r.date) : '');
+      document.getElementById('featured-creator').innerHTML = creatorHtml;
+      var recipeName = rec.title || rec.name || '';
+      document.getElementById('featured-recipe-name').textContent = recipeName;
+      document.getElementById('featured-views').textContent = fmtNum(r.views);
+      document.getElementById('featured-likes').textContent = fmtNum(r.likes);
+      // Update progress dots
+      var dots = document.getElementById('featured-progress');
+      dots.innerHTML = featuredItems.map(function(_, i){
+        return '<i class="' + (i === idx ? 'active' : '') + '"></i>';
+      }).join('');
+      card.dataset.activeIdx = idx;
+      if (opts.fade) {
+        card.classList.remove('fading');
+      }
+    };
+    if (opts.fade) {
+      card.classList.add('fading');
+      setTimeout(apply, FEATURED_FADE_MS);
+    } else {
+      apply();
+    }
+  }
+
+  function cycleFeatured() {
+    if (featuredPaused || !featuredItems.length) return;
+    featuredIdx = (featuredIdx + 1) % featuredItems.length;
+    renderFeaturedCard(featuredIdx, { fade: true });
+  }
+
+  function startFeaturedCycle() {
+    if (featuredTimer) clearInterval(featuredTimer);
+    featuredTimer = setInterval(cycleFeatured, FEATURED_INTERVAL_MS);
+  }
+
+  function initFeatured() {
+    buildFeaturedItems();
+    if (!featuredItems.length) {
+      var card = document.getElementById('featured-card');
+      if (card) card.style.display = 'none';
+      var fh = document.querySelector('#featured h2');
+      if (fh) fh.style.display = 'none';
+      return;
+    }
+    renderFeaturedCard(0);
+    startFeaturedCycle();
+
+    var card = document.getElementById('featured-card');
+    card.addEventListener('mouseenter', function(){ featuredPaused = true; });
+    card.addEventListener('mouseleave', function(){ featuredPaused = false; });
+    card.addEventListener('click', function(e){
+      // Click anywhere on card opens modal for current featured item
+      var idx = parseInt(card.dataset.activeIdx || '0', 10);
+      openModal(featuredItems[idx]);
+    });
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        var idx = parseInt(card.dataset.activeIdx || '0', 10);
+        openModal(featuredItems[idx]);
+      }
+    });
+    // CTA button click bubbles through; intercept to avoid double-trigger
+    document.getElementById('featured-cta').addEventListener('click', function(e){
+      e.stopPropagation();
+      var idx = parseInt(card.dataset.activeIdx || '0', 10);
+      openModal(featuredItems[idx]);
+    });
+  }
+
+  // --- Initial render ---
+  renderStrategy();
   renderLibrary();
+  renderDan();
+  renderDrafts();
+  renderVoiceRules();
+  renderHookBank();
+  renderCommonToHook();
+  renderTopicsIn();
+  renderTopicsOut();
+  initFeatured();
+  setActiveTab(ACTIVE_TAB);
 })();
 </script>
 

@@ -10,7 +10,9 @@
       "likes": 0,
       "hook": "My favorite thing about working from home\nCo-waves",
       "hook_source": "spoken",
-      "needs_review": false
+      "needs_review": false,
+      "pillar_primary": "dad",
+      "pillar_secondary": "design-craft"
     },
     {
       "pid": "7640427653358734599",
@@ -21,7 +23,9 @@
       "likes": 5,
       "hook": "So, tomorrow morning, I'm going surf skiing for the first time.",
       "hook_source": "spoken",
-      "needs_review": false
+      "needs_review": false,
+      "pillar_primary": "tastemaker",
+      "pillar_secondary": null
     },
     {
       "pid": "7640388057472060679",
@@ -32,7 +36,9 @@
       "likes": 12,
       "hook": "we love a sunrise 🌅",
       "hook_source": "caption",
-      "needs_review": true
+      "needs_review": true,
+      "pillar_primary": "tastemaker",
+      "pillar_secondary": null
     },
     {
       "pid": "7639988516570664210",
@@ -43,7 +49,9 @@
       "likes": 3,
       "hook": "I don't know why more designs don't do this.",
       "hook_source": "spoken",
-      "needs_review": false
+      "needs_review": false,
+      "pillar_primary": "design-craft",
+      "pillar_secondary": "tastemaker"
     },
     {
       "pid": "7639672509071199496",
@@ -54,7 +62,9 @@
       "likes": 8,
       "hook": "I feel like I appreciate life more when I scroll through my camera ro",
       "hook_source": "caption",
-      "needs_review": true
+      "needs_review": true,
+      "pillar_primary": "tastemaker",
+      "pillar_secondary": null
     },
     {
       "pid": "7639651852077894919",
@@ -65,7 +75,9 @@
       "likes": 29,
       "hook": "This is what AI guided prototyping looks like right now.",
       "hook_source": "spoken",
-      "needs_review": false
+      "needs_review": false,
+      "pillar_primary": "ai-tooling",
+      "pillar_secondary": "design-craft"
     },
     {
       "pid": "7639612625856318728",
@@ -76,7 +88,9 @@
       "likes": 3,
       "hook": "dreaming up a company on a rainy monday morning",
       "hook_source": "caption",
-      "needs_review": true
+      "needs_review": true,
+      "pillar_primary": "founder",
+      "pillar_secondary": null
     },
     {
       "pid": "7638410947408792839",
@@ -87,7 +101,9 @@
       "likes": 10,
       "hook": "[no spoken hook — see caption]",
       "hook_source": "caption",
-      "needs_review": true
+      "needs_review": true,
+      "pillar_primary": null,
+      "pillar_secondary": null
     },
     {
       "pid": "7638408877360319752",
@@ -98,7 +114,9 @@
       "likes": 6,
       "hook": "I am genuinely terrible at being my own client.",
       "hook_source": "spoken",
-      "needs_review": false
+      "needs_review": false,
+      "pillar_primary": "founder",
+      "pillar_secondary": "design-craft"
     }
   ],
   "recipes": [
