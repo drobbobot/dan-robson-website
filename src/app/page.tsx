@@ -1,6 +1,7 @@
 import { Nav } from '@/components/Nav';
 import { Hero } from '@/components/Hero';
 import { ProfileServices } from '@/components/ProfileServices';
+import { NowFeed } from '@/components/NowFeed';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 
@@ -11,6 +12,7 @@ export default function Home() {
       <main>
         <Hero />
         <ProfileServices />
+        <NowFeed />
         <Contact />
       </main>
       <Footer />

@@ -49,3 +49,12 @@ body {
   background: var(--primary);
   color: var(--primary-foreground);
 }
+
+/* Recent activity carousel — hide scrollbar, keep native scroll/snap */
+.now-carousel {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.now-carousel::-webkit-scrollbar {
+  display: none;
+}
