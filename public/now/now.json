@@ -1,15 +1,79 @@
 {
-  "updated": "2026-05-22",
+  "updated": "2026-05-26",
   "cadence": "refreshes every 3 days",
   "how": "These activity cards are automatically generated based on activity in my memory system. I review them every few days, and they automatically publish here.",
   "closer": "A live working surface, not a portfolio.",
   "items": [
     {
+      "date": "2026-05-26",
+      "display_date": "26 May",
+      "title": "Fixed my TikTok scraper after the browser path got blocked",
+      "category": "Pipeline",
+      "tools": [
+        "Node",
+        "Chromium",
+        "Playwright"
+      ],
+      "body": "When the browser-MCP route started returning empty grids, I tested a headless Chromium with a stealth plugin instead. It pulled 16 posts cleanly in 30 seconds and the videos endpoint stopped pushing back."
+    },
+    {
+      "date": "2026-05-22",
+      "display_date": "22 May",
+      "title": "Shipped this Recent activity section",
+      "category": "Content tool",
+      "tools": [
+        "Cowork",
+        "Next.js",
+        "Python"
+      ],
+      "body": "I designed the pattern these cards run on. A generator skims my memory system every few days for card-worthy work, I review the drafts, and a publisher writes them straight to the site."
+    },
+    {
+      "date": "2026-05-22",
+      "display_date": "22 May",
+      "title": "Wired iMessages into my memory system",
+      "category": "Pipeline",
+      "tools": [
+        "Python",
+        "LaunchAgent",
+        "SQLite"
+      ],
+      "body": "I added a small launchd job that reads new iMessages from chat.db on a watermark and drops them into my memory system five times a day. Nothing leaves the Mac."
+    },
+    {
+      "date": "2026-05-22",
+      "display_date": "22 May",
+      "title": "Packaged a multi-account Gmail tool for my agent sessions",
+      "category": "Agent infra",
+      "tools": [
+        "MCP",
+        "Node",
+        "OAuth"
+      ],
+      "body": "I built a reusable install kit that gives Cowork three Gmail surfaces under one OAuth client, portable across machines. Ships as a plugin, so a new laptop is a double-click away."
+    },
+    {
+      "date": "2026-05-22",
+      "display_date": "22 May",
+      "title": "Built a capture system for the rules I give my agents",
+      "category": "Agent governance",
+      "tools": [
+        "Cowork",
+        "Python"
+      ],
+      "body": "When I tell an agent 'always do X' or 'never do Y', it now gets logged and surfaces in the weekly lint for me to triage. Stops durable rules from getting buried in a session transcript."
+    },
+    {
       "date": "2026-05-21",
       "display_date": "21 May",
       "title": "Dual-transcript voice memo pipeline",
       "category": "Pipeline",
-      "tools": ["Shortcuts", "Whisper", "Apple Speech", "Ollama"],
+      "tools": [
+        "Shortcuts",
+        "Whisper",
+        "Apple Speech",
+        "Ollama"
+      ],
       "body": "Built a dual-transcript voice memo pipeline. iPhone Shortcuts push memos to my second brain on capture; two transcripts (Whisper plus Apple Speech) generate locally, a local Ollama model writes a smart title, and the cleaner one gets promoted to the wiki for triage."
     },
     {
@@ -17,7 +81,10 @@
       "display_date": "20 May",
       "title": "Multi-vault second brain rules",
       "category": "Agent governance",
-      "tools": ["Google Drive", "Claude"],
+      "tools": [
+        "Google Drive",
+        "Claude"
+      ],
       "body": "Tightened the rules for how my second brain works across multiple Google Drive vaults. Personal and Lia each have their own vault, and the agent switches between them without overwriting things in the wrong place."
     },
     {
@@ -25,48 +92,10 @@
       "display_date": "19 May",
       "title": "Extended TikTok Studio",
       "category": "Content tool",
-      "tools": ["Next.js"],
+      "tools": [
+        "Next.js"
+      ],
       "body": "Extended TikTok Studio, the private tool I built to study creators I follow and surface the patterns I can use in my own content strategy. Strategy panel splits posts across five pillars, a Drafts tab pulls from my scripts folder, and a Voice and Hooks tab keeps the writing rules alongside the hook bank."
-    },
-    {
-      "date": "2026-05-19",
-      "display_date": "19 May",
-      "title": "shadcn components wired to Figma",
-      "category": "Design system",
-      "tools": ["shadcn", "Figma", "Storybook"],
-      "body": "Connected shadcn design system components to Figma with a live Storybook reference. A token change in Figma flows through to the React code path."
-    },
-    {
-      "date": "2026-05-14",
-      "display_date": "14 May",
-      "title": "Lia brand microsite v0.1",
-      "category": "Brand",
-      "tools": ["Figma Make"],
-      "body": "Designed and shipped v0.1 of Lia's brand microsite as a Figma Make experiment. A way to test how the brand reads in flow before locking the surface."
-    },
-    {
-      "date": "2026-05-12",
-      "display_date": "12 May",
-      "title": "Priorities synced to Todoist",
-      "category": "Automation",
-      "tools": ["Todoist API", "Shortcuts"],
-      "body": "Wired the Todoist API into my second brain so the day's priorities push straight into the Todoist app. What I plan in my notes shows up as tasks without retyping anything."
-    },
-    {
-      "date": "2026-05-09",
-      "display_date": "9 May",
-      "title": "Mac Mini boot-check automation",
-      "category": "Ops",
-      "tools": ["LaunchAgent", "bash"],
-      "body": "Built a post-reboot startup check for the Mac Mini that runs as a LaunchAgent and verifies the box came back up clean. Handled the gotcha that these scripts run under an old shell, so they have to be written carefully or they silently never run."
-    },
-    {
-      "date": "2026-05-07",
-      "display_date": "7 May",
-      "title": "Split agents across local and cloud",
-      "category": "Agent infra",
-      "tools": ["Ollama"],
-      "body": "Set up my agent system so heavy reasoning runs on a capable cloud model while routine worker tasks stay on a local Ollama model on my own machine. Fast where it needs to be, private where it should be."
     }
   ]
 }
