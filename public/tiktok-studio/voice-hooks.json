@@ -43,7 +43,7 @@
     },
     {
       "title": "Quotes are relay, not delivery",
-      "body": "When the script quotes someone else, treat the line as relay. Say it the way the person said it to you, not the way a voiceover artist would. Don't perform it, don't milk it, don't add a dramatic pause. The \"Life moves fast, you'll be lucky to get eighteen, so make them count\" line in [[05-18-summers]] lands because it sits unperformed."
+      "body": "When the script quotes someone else, treat the line as relay. Say it the way the person said it to you, not the way a voiceover artist would. Don't perform it, don't milk it, don't add a dramatic pause. The \"Life moves fast, you'll be lucky to get eighteen, so make them count\" line in *05-18-summers* lands because it sits unperformed."
     },
     {
       "title": "End on the sharpest line, not the warmest",
@@ -55,7 +55,7 @@
     },
     {
       "title": "Counterpoint visuals",
-      "body": "When the VO names a person or thing, cut to something else. The viewer does the joining work. Rowie isn't shown in [[05-18-summers]] until the final hold, after being implied throughout. The counterpoint principle applies to all texture/reflective shapes: don't cut to what you're saying, cut around it."
+      "body": "When the VO names a person or thing, cut to something else. The viewer does the joining work. Rowie isn't shown in *05-18-summers* until the final hold, after being implied throughout. The counterpoint principle applies to all texture/reflective shapes: don't cut to what you're saying, cut around it."
     },
     {
       "title": "No spoken close on the visual hold",
@@ -104,7 +104,7 @@
   "topics_out": [
     "Politics",
     "Competitors by name",
-    "Religion / faith deconstruction. Held back until the page has trust (video 8-12 earliest per [[02-bench]])",
+    "Religion / faith deconstruction. Held back until the page has trust (video 8-12 earliest per *02-bench*)",
     "Anything half-formed (test elsewhere first)",
     "NOBONK as a personal-brand chapter (it's freelance, not the next chapter)",
     "Compassion field photography. Held back until the page has trust",
@@ -122,7 +122,7 @@
       "template": "I can't believe I'm admitting this publicly...",
       "fit_notes": "Low-cringe if anchored in real admission. Matches V1 register.",
       "example_url": null,
-      "example_label": "01-decision-paralysis (Dan, scheduled)",
+      "example_label": "*01-decision-paralysis* (Dan, scheduled)",
       "example_pending": false,
       "pillars": []
     },
@@ -418,7 +418,7 @@
       "template": "I'm genuinely terrible at being my own client.",
       "fit_notes": "Founder. Used. Vulnerable-admission shape.",
       "example_url": null,
-      "example_label": "01-decision-paralysis",
+      "example_label": "*01-decision-paralysis*",
       "example_pending": false,
       "pillars": [
         "founder"
@@ -432,7 +432,7 @@
       "template": "How do you build something new without losing time with your family?",
       "fit_notes": "Founder / Dad / AI / tooling. Used (V3 self-intro hook). Viewer-question shape — names the tension the audience is also sitting in.",
       "example_url": null,
-      "example_label": "04-self-intro",
+      "example_label": "*04-self-intro*",
       "example_pending": false,
       "pillars": [
         "dad",
@@ -448,7 +448,7 @@
       "template": "Someone told me once you only get eighteen summers with your kid.",
       "fit_notes": "Dad / Founder. Used. Story-led reflective shape — anchors the video in a real moment with a real person, sets up the eight-beat structure (see above). Pattern: \"Someone told me once X\" → \"I asked what he meant\" → relayed quote → context → \"but the line stuck\" → physical artefact → reminder → visual close.",
       "example_url": null,
-      "example_label": "05-18-summers",
+      "example_label": "*05-18-summers*",
       "example_pending": false,
       "pillars": [
         "dad",
@@ -480,7 +480,7 @@
       "template": "A little reminder of why I'm trying to build [ambition]. And a reminder to know when to [discipline].",
       "fit_notes": "Founder / Dad. Used. Ambition + discipline pairing as a closing beat.",
       "example_url": null,
-      "example_label": "05-18-summers",
+      "example_label": "*05-18-summers*",
       "example_pending": false,
       "pillars": [
         "dad",
@@ -495,7 +495,7 @@
       "template": "I don't want to do that at the cost of my family having the best of me.",
       "fit_notes": "Founder / Dad. Used (V3 self-intro emotional pivot). Lands plain, no flourish.",
       "example_url": null,
-      "example_label": "04-self-intro",
+      "example_label": "*04-self-intro*",
       "example_pending": false,
       "pillars": [
         "dad",
@@ -570,7 +570,7 @@
       "template": "Hardest thing I've tried: building products that earn while I'm at bedtime.",
       "fit_notes": "Founder / Dad. From V3 (original chronological version, preserved).",
       "example_url": null,
-      "example_label": "03-how-i-got-here",
+      "example_label": "*03-how-i-got-here*",
       "example_pending": false,
       "pillars": [
         "dad",
@@ -712,12 +712,12 @@
       },
       {
         "sub_type": "Video idea",
-        "destination": "[[02-bench]] `## Bench`",
+        "destination": "*02-bench* `## Bench`",
         "notes": "Existing inbound per the workflow"
       },
       {
         "sub_type": "Thought / reflection",
-        "destination": "[[02-bench]] `## Reflections` (created if missing)",
+        "destination": "*02-bench* `## Reflections` (created if missing)",
         "notes": "New section for longer-form context"
       },
       {
