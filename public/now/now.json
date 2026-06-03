@@ -1,9 +1,42 @@
 {
-  "updated": "2026-05-29",
+  "updated": "2026-06-03",
   "cadence": "refreshes every 3 days",
   "how": "These activity cards are automatically generated based on activity in my memory system. I review them every few days, and they automatically publish here.",
   "closer": "A live working surface, not a portfolio.",
   "items": [
+    {
+      "date": "2026-06-03",
+      "display_date": "3 Jun",
+      "title": "Built a Slack harvester for our founder channel",
+      "category": "Pipeline",
+      "tools": [
+        "Python",
+        "Slack"
+      ],
+      "body": "Built a harvester that reads everything posted in our founder Slack and sorts it as it lands. Insights, ideas and calls to action drop into a triage list, and any links, tools or gear get catalogued in a separate resource library so they stay referenceable."
+    },
+    {
+      "date": "2026-06-02",
+      "display_date": "2 Jun",
+      "title": "Wrote a ticket-builder skill while standing up a Linear epic",
+      "category": "Ops",
+      "tools": [
+        "Linear",
+        "Claude"
+      ],
+      "body": "Stood up a social media epic in our Linear workspace, eight sub-issues wired with the right blocked-by sequencing, and captured the method as a reusable ticket-builder skill so the next epic starts from a real template. The rule baked in is to find the actual vault source before writing a ticket and link it while writing, so the tickets stay grounded and reference-able."
+    },
+    {
+      "date": "2026-06-01",
+      "display_date": "1 Jun",
+      "title": "Designed packaging for an endurance nutrition brand",
+      "category": "Brand",
+      "tools": [
+        "SVG",
+        "Claude Code"
+      ],
+      "body": "Designed screen proofs for a single-serve sachet and a four-pack pouch, building each face to the exact dieline so the front reads at thumbnail size and the back-of-pack info stays legible. Most of the work was the compliance copy, splitting the in-exercise usage rate from the daily limit so the two don't contradict each other on a sports food label."
+    },
     {
       "date": "2026-05-29",
       "display_date": "29 May",
@@ -61,42 +94,6 @@
         "Todoist"
       ],
       "body": "I added two closure rules to my daily pipeline. A Slack reaction within 72 hours auto-closes the related task with a comment, and a completed session matched to a task does the same. Reversible by hand if I disagree with the call."
-    },
-    {
-      "date": "2026-05-27",
-      "display_date": "27 May",
-      "title": "Built a slimmed-down vault setup pack for a friend",
-      "category": "Agent infra",
-      "tools": [
-        "Claude Code",
-        "Python",
-        "LaunchAgent"
-      ],
-      "body": "I forked the canonical handover I use for myself, cut it to five sessions of about four hours, and bundled my local-pipeline scripts so the recipient only has to find and replace once. Pre-filled the discovery starter from his existing wiki page so day one isn't a blank page."
-    },
-    {
-      "date": "2026-05-26",
-      "display_date": "26 May",
-      "title": "Fixed my TikTok scraper after the browser path got blocked",
-      "category": "Pipeline",
-      "tools": [
-        "Node",
-        "Chromium",
-        "Playwright"
-      ],
-      "body": "When the browser-MCP route started returning empty grids, I tested a headless Chromium with a stealth plugin instead. It pulled 16 posts cleanly in 30 seconds and the videos endpoint stopped pushing back."
-    },
-    {
-      "date": "2026-05-22",
-      "display_date": "22 May",
-      "title": "Shipped this Recent activity section",
-      "category": "Content tool",
-      "tools": [
-        "Cowork",
-        "Next.js",
-        "Python"
-      ],
-      "body": "I designed the pattern these cards run on. A generator skims my memory system every few days for card-worthy work, I review the drafts, and a publisher writes them straight to the site."
     }
   ]
 }
