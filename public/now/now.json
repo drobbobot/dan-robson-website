@@ -5,6 +5,51 @@
   "closer": "A live working surface, not a portfolio.",
   "items": [
     {
+      "date": "2026-06-09",
+      "display_date": "9 Jun",
+      "title": "Stood up the design foundation for a rate-comparison site",
+      "category": "Design system",
+      "tools": [
+        "Next.js",
+        "shadcn/ui",
+        "Storybook"
+      ],
+      "body": "Built and deployed the token kit for a home-loan rate comparison site, a componentised shadcn front end so it hands over to the client's dev team ready to wire up to live data. Anchored colour, type and spacing as reusable tokens and pulled a deep teal base toward a more authoritative tone, so the pages read sharp and trustworthy rather than poppy."
+    },
+    {
+      "date": "2026-06-09",
+      "display_date": "9 Jun",
+      "title": "Built an internal company hub wired to our design system",
+      "category": "Design system",
+      "tools": [
+        "Next.js",
+        "Tailwind",
+        "Vercel"
+      ],
+      "body": "Stood up a private internal site that consumes our design system at the component level, so a change to the system flows straight through to the live pages instead of being copied across by hand. Got the propagation test passing, then created the repo and pushed it ready to deploy."
+    },
+    {
+      "date": "2026-06-09",
+      "display_date": "9 Jun",
+      "title": "Token-bound component work in a fintech design system",
+      "category": "Design system",
+      "tools": [
+        "Figma"
+      ],
+      "body": "Redesigned a key-points module in a client's Figma library, keeping every colour, type and spacing value bound to the design tokens rather than hand-set. Pushed the eyebrow style down into the component set so the rule lives in one place, and switched the cards to hug-and-stretch so longer copy stops clipping."
+    },
+    {
+      "date": "2026-06-09",
+      "display_date": "9 Jun",
+      "title": "Designed a privacy dial for a newsletter product",
+      "category": "Content tool",
+      "tools": [
+        "React",
+        "shadcn/ui"
+      ],
+      "body": "Designed an interactive privacy control for a community newsletter product, a dial that sets each story to Owned, Open or Public with the active state lit in its own zone colour. Built it click-to-select with the labels pinned to the arc, so the privacy posture reads at a glance instead of hiding in a settings menu."
+    },
+    {
       "date": "2026-06-04",
       "display_date": "4 Jun",
       "title": "Rebuilt our founder Slack bot as a native service",
@@ -48,52 +93,6 @@
         "Claude Code"
       ],
       "body": "Designed screen proofs for a single-serve sachet and a four-pack pouch, building each face to the exact dieline so the front reads at thumbnail size and the back-of-pack info stays legible. Most of the work was the compliance copy, splitting the in-exercise usage rate from the daily limit so the two don't contradict each other on a sports food label."
-    },
-    {
-      "date": "2026-05-29",
-      "display_date": "29 May",
-      "title": "Built an HTML render of team-topologies research",
-      "category": "Content tool",
-      "tools": [
-        "HTML",
-        "CSS"
-      ],
-      "body": "I took deep research a co-founder ran on Team Topologies and built a single-file HTML render walking the two of us through it. Five diagrams across four sections, including the stream-aligned / platform / complicated-subsystem / enabling stack, the three interaction modes, and a delivery pipeline with explicit Dev-Ready and Done-Ready gates."
-    },
-    {
-      "date": "2026-05-28",
-      "display_date": "28 May",
-      "title": "Architecture pass on a 10-site CMS migration",
-      "category": "Design system",
-      "tools": [
-        "Contentstack",
-        "Miro"
-      ],
-      "body": "I worked through the experience-family architecture for a 10-site lift-and-shift, tightening the shared-capability descriptions so each family reads as a UX pattern rather than a visual variation. I also surfaced that the CMS's Brand Kit is a content-governance product, not a token system, which reshaped where it sits in the layer stack."
-    },
-    {
-      "date": "2026-05-28",
-      "display_date": "28 May",
-      "title": "Added speaker diarisation to my voice memo pipeline",
-      "category": "Pipeline",
-      "tools": [
-        "mlx-whisper",
-        "pyannote.audio",
-        "Ollama"
-      ],
-      "body": "I migrated the voice memo pipeline to a package format that bundles audio, both transcripts, and a smart title in one folder per memo. Added pyannote speaker diarisation so memos with multiple voices come out labelled, and ran a backfill of the existing audio through the new pipeline."
-    },
-    {
-      "date": "2026-05-28",
-      "display_date": "28 May",
-      "title": "Fixed my Apple Notes capture pipeline",
-      "category": "Pipeline",
-      "tools": [
-        "Bash",
-        "LaunchAgent",
-        "Python"
-      ],
-      "body": "The export was silently dropping any note shorter than 20 characters or older than seven days, which killed every action-shaped capture. I replaced the date window with a count-based cap and split the ingest into substantive notes versus an action queue that feeds Todoist."
     }
   ]
 }
