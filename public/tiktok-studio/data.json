@@ -1,6 +1,84 @@
 {
-  "generated_at": "2026-06-04T19:37:33.785303+00:00",
+  "generated_at": "2026-06-20T19:39:24.309165+00:00",
   "dan_account": [
+    {
+      "pid": "7652673436275182855",
+      "url": "https://www.tiktok.com/@dan..robson/video/7652673436275182855",
+      "date": "2026-06-18",
+      "hook": "Creating an analogue moodboard is wildly therapeutic",
+      "hook_source": "caption",
+      "needs_review": true,
+      "caption": "Creating an analogue moodboard is wildly therapeutic #buildinpublic #branddesign @Chris Quinton ",
+      "views": 225,
+      "likes": 5,
+      "pillar_primary": "design-craft",
+      "pillar_secondary": "tastemaker"
+    },
+    {
+      "pid": "7652324270768524552",
+      "url": "https://www.tiktok.com/@dan..robson/video/7652324270768524552",
+      "date": "2026-06-17",
+      "hook": "AI can build some amazing websites.",
+      "hook_source": "caption",
+      "needs_review": true,
+      "caption": "AI can build some amazing websites. It cannot put a toddlers sandal on. Some days are like this, and I love it. #aidesign #workingdad #workingfromhome #claudeai",
+      "views": 140,
+      "likes": 2,
+      "pillar_primary": "dad",
+      "pillar_secondary": "ai-tooling"
+    },
+    {
+      "pid": "7651203537677864210",
+      "url": "https://www.tiktok.com/@dan..robson/video/7651203537677864210",
+      "date": "2026-06-14",
+      "hook": "It’s easy to spend that extra time producing more, but I’d rather experience more.",
+      "hook_source": "caption",
+      "needs_review": true,
+      "caption": "It’s easy to spend that extra time producing more, but I’d rather experience more. #ai #aidesign #claude ",
+      "views": 225,
+      "likes": 6,
+      "pillar_primary": "tastemaker",
+      "pillar_secondary": "ai-tooling"
+    },
+    {
+      "pid": "7650364749938511112",
+      "url": "https://www.tiktok.com/@dan..robson/video/7650364749938511112",
+      "date": "2026-06-12",
+      "hook": "I’m building design system components in Figma without drawing a single one by hand.",
+      "hook_source": "caption",
+      "needs_review": true,
+      "caption": "I’m building design system components in Figma without drawing a single one by hand. Claude Code reads my tokens through an MCP and assembles them from my own atoms. Then I go in and refine with my eyes. Crazy how fast this is moving. #aiworkflow #claude #aidesign #figma",
+      "views": 1247,
+      "likes": 44,
+      "pillar_primary": "ai-tooling",
+      "pillar_secondary": "design-craft"
+    },
+    {
+      "pid": "7650058684029996295",
+      "url": "https://www.tiktok.com/@dan..robson/video/7650058684029996295",
+      "date": "2026-06-11",
+      "hook": "Had a nice slow weekend in the blue mountains.",
+      "hook_source": "caption",
+      "needs_review": true,
+      "caption": "Had a nice slow weekend in the blue mountains. I find it difficult to slow down but I don’t regret it when I do. #bluemountains #hikingwithkids",
+      "views": 241,
+      "likes": 15,
+      "pillar_primary": "tastemaker",
+      "pillar_secondary": "dad"
+    },
+    {
+      "pid": "7649593007951432967",
+      "url": "https://www.tiktok.com/@dan..robson/video/7649593007951432967",
+      "date": "2026-06-10",
+      "hook": "Building a design system in Claude code is getting easier and easier.",
+      "hook_source": "caption",
+      "needs_review": true,
+      "caption": "Building a design system in Claude code is getting easier and easier. I’ve been starting with ShadCN then skinning it with my adjustments - this would have taken a week or more in the old world. #ai #claude #designsystem #uxdesign",
+      "views": 486,
+      "likes": 26,
+      "pillar_primary": "ai-tooling",
+      "pillar_secondary": "design-craft"
+    },
     {
       "pid": "7648091863894740231",
       "url": "https://www.tiktok.com/@dan..robson/video/7648091863894740231",
@@ -9,7 +87,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "I don’t get to use the ol Adobe Illustrator skills as often anymore. But there are still some projects that I can’t automate with Claude so it’s here to stay (for now). #ai #adobeillustrator #claude",
-      "views": 375,
+      "views": 523,
       "likes": 15,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": "design-craft"
@@ -22,7 +100,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Every day looks a bit different at the moment, but the start and finish rarely change. #routine #newcastle #creativedad @Chris Quinton",
-      "views": 226,
+      "views": 247,
       "likes": 5,
       "pillar_primary": "dad",
       "pillar_secondary": "tastemaker"
@@ -35,7 +113,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "It’s so easy to talk about doing something. Now that we are setting up our systems properly the reality of what we are trying to do it becoming a lot more tangible. #buildinpublic @Chris Quinton  ",
-      "views": 253,
+      "views": 285,
       "likes": 12,
       "pillar_primary": "founder",
       "pillar_secondary": null
@@ -48,7 +126,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Learning to surfski part 3 #surfski #newcastle #sunrise ",
-      "views": 251,
+      "views": 297,
       "likes": 1,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -61,7 +139,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Learning to surf ski: lesson 2 #newcastle #sunrise #surfski",
-      "views": 243,
+      "views": 276,
       "likes": 2,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -74,7 +152,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "My lower back loved this #newcastle #longboarding #learntoskate",
-      "views": 228,
+      "views": 241,
       "likes": 5,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -87,7 +165,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Winter sunrises hit different.  #newcastle #sunrise #cyclinglife ",
-      "views": 239,
+      "views": 250,
       "likes": 13,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -100,7 +178,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "I feel like more and more people are how incredibly useful a well set up memory system is. Context is everything with AI. #creativedad #memorysystem #secondbrain #ai",
-      "views": 219,
+      "views": 226,
       "likes": 3,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": null
@@ -113,7 +191,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Me time + free food, name a better duo. #donateplasma #lifebloodau ",
-      "views": 244,
+      "views": 255,
       "likes": 13,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -126,7 +204,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Wednesday show and tell with @Chris Quinton ",
-      "views": 216,
+      "views": 223,
       "likes": 3,
       "pillar_primary": "founder",
       "pillar_secondary": null
@@ -139,7 +217,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Today was cold and wet, but we seized it anyway. @Chris Quinton  #buildinpublic #workingdad #newcastle #icebath ",
-      "views": 233,
+      "views": 238,
       "likes": 3,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -152,7 +230,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Automatically analysing menu design is a blessing and a curse #newcastle #datenight #menudesign #devilwearsprada2 ",
-      "views": 314,
+      "views": 316,
       "likes": 9,
       "pillar_primary": "tastemaker",
       "pillar_secondary": "design-craft"
@@ -165,7 +243,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "The way kids make art is a genuine superpower  #dadlife #creativity #designtaste #newcastle",
-      "views": 277,
+      "views": 280,
       "likes": 15,
       "pillar_primary": "tastemaker",
       "pillar_secondary": "dad"
@@ -178,7 +256,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "I love living here. #newcastle #cycling #morningroutine #fyp @Isaac cocking ",
-      "views": 272,
+      "views": 279,
       "likes": 17,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -191,7 +269,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "It’s all in the deeeetails. #buildinpublic #logodesign #creativedad #designer",
-      "views": 300,
+      "views": 303,
       "likes": null,
       "pillar_primary": "design-craft",
       "pillar_secondary": null
@@ -204,7 +282,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "The song knows 🌈 #newcastle #lia #slowday #buildinpublic",
-      "views": 220,
+      "views": 225,
       "likes": null,
       "pillar_primary": "tastemaker",
       "pillar_secondary": "founder"
@@ -217,7 +295,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "this is my why #workingdad #dadlife #fatherhood #firsttimedad #fyp",
-      "views": 298,
+      "views": 302,
       "likes": null,
       "pillar_primary": "dad",
       "pillar_secondary": null
@@ -230,7 +308,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "They never said who’s home you had to work from 🙃 #workfromhome #creativedad #fyp @Chris Quinton",
-      "views": 226,
+      "views": 228,
       "likes": null,
       "pillar_primary": "dad",
       "pillar_secondary": null
@@ -243,7 +321,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "The worst thing about Cowork spaces. Lunch isn’t safe either. #workingdad #workfromhome #creativedad #dadlife",
-      "views": 323,
+      "views": 328,
       "likes": null,
       "pillar_primary": "dad",
       "pillar_secondary": null
@@ -256,7 +334,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Ambition still respects bedtime #workingdad #fatherhood #ambition #creativedad",
-      "views": 277,
+      "views": 281,
       "likes": null,
       "pillar_primary": "dad",
       "pillar_secondary": null

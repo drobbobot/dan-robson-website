@@ -388,6 +388,89 @@
     <div class="meta">Robson Studio · generated <span id="gen-date"></span> · <span id="counts"></span></div>
   </header>
 
+  <section id="north-star" aria-label="North Star: page strategy">
+    <style>
+      #north-star{margin:22px 0 6px}
+      #north-star .ns-hero{border:1px solid var(--line);background:#fff;padding:26px;position:relative}
+      #north-star .ns-hero::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--hot)}
+      #north-star .ns-eyebrow{font-family:var(--hn);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--hot);font-weight:600;margin:0 0 12px}
+      #north-star .ns-spine{font-family:var(--gr);font-size:clamp(24px,3.3vw,31px);line-height:1.1;color:var(--ink);margin:0 0 12px;font-weight:500;letter-spacing:-.01em}
+      #north-star .ns-spine i{color:var(--hot);font-style:italic}
+      #north-star .ns-lede{font-family:var(--hn);font-size:15px;line-height:1.55;color:var(--ink);margin:0;max-width:66ch}
+      #north-star .ns-lede strong{color:var(--rust);font-weight:600}
+      #north-star .ns-k{font-family:var(--hn);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 9px}
+      #north-star .ns-now{margin-top:18px;border:1px solid var(--hot);background:#fff;padding:18px 20px}
+      #north-star .ns-now .ns-k{color:var(--hot)}
+      #north-star .ns-now-row{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:baseline;padding:8px 0;border-top:1px solid var(--line)}
+      #north-star .ns-now-row:first-of-type{border-top:none}
+      #north-star .ns-now-label{font-family:var(--hn);font-size:12px;font-weight:600;color:var(--ink)}
+      #north-star .ns-now-val{font-family:var(--hn);font-size:13.5px;color:var(--muted);font-style:italic}
+      #north-star .ns-now-val.set{color:var(--ink);font-style:normal;font-weight:600}
+      #north-star .ns-ondeck{font-family:var(--hn);font-size:12.5px;color:var(--muted);line-height:1.55;margin:12px 0 0;padding-top:12px;border-top:1px solid var(--line)}
+      #north-star .ns-ondeck b{color:var(--ink);font-weight:600;font-style:normal}
+      #north-star .ns-grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+      #north-star .ns-sub{border:1px solid var(--line);background:#fff;padding:18px 20px}
+      #north-star .ns-sub p{font-family:var(--hn);font-size:13px;line-height:1.55;color:var(--ink);margin:0}
+      #north-star .ns-sub p+p{margin-top:8px}
+      #north-star .ns-sub .ns-lead{color:var(--rust);font-weight:600}
+      #north-star .ns-takes{margin-top:18px;border:1px solid var(--line);background:#fff;padding:18px 20px}
+      #north-star .ns-take-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px}
+      #north-star .ns-take h4{font-family:var(--hn);font-size:12px;font-weight:600;color:var(--ink);margin:0 0 5px}
+      #north-star .ns-take .ns-q{font-family:var(--gr);font-size:14px;font-style:italic;color:var(--ink);line-height:1.4;margin:0 0 4px}
+      #north-star .ns-ontrack{margin-top:18px;border:1px solid var(--line);background:#fff;padding:18px 20px}
+      #north-star .ns-ontrack ul{margin:6px 0 0;padding-left:16px}
+      #north-star .ns-ontrack li{font-family:var(--hn);font-size:13px;line-height:1.55;color:var(--ink);margin-bottom:4px}
+      @media(max-width:600px){#north-star .ns-grid2,#north-star .ns-take-grid{grid-template-columns:1fr}#north-star .ns-now-row{grid-template-columns:1fr}}
+    </style>
+
+    <div class="ns-hero">
+      <div class="ns-eyebrow">North Star</div>
+      <h2 class="ns-spine">A designer in Newcastle, living a good life and <i>building things in public.</i></h2>
+      <p class="ns-lede">This is a person channel, not a topic channel. <strong>Life is the spine; craft, AI and the building sit underneath it.</strong> The page argues one thing: a small, engineered life produces better work than a big, chaotic one. Restraint is the differentiator. Taste is the moat. People follow after ten videos because they like how you do things, not because you taught them something.</p>
+    </div>
+
+    <div class="ns-now">
+      <p class="ns-k">This fortnight · your live focus</p>
+      <div class="ns-now-row"><span class="ns-now-label">Project (surface)</span><span class="ns-now-val" id="ns-live-project">set a fortnight to live in 08-live-focus-backlog.md</span></div>
+      <div class="ns-now-row"><span class="ns-now-label">Question (the Takes argue)</span><span class="ns-now-val" id="ns-live-question">it fills in here automatically</span></div>
+      <p class="ns-ondeck">Bench: <span id="ns-ondeck-list">see the Backlog tab</span>.&nbsp; Each post stands alone; the fortnight thread just gives a through-line.</p>
+    </div>
+
+    <div class="ns-grid2">
+      <div class="ns-sub">
+        <p class="ns-k">How it's made</p>
+        <p><span class="ns-lead">Skew hard to Takes (~60%).</span> Cheap and on the go. Shoot on the bike, the walk, the studio. Edit on the phone.</p>
+        <p>3 a week, batched. Five formats still exist, Take-led. No essays here; essay-length lives on the Lia YouTube channel.</p>
+        <p>A Take can be a talking head or a voiceover laid over disconnected b-roll (bike, trail, studio). The gap between a pointed line and a soft visual is the point.</p>
+      </div>
+      <div class="ns-sub">
+        <p class="ns-k">The boundary</p>
+        <p><span class="ns-lead">TikTok is the life channel.</span> Design is the underwiring, not the subject. The design + AI + founder authority load lives on LinkedIn.</p>
+        <p>Parked: niche purity, 5–30 posts a day, mining comments (re-read at 5K).</p>
+      </div>
+    </div>
+
+    <div class="ns-takes">
+      <p class="ns-k">What the Takes argue · pull from these four lanes</p>
+      <div class="ns-take-grid">
+        <div class="ns-take"><h4>Craft</h4><p class="ns-q">"Most AI-built UI breaks on the second screen because nobody's governing tokens."</p><p class="ns-q">"Brand consistency beats brand perfection."</p></div>
+        <div class="ns-take"><h4>Life as a system</h4><p class="ns-q">"The 4:30 hard stop made my work better."</p><p class="ns-q">"5:25am is the only honest way to have a kid and a side project."</p></div>
+        <div class="ns-take"><h4>Place &amp; taste</h4><p class="ns-q">"Newcastle is a better city to build from than Sydney."</p><p class="ns-q">"The best designers I know read outside design."</p></div>
+        <div class="ns-take"><h4>Founder</h4><p class="ns-q">"Going full-time on your side project is overrated when you have a kid."</p></div>
+      </div>
+    </div>
+
+    <div class="ns-ontrack">
+      <p class="ns-k">You've drifted when…</p>
+      <ul>
+        <li>A video reads as a tutorial or "follow for tips." That's the educational design channel you don't want.</li>
+        <li>Design becomes the subject instead of the underwiring.</li>
+        <li>The fortnight has no clear surface or question, so the posts stop rhyming.</li>
+        <li>A stranger couldn't describe the channel in one line.</li>
+      </ul>
+    </div>
+  </section>
+
   <section id="strategy" aria-label="Pillar strategy">
     <h2>Strategy</h2>
     <div class="pillar-tiles" id="pillar-tiles"></div>
@@ -448,6 +531,7 @@
     <button class="tab-btn" data-tab="drafts" role="tab" aria-selected="false">Drafts</button>
     <button class="tab-btn" data-tab="my-posts" role="tab" aria-selected="false">My Posts</button>
     <button class="tab-btn" data-tab="voice-hooks" role="tab" aria-selected="false">Voice &amp; Hooks</button>
+    <button class="tab-btn" data-tab="backlog" role="tab" aria-selected="false">Backlog</button>
   </nav>
 
   <div id="pillar-filter-banner" class="pillar-filter-banner" style="display:none;">
@@ -544,6 +628,38 @@
         <h2>Topics out</h2>
         <div class="topics-out-list" id="topics-out-list"></div>
       </div>
+    </section>
+  </div>
+
+  <div class="tab-panel" data-tab-panel="backlog" role="tabpanel">
+    <section id="backlog-section">
+      <style>
+        #backlog-section .bl-note{font-family:var(--hn);font-size:13px;color:var(--muted);margin:0 0 14px;max-width:70ch;line-height:1.5}
+        #backlog-section .bl-lf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+        #backlog-section .bl-lf{border:1px solid var(--line);background:#fff;padding:14px 16px}
+        #backlog-section .bl-lf.live{border-color:var(--hot);box-shadow:inset 3px 0 0 var(--hot)}
+        #backlog-section .bl-lf-status{font-family:var(--hn);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:6px}
+        #backlog-section .bl-lf.live .bl-lf-status{color:var(--hot)}
+        #backlog-section .bl-lf-project{font-family:var(--hn);font-size:14px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:5px}
+        #backlog-section .bl-lf-q{font-family:var(--gr);font-size:14px;font-style:italic;color:var(--ink);line-height:1.35;margin-bottom:8px}
+        #backlog-section .bl-tags{display:flex;flex-wrap:wrap;gap:5px}
+        #backlog-section .bl-tag{font-family:var(--hn);font-size:10.5px;color:var(--muted);border:1px solid var(--line);padding:2px 7px}
+        #backlog-section .bl-lane-group{margin-bottom:18px}
+        #backlog-section .bl-lane-h{font-family:var(--hn);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--rust);font-weight:600;margin:0 0 8px;border-bottom:1px solid var(--line);padding-bottom:5px}
+        #backlog-section .bl-lane-h span{color:var(--muted)}
+        #backlog-section .bl-take{display:flex;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
+        #backlog-section .bl-take-line{font-family:var(--hn);font-size:13.5px;line-height:1.45;color:var(--ink);flex:1}
+        #backlog-section .bl-fmt{font-family:var(--hn);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:2px 6px;white-space:nowrap;font-weight:600}
+        #backlog-section .bl-fmt.hot{color:var(--hot);border-color:var(--hot)}
+        #backlog-section .bl-keep.maybe{font-family:var(--hn);font-size:10px;text-transform:uppercase;color:var(--muted);font-style:italic}
+      </style>
+      <h2>Live focus &mdash; <span id="lf-count"></span></h2>
+      <p class="bl-note">One fortnight runs live at a time and fills the North Star. Set a row to <code>live</code> in <code>08-live-focus-backlog.md</code>. The rest sit on deck.</p>
+      <div id="live-focus-list" class="bl-lf-grid"><div class="errbox">Loading...</div></div>
+
+      <h2 style="margin-top:30px">Takes &mdash; <span id="takes-count"></span></h2>
+      <div class="filters" id="takes-lane-filters" aria-label="Take lane filters"></div>
+      <div id="takes-list"><div class="errbox">Loading...</div></div>
     </section>
   </div>
 
@@ -775,6 +891,10 @@
     {
       "title": "First-line discipline",
       "body": "First 5 words decide the watch. Pick one shape: a specific number, a vulnerable admission, a pointed take, a named anomaly, or a **viewer-identification question** that names a tension the audience actually feels (\"How do you build something new without losing time with your family?\", \"Anyone else feel like AI is here and you don't know where you fit?\"). No setup, no \"Hi, today I want to talk about...\""
+    },
+    {
+      "title": "The \"why you\" credibility beat — every video, first few seconds (non-negotiable)",
+      "body": "Every script needs a quick line in the opening seconds that tells a new viewer who Dan is and why they should trust him. It's the witness-credential the [[tiktok-audience]] primary audience runs on (lifestyle alignment over brand credentials), not a CV. Pick the cut that fits the video's pillar and angle: *\"I'm Dan, a UX designer\"* / *\"I'm a lead designer building this for a real client\"* / *\"I'm Dan, a dad of one with another on the way, figuring this out as I go.\"* One plain clause, woven into the hook or the line right after it. Never a separate \"welcome to my channel\" intro — the hook still leads, the why-you sits immediately under it. A script delivered without a why-you beat is incomplete; include it by default, every time, without being asked. Source: Dan, 2026-06-12, after the MCP-components Take shipped without one."
     },
     {
       "title": "Length depends on format",
@@ -1505,9 +1625,609 @@
   }
 }</script>
 
+<script id="backlog-bundle" type="application/json">
+{
+  "takes": [
+    {
+      "id": "t01",
+      "lane": "Craft",
+      "take": "Anyone can get a good screen out of AI. The second screen is where the designer earns it.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t02",
+      "lane": "Craft",
+      "take": "Taste is effort you can feel. The friction of getting it right is what makes it land.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t03",
+      "lane": "Craft",
+      "take": "Brand consistency beats brand perfection. Pick the rule and hold it everywhere.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t04",
+      "lane": "Craft",
+      "take": "The design job moved upstream. AI does the pixels, you decide what good looks like.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t05",
+      "lane": "Craft",
+      "take": "If your design system needs a manual, it's a museum, not a system.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "maybe"
+    },
+    {
+      "id": "t06",
+      "lane": "Craft",
+      "take": "I still start on a blank artboard. Let AI make the first move and every project starts from the average.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t07",
+      "lane": "Craft",
+      "take": "Designers who can't say why something works are in for a rough couple of years.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t08",
+      "lane": "Craft",
+      "take": "AI accelerates in whatever direction you push it. Push it nowhere and it accelerates into mediocrity.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t09",
+      "lane": "Life as a system",
+      "take": "5:25am is the only honest way I've found to have a kid and a side business.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t10",
+      "lane": "Life as a system",
+      "take": "Discipline is overrated. I just build systems that make the right thing the easy thing.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t11",
+      "lane": "Life as a system",
+      "take": "I figured out I'm a morning person and built everything around it.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t12",
+      "lane": "Life as a system",
+      "take": "I stopped drinking. I care more about a clear morning than a relaxing night.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t13",
+      "lane": "Life as a system",
+      "take": "I ride 60km a week to think, not to get fit. Best ideas I get are on the bike.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t14",
+      "lane": "Life as a system",
+      "take": "I plan the week so I don't have to make decisions during it. Decisions are the tax.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t15",
+      "lane": "Place & taste",
+      "take": "I love Newcastle because it's got the same online opportunities as Sydney with a fraction of the noise.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t16",
+      "lane": "Place & taste",
+      "take": "The best designers I know take more from outside design than inside it.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t17",
+      "lane": "Place & taste",
+      "take": "You can't buy taste, but you can train it. Look at more good things on purpose.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t18",
+      "lane": "Place & taste",
+      "take": "Your work is just your inputs rearranged. Living somewhere beautiful is one of the best inputs you can give yourself.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t19",
+      "lane": "Place & taste",
+      "take": "Taste is just paying attention for longer than everyone else.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t20",
+      "lane": "Place & taste",
+      "take": "Good work comes from a good life. I stopped believing in the suffering-artist thing years ago.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t21",
+      "lane": "Founder",
+      "take": "AI is the reason I can build a real side project without stealing the time from my kid.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t22",
+      "lane": "Founder",
+      "take": "A side project with a newborn ships faster than most funded startups. You've got no time to waste.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t23",
+      "lane": "Founder",
+      "take": "I want to build something that earns while I'm doing bedtime.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t24",
+      "lane": "Founder",
+      "take": "Wanting freedom, money, and time with my family still feels selfish to admit, and I'm working out why.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t25",
+      "lane": "Founder",
+      "take": "I've started five things this year and I'm slowly learning the real skill is letting most of them die.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t26",
+      "lane": "Founder",
+      "take": "Stop building features. Go get evidence someone actually wants the thing.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t27",
+      "lane": "Founder",
+      "take": "I built and sold a clothing brand. Great product, but a side project couldn't give it the consistency it needed. This time I built the systems first.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t28",
+      "lane": "Founder",
+      "take": "The best thing a co-founder does is tell you the idea is bad before you waste any more time on it.",
+      "format": "hot",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t29",
+      "lane": "Parenting",
+      "take": "Authoritative parenting is high warmth and high standards at once. Most people pick one.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t30",
+      "lane": "Parenting",
+      "take": "Raising a kid who's gentle and resilient is the hardest design problem I've got.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t31",
+      "lane": "Parenting",
+      "take": "Parenting made me value intuitive design more than ever. No time to read a manual, it just has to work.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    },
+    {
+      "id": "t32",
+      "lane": "Parenting",
+      "take": "I want my daughter to watch me build things, not just leave for a job and come home tired.",
+      "format": "take",
+      "status": "idea",
+      "fortnight": "",
+      "keep": "keep"
+    }
+  ],
+  "live_focus": [
+    {
+      "id": "f01",
+      "status": "bench",
+      "window": "",
+      "project": "Build the content engine in public",
+      "question": "Can you systemise creativity without killing it?",
+      "feeds": [
+        "Founder",
+        "Craft",
+        "Life"
+      ]
+    },
+    {
+      "id": "f02",
+      "status": "live",
+      "window": "Jun 9-22",
+      "project": "A week building two or three design systems",
+      "question": "Can taste-led design actually move fast?",
+      "feeds": [
+        "Craft",
+        "Founder"
+      ]
+    },
+    {
+      "id": "f03",
+      "status": "bench",
+      "window": "",
+      "project": "Build and ship something tiny in 14 days",
+      "question": "How small can a thing be and still count as shipping?",
+      "feeds": [
+        "Founder",
+        "Craft"
+      ]
+    },
+    {
+      "id": "f04",
+      "status": "bench",
+      "window": "",
+      "project": "Pick which of my projects to kill, out loud",
+      "question": "How do you kill the ideas you love?",
+      "feeds": [
+        "Founder"
+      ]
+    },
+    {
+      "id": "f05",
+      "status": "bench",
+      "window": "",
+      "project": "Brand a real thing in a week",
+      "question": "How much brand does a small business actually need?",
+      "feeds": [
+        "Craft",
+        "Founder"
+      ]
+    },
+    {
+      "id": "f06",
+      "status": "bench",
+      "window": "",
+      "project": "The MCP token-governance experiment",
+      "question": "If AI generates the interface, who keeps it consistent?",
+      "feeds": [
+        "Craft"
+      ]
+    },
+    {
+      "id": "f07",
+      "status": "bench",
+      "window": "",
+      "project": "Auto-generate a UI, then govern it back to taste",
+      "question": "Generation or taste, which one ships?",
+      "feeds": [
+        "Craft"
+      ]
+    },
+    {
+      "id": "f08",
+      "status": "bench",
+      "window": "",
+      "project": "Build a piece of my second brain in public",
+      "question": "Does an AI second brain compound, or is it a toy?",
+      "feeds": [
+        "Craft",
+        "Life"
+      ]
+    },
+    {
+      "id": "f09",
+      "status": "bench",
+      "window": "",
+      "project": "Automate one annoying part of my week",
+      "question": "What should you never hand to an agent?",
+      "feeds": [
+        "Craft",
+        "Life"
+      ]
+    },
+    {
+      "id": "f10",
+      "status": "bench",
+      "window": "",
+      "project": "Decorate my office, come with me for a week",
+      "question": "Does your space change your output?",
+      "feeds": [
+        "Place",
+        "Life"
+      ]
+    },
+    {
+      "id": "f11",
+      "status": "bench",
+      "window": "",
+      "project": "Study one designer, building or typeface for a fortnight",
+      "question": "Where does taste actually come from?",
+      "feeds": [
+        "Place",
+        "Craft"
+      ]
+    },
+    {
+      "id": "f12",
+      "status": "bench",
+      "window": "",
+      "project": "One beautiful thing a day, logged",
+      "question": "Can you train taste on purpose?",
+      "feeds": [
+        "Place"
+      ]
+    },
+    {
+      "id": "f13",
+      "status": "bench",
+      "window": "",
+      "project": "Read one book outside design and use it",
+      "question": "The best design input isn't more design.",
+      "feeds": [
+        "Place",
+        "Craft"
+      ]
+    },
+    {
+      "id": "f14",
+      "status": "bench",
+      "window": "",
+      "project": "Ride 150km this week, come with me",
+      "question": "Can I hit it around a job and a kid?",
+      "feeds": [
+        "Life",
+        "Place"
+      ]
+    },
+    {
+      "id": "f15",
+      "status": "bench",
+      "window": "",
+      "project": "Two weeks guarding the 8 to 11 block",
+      "question": "What happens when nothing's allowed to touch your mornings?",
+      "feeds": [
+        "Life"
+      ]
+    },
+    {
+      "id": "f16",
+      "status": "bench",
+      "window": "",
+      "project": "The 5:25 routine on camera",
+      "question": "Is the early start worth what it costs?",
+      "feeds": [
+        "Life"
+      ]
+    },
+    {
+      "id": "f17",
+      "status": "bench",
+      "window": "",
+      "project": "Tell my story, one chapter at a time",
+      "question": "Does where you came from explain what you're building?",
+      "feeds": [
+        "Life",
+        "Founder",
+        "Place"
+      ]
+    },
+    {
+      "id": "f18",
+      "status": "bench",
+      "window": "",
+      "project": "The Rowie morning routine for two weeks",
+      "question": "What does warm and firm look like at 6am?",
+      "feeds": [
+        "Parenting",
+        "Life"
+      ]
+    },
+    {
+      "id": "f19",
+      "status": "bench",
+      "window": "",
+      "project": "A fortnight on why I build from Newcastle",
+      "question": "Is it the East Coast's best-kept secret?",
+      "feeds": [
+        "Place"
+      ]
+    },
+    {
+      "id": "f20",
+      "status": "bench",
+      "window": "October",
+      "project": "Prep the house for the second kid",
+      "question": "Can you engineer for the chaos before it lands?",
+      "feeds": [
+        "Life",
+        "Parenting"
+      ]
+    },
+    {
+      "id": "f21",
+      "status": "bench",
+      "window": "",
+      "project": "Plan the week to strip out decisions",
+      "question": "Is decision fatigue the real productivity killer?",
+      "feeds": [
+        "Life"
+      ]
+    }
+  ]
+}
+</script>
+
 <script id="bundle" type="application/json">{
-  "generated_at": "2026-06-04T19:37:33.785303+00:00",
+  "generated_at": "2026-06-20T19:39:24.309165+00:00",
   "dan_account": [
+    {
+      "pid": "7652673436275182855",
+      "url": "https://www.tiktok.com/@dan..robson/video/7652673436275182855",
+      "date": "2026-06-18",
+      "hook": "Creating an analogue moodboard is wildly therapeutic",
+      "hook_source": "caption",
+      "needs_review": true,
+      "caption": "Creating an analogue moodboard is wildly therapeutic #buildinpublic #branddesign @Chris Quinton ",
+      "views": 225,
+      "likes": 5,
+      "pillar_primary": "design-craft",
+      "pillar_secondary": "tastemaker"
+    },
+    {
+      "pid": "7652324270768524552",
+      "url": "https://www.tiktok.com/@dan..robson/video/7652324270768524552",
+      "date": "2026-06-17",
+      "hook": "AI can build some amazing websites.",
+      "hook_source": "caption",
+      "needs_review": true,
+      "caption": "AI can build some amazing websites. It cannot put a toddlers sandal on. Some days are like this, and I love it. #aidesign #workingdad #workingfromhome #claudeai",
+      "views": 140,
+      "likes": 2,
+      "pillar_primary": "dad",
+      "pillar_secondary": "ai-tooling"
+    },
+    {
+      "pid": "7651203537677864210",
+      "url": "https://www.tiktok.com/@dan..robson/video/7651203537677864210",
+      "date": "2026-06-14",
+      "hook": "It’s easy to spend that extra time producing more, but I’d rather experience more.",
+      "hook_source": "caption",
+      "needs_review": true,
+      "caption": "It’s easy to spend that extra time producing more, but I’d rather experience more. #ai #aidesign #claude ",
+      "views": 225,
+      "likes": 6,
+      "pillar_primary": "tastemaker",
+      "pillar_secondary": "ai-tooling"
+    },
+    {
+      "pid": "7650364749938511112",
+      "url": "https://www.tiktok.com/@dan..robson/video/7650364749938511112",
+      "date": "2026-06-12",
+      "hook": "I’m building design system components in Figma without drawing a single one by hand.",
+      "hook_source": "caption",
+      "needs_review": true,
+      "caption": "I’m building design system components in Figma without drawing a single one by hand. Claude Code reads my tokens through an MCP and assembles them from my own atoms. Then I go in and refine with my eyes. Crazy how fast this is moving. #aiworkflow #claude #aidesign #figma",
+      "views": 1247,
+      "likes": 44,
+      "pillar_primary": "ai-tooling",
+      "pillar_secondary": "design-craft"
+    },
+    {
+      "pid": "7650058684029996295",
+      "url": "https://www.tiktok.com/@dan..robson/video/7650058684029996295",
+      "date": "2026-06-11",
+      "hook": "Had a nice slow weekend in the blue mountains.",
+      "hook_source": "caption",
+      "needs_review": true,
+      "caption": "Had a nice slow weekend in the blue mountains. I find it difficult to slow down but I don’t regret it when I do. #bluemountains #hikingwithkids",
+      "views": 241,
+      "likes": 15,
+      "pillar_primary": "tastemaker",
+      "pillar_secondary": "dad"
+    },
+    {
+      "pid": "7649593007951432967",
+      "url": "https://www.tiktok.com/@dan..robson/video/7649593007951432967",
+      "date": "2026-06-10",
+      "hook": "Building a design system in Claude code is getting easier and easier.",
+      "hook_source": "caption",
+      "needs_review": true,
+      "caption": "Building a design system in Claude code is getting easier and easier. I’ve been starting with ShadCN then skinning it with my adjustments - this would have taken a week or more in the old world. #ai #claude #designsystem #uxdesign",
+      "views": 486,
+      "likes": 26,
+      "pillar_primary": "ai-tooling",
+      "pillar_secondary": "design-craft"
+    },
     {
       "pid": "7648091863894740231",
       "url": "https://www.tiktok.com/@dan..robson/video/7648091863894740231",
@@ -1516,7 +2236,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "I don’t get to use the ol Adobe Illustrator skills as often anymore. But there are still some projects that I can’t automate with Claude so it’s here to stay (for now). #ai #adobeillustrator #claude",
-      "views": 375,
+      "views": 523,
       "likes": 15,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": "design-craft"
@@ -1529,7 +2249,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Every day looks a bit different at the moment, but the start and finish rarely change. #routine #newcastle #creativedad @Chris Quinton",
-      "views": 226,
+      "views": 247,
       "likes": 5,
       "pillar_primary": "dad",
       "pillar_secondary": "tastemaker"
@@ -1542,7 +2262,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "It’s so easy to talk about doing something. Now that we are setting up our systems properly the reality of what we are trying to do it becoming a lot more tangible. #buildinpublic @Chris Quinton  ",
-      "views": 253,
+      "views": 285,
       "likes": 12,
       "pillar_primary": "founder",
       "pillar_secondary": null
@@ -1555,7 +2275,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Learning to surfski part 3 #surfski #newcastle #sunrise ",
-      "views": 251,
+      "views": 297,
       "likes": 1,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -1568,7 +2288,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Learning to surf ski: lesson 2 #newcastle #sunrise #surfski",
-      "views": 243,
+      "views": 276,
       "likes": 2,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -1581,7 +2301,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "My lower back loved this #newcastle #longboarding #learntoskate",
-      "views": 228,
+      "views": 241,
       "likes": 5,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -1594,7 +2314,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Winter sunrises hit different.  #newcastle #sunrise #cyclinglife ",
-      "views": 239,
+      "views": 250,
       "likes": 13,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -1607,7 +2327,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "I feel like more and more people are how incredibly useful a well set up memory system is. Context is everything with AI. #creativedad #memorysystem #secondbrain #ai",
-      "views": 219,
+      "views": 226,
       "likes": 3,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": null
@@ -1620,7 +2340,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Me time + free food, name a better duo. #donateplasma #lifebloodau ",
-      "views": 244,
+      "views": 255,
       "likes": 13,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -1633,7 +2353,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Wednesday show and tell with @Chris Quinton ",
-      "views": 216,
+      "views": 223,
       "likes": 3,
       "pillar_primary": "founder",
       "pillar_secondary": null
@@ -1646,7 +2366,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Today was cold and wet, but we seized it anyway. @Chris Quinton  #buildinpublic #workingdad #newcastle #icebath ",
-      "views": 233,
+      "views": 238,
       "likes": 3,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -1659,7 +2379,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Automatically analysing menu design is a blessing and a curse #newcastle #datenight #menudesign #devilwearsprada2 ",
-      "views": 314,
+      "views": 316,
       "likes": 9,
       "pillar_primary": "tastemaker",
       "pillar_secondary": "design-craft"
@@ -1672,7 +2392,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "The way kids make art is a genuine superpower  #dadlife #creativity #designtaste #newcastle",
-      "views": 277,
+      "views": 280,
       "likes": 15,
       "pillar_primary": "tastemaker",
       "pillar_secondary": "dad"
@@ -1685,7 +2405,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "I love living here. #newcastle #cycling #morningroutine #fyp @Isaac cocking ",
-      "views": 272,
+      "views": 279,
       "likes": 17,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -1698,7 +2418,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "It’s all in the deeeetails. #buildinpublic #logodesign #creativedad #designer",
-      "views": 300,
+      "views": 303,
       "likes": null,
       "pillar_primary": "design-craft",
       "pillar_secondary": null
@@ -1711,7 +2431,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "The song knows 🌈 #newcastle #lia #slowday #buildinpublic",
-      "views": 220,
+      "views": 225,
       "likes": null,
       "pillar_primary": "tastemaker",
       "pillar_secondary": "founder"
@@ -1724,7 +2444,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "this is my why #workingdad #dadlife #fatherhood #firsttimedad #fyp",
-      "views": 298,
+      "views": 302,
       "likes": null,
       "pillar_primary": "dad",
       "pillar_secondary": null
@@ -1737,7 +2457,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "They never said who’s home you had to work from 🙃 #workfromhome #creativedad #fyp @Chris Quinton",
-      "views": 226,
+      "views": 228,
       "likes": null,
       "pillar_primary": "dad",
       "pillar_secondary": null
@@ -1750,7 +2470,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "The worst thing about Cowork spaces. Lunch isn’t safe either. #workingdad #workfromhome #creativedad #dadlife",
-      "views": 323,
+      "views": 328,
       "likes": null,
       "pillar_primary": "dad",
       "pillar_secondary": null
@@ -1763,7 +2483,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Ambition still respects bedtime #workingdad #fatherhood #ambition #creativedad",
-      "views": 277,
+      "views": 281,
       "likes": null,
       "pillar_primary": "dad",
       "pillar_secondary": null
@@ -15924,6 +16644,12 @@
     var vEl = document.getElementById('voice-hooks-bundle');
     if (vEl) VOICE_HOOKS = JSON.parse(vEl.textContent) || {};
   } catch (e) { showError('Voice-hooks bundle parse failed: ' + e); }
+  var BACKLOG = { takes: [], live_focus: [] };
+  var BACKLOG_LANE = null;
+  try {
+    var bEl = document.getElementById('backlog-bundle');
+    if (bEl) BACKLOG = JSON.parse(bEl.textContent) || BACKLOG;
+  } catch (e) { showError('Backlog bundle parse failed: ' + e); }
 
   // --- Pillar taxonomy + cross-tab state ---
   var PILLAR_SLUGS = ['design-craft', 'dad', 'founder', 'tastemaker', 'ai-tooling'];
@@ -16281,6 +17007,62 @@
     }).join('') || '<div class="errbox" style="color:var(--muted)">No topics_out in bundle.</div>';
   }
 
+  function renderBacklog() {
+    var lf = BACKLOG.live_focus || [];
+    var takes = BACKLOG.takes || [];
+    var order = { 'live':0, 'bench':1, 'shipped':2 };
+    var lfEl = document.getElementById('live-focus-list');
+    if (lfEl) {
+      var sorted = lf.slice().sort(function(a,b){ return (order[a.status]||9)-(order[b.status]||9); });
+      var lc = document.getElementById('lf-count'); if (lc) lc.textContent = lf.length + ' fortnights';
+      lfEl.innerHTML = sorted.map(function(f){
+        var live = f.status === 'live';
+        var feeds = (f.feeds||[]).map(function(x){ return '<span class="bl-tag">'+esc(x)+'</span>'; }).join('');
+        return '<div class="bl-lf'+(live?' live':'')+'">'+
+          '<div class="bl-lf-status">'+esc(f.status)+(f.window?' &middot; '+esc(f.window):'')+'</div>'+
+          '<div class="bl-lf-project">'+esc(f.project)+'</div>'+
+          '<div class="bl-lf-q">'+esc(f.question)+'</div>'+
+          '<div class="bl-tags">'+feeds+'</div>'+
+        '</div>';
+      }).join('') || '<div class="errbox">No fortnights yet.</div>';
+    }
+    var lanes = [];
+    takes.forEach(function(t){ if (lanes.indexOf(t.lane)<0) lanes.push(t.lane); });
+    var fl = document.getElementById('takes-lane-filters');
+    if (fl) {
+      fl.innerHTML = '<span class="chip'+(BACKLOG_LANE===null?' active':'')+'" data-bl-lane="">All</span>' +
+        lanes.map(function(l){ return '<span class="chip'+(BACKLOG_LANE===l?' active':'')+'" data-bl-lane="'+esc(l)+'">'+esc(l)+'</span>'; }).join('');
+      fl.querySelectorAll('[data-bl-lane]').forEach(function(c){
+        c.addEventListener('click', function(){
+          var v = c.getAttribute('data-bl-lane');
+          BACKLOG_LANE = v ? v : null;
+          renderBacklog();
+        });
+      });
+    }
+    var tEl = document.getElementById('takes-list');
+    if (tEl) {
+      var shown = takes.filter(function(t){ return BACKLOG_LANE===null || t.lane===BACKLOG_LANE; });
+      var tc = document.getElementById('takes-count');
+      if (tc) tc.textContent = shown.length + (BACKLOG_LANE ? (' in ' + BACKLOG_LANE) : ' lines');
+      var groups = {}; var glabels = [];
+      shown.forEach(function(t){ if (!groups[t.lane]) { groups[t.lane]=[]; glabels.push(t.lane); } groups[t.lane].push(t); });
+      tEl.innerHTML = glabels.map(function(lane){
+        var items = groups[lane].map(function(t){
+          var fmt = t.format==='hot' ? '<span class="bl-fmt hot">15s hot</span>' : '<span class="bl-fmt">Take</span>';
+          var keep = t.keep==='maybe' ? '<span class="bl-keep maybe">maybe</span>' : '';
+          return '<div class="bl-take">'+fmt+'<span class="bl-take-line">'+esc(t.take)+'</span>'+keep+'</div>';
+        }).join('');
+        return '<div class="bl-lane-group"><div class="bl-lane-h">'+esc(lane)+' <span>'+groups[lane].length+'</span></div>'+items+'</div>';
+      }).join('') || '<div class="errbox">No takes.</div>';
+    }
+    var liveF = (BACKLOG.live_focus||[]).filter(function(f){return f.status==='live';})[0];
+    var pe = document.getElementById('ns-live-project'), qe = document.getElementById('ns-live-question');
+    if (liveF) { if (pe){ pe.textContent=liveF.project; pe.classList.add('set'); } if (qe){ qe.textContent=liveF.question; qe.classList.add('set'); } }
+    var deck = (BACKLOG.live_focus||[]).filter(function(f){return f.status==='bench';}).slice(0,3).map(function(f){return f.project;});
+    var de = document.getElementById('ns-ondeck-list'); if (de && deck.length) de.textContent = deck.join(' \u00b7 ');
+  }
+
   // --- Init: tab switching + filter event wiring ---
   document.querySelectorAll('.tab-btn').forEach(function(btn){
     btn.addEventListener('click', function(){ setActiveTab(btn.dataset.tab); });
@@ -16443,6 +17225,7 @@
   renderCommonToHook();
   renderTopicsIn();
   renderTopicsOut();
+  renderBacklog();
   initFeatured();
   setActiveTab(ACTIVE_TAB);
 })();

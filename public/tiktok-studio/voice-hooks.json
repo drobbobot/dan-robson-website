@@ -6,6 +6,10 @@
       "body": "First 5 words decide the watch. Pick one shape: a specific number, a vulnerable admission, a pointed take, a named anomaly, or a **viewer-identification question** that names a tension the audience actually feels (\"How do you build something new without losing time with your family?\", \"Anyone else feel like AI is here and you don't know where you fit?\"). No setup, no \"Hi, today I want to talk about...\""
     },
     {
+      "title": "The \"why you\" credibility beat — every video, first few seconds (non-negotiable)",
+      "body": "Every script needs a quick line in the opening seconds that tells a new viewer who Dan is and why they should trust him. It's the witness-credential the [[tiktok-audience]] primary audience runs on (lifestyle alignment over brand credentials), not a CV. Pick the cut that fits the video's pillar and angle: *\"I'm Dan, a UX designer\"* / *\"I'm a lead designer building this for a real client\"* / *\"I'm Dan, a dad of one with another on the way, figuring this out as I go.\"* One plain clause, woven into the hook or the line right after it. Never a separate \"welcome to my channel\" intro — the hook still leads, the why-you sits immediately under it. A script delivered without a why-you beat is incomplete; include it by default, every time, without being asked. Source: Dan, 2026-06-12, after the MCP-components Take shipped without one."
+    },
+    {
       "title": "Length depends on format",
       "body": "Punchy formats (Take / Frame / Reply) reward one sentence per beat — TikTok pace doesn't carry multi-clause sentences. Slower formats (self-intro, Build narratives, reflective Takes 60-75s) reward flowing prose with commas + conjunctions that reads like Dan talking at a dinner party. Don't force fragmentation on a video that wants to breathe."
     },
