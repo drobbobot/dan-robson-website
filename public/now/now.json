@@ -1,9 +1,45 @@
 {
-  "updated": "2026-06-17",
+  "updated": "2026-06-24",
   "cadence": "refreshes every 3 days",
   "how": "These activity cards are automatically generated based on activity in my memory system. I review them every few days, and they automatically publish here.",
   "closer": "A live working surface, not a portfolio.",
   "items": [
+    {
+      "date": "2026-06-23",
+      "display_date": "23 Jun",
+      "title": "Wired a primitive guard into our design-system repo",
+      "category": "Agent governance",
+      "tools": [
+        "Claude Code",
+        "Bash",
+        "Git"
+      ],
+      "body": "Installed a commit-time guard hook in our design-system repo that blocks hand-rolled dialogs, tooltips and tabs and forces the shared primitive instead, so drift cannot creep in component by component. Tested it both ways, a hand-rolled component trips it and the proper import clears it, then committed it with the rule written into the repo's agent guide."
+    },
+    {
+      "date": "2026-06-23",
+      "display_date": "23 Jun",
+      "title": "Built a drop-in scroll-animation tool for static pages",
+      "category": "Automation",
+      "tools": [
+        "Python",
+        "GSAP",
+        "HTML"
+      ],
+      "body": "Built a tool that takes any static HTML page and writes an animated copy, injecting GSAP scroll-reveal on the content blocks plus hover polish on cards and buttons, without touching the original file. Made it safe by default, so no-JS, load failures and reduced-motion preferences all fall back to fully visible content rather than hiding anything behind an animation that never runs."
+    },
+    {
+      "date": "2026-06-19",
+      "display_date": "19 Jun",
+      "title": "Rebalanced the type scale in our design system",
+      "category": "Design system",
+      "tools": [
+        "Next.js",
+        "Tailwind",
+        "shadcn/ui"
+      ],
+      "body": "Reworked the UI type scale in our design system, bringing functional controls down a notch to a macOS-style 13px base for density while leaving editorial reading text at its larger size. Unified the mono onto one foundry, pulled secondary CTAs back to a single action colour, and added a hair of positive tracking at small sizes so the interface holds up as it shrinks."
+    },
     {
       "date": "2026-06-09",
       "display_date": "9 Jun",
@@ -60,39 +96,6 @@
         "LaunchAgent"
       ],
       "body": "Converted the founder bot from a scheduled poller into an event-driven macOS service, so it answers in our founder Slack the moment it's addressed by name and follows up in-thread. Packaged it so each founder installs their own with one command, each bot running off its own vault and signing every reply as a proxy rather than the person."
-    },
-    {
-      "date": "2026-06-03",
-      "display_date": "3 Jun",
-      "title": "Built a Slack harvester for our founder channel",
-      "category": "Pipeline",
-      "tools": [
-        "Python",
-        "Slack"
-      ],
-      "body": "Built a harvester that reads everything posted in our founder Slack and sorts it as it lands. Insights, ideas and calls to action drop into a triage list, and any links, tools or gear get catalogued in a separate resource library so they stay referenceable."
-    },
-    {
-      "date": "2026-06-02",
-      "display_date": "2 Jun",
-      "title": "Wrote a ticket-builder skill while standing up a Linear epic",
-      "category": "Ops",
-      "tools": [
-        "Linear",
-        "Claude"
-      ],
-      "body": "Stood up a social media epic in our Linear workspace, eight sub-issues wired with the right blocked-by sequencing, and captured the method as a reusable ticket-builder skill so the next epic starts from a real template. The rule baked in is to find the actual vault source before writing a ticket and link it while writing, so the tickets stay grounded and reference-able."
-    },
-    {
-      "date": "2026-06-01",
-      "display_date": "1 Jun",
-      "title": "Designed packaging for an endurance nutrition brand",
-      "category": "Brand",
-      "tools": [
-        "SVG",
-        "Claude Code"
-      ],
-      "body": "Designed screen proofs for a single-serve sachet and a four-pack pouch, building each face to the exact dieline so the front reads at thumbnail size and the back-of-pack info stays legible. Most of the work was the compliance copy, splitting the in-exercise usage rate from the daily limit so the two don't contradict each other on a sports food label."
     }
   ]
 }
