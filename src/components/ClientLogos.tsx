@@ -29,8 +29,10 @@ const logos = [
   { src: '/images/logo-fitness.png', width: 580, height: 512 },
 ];
 
-// Blur is baked into the source PNGs (see file header); no CSS blur needed.
-const BLUR = 'none';
+// The blur is baked into the source PNGs (that's what makes it unrecoverable).
+// This CSS blur is an extra visual layer on top — removing it in devtools only
+// reveals the already-blurred baked pixels, never the real logo.
+const BLUR = 'blur(5px)';
 
 function LogoStrip() {
   return (
