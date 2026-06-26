@@ -18,7 +18,7 @@ export function Nav() {
       className="fixed top-0 left-0 right-0 z-50 transition-[backdrop-filter,background-color] duration-300"
       style={{
         height: '6.25rem',
-        backgroundColor: scrolled ? 'rgba(250, 247, 239, 0.85)' : 'transparent',
+        backgroundColor: scrolled ? 'color-mix(in oklch, var(--background) 85%, transparent)' : 'transparent',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
       }}
     >
@@ -33,8 +33,8 @@ export function Nav() {
           priority
         />
       </a>
-      <StyledButton href="mailto:dan@robson.studio">
-        Get in touch
+      <StyledButton href="mailto:dan@robson.studio" wave>
+        Say hi
       </StyledButton>
       </div>
     </nav>

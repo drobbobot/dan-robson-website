@@ -1,30 +1,25 @@
 import type { Metadata } from 'next';
 import { EB_Garamond } from 'next/font/google';
-import localFont from 'next/font/local';
-import { WordProvider } from '@/lib/WordContext';
 import { GridBackground } from '@/components/GridBackground';
 import './globals.css';
 
+// EB Garamond is loaded as the serif fallback for Martina Plantijn (the v4
+// display voice). When the licensed Martina woff2 lands it takes precedence;
+// until then headings render in this close serif rather than a gated font.
 const ebGaramond = EB_Garamond({
   subsets: ['latin'],
   weight: ['400'],
+  style: ['normal', 'italic'],
   variable: '--font-eb-garamond',
-  display: 'swap',
-});
-
-const cooperBlackItalic = localFont({
-  src: '../../public/fonts/CooperBlack-Italic.otf',
-  weight: '900',
-  style: 'italic',
-  variable: '--font-cooper-black',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://robson.studio'),
   title: 'Dan Robson — Brand Systems & UX Designer | Newcastle, Australia',
-  description: 'I build digital brands that feel intentional. Specialising in brand-to-product design systems, UX strategy, AI-ready design systems, and agentic governance for growing teams.',
-  keywords: ['UX designer', 'brand systems', 'design systems', 'UX strategy', 'product design', 'Newcastle', 'Australia', 'Dan Robson', 'agentic governance', 'AI design systems'],
+  description:
+    'Robson Studio is the personal design practice of Dan Robson, a UX and design-systems designer in Newcastle, Australia.',
+  keywords: ['design', 'design systems', 'UX', 'product design', 'Newcastle', 'Australia', 'Dan Robson', 'Robson Studio'],
   authors: [{ name: 'Dan Robson', url: 'https://robson.studio' }],
   creator: 'Dan Robson',
   openGraph: {
@@ -33,20 +28,22 @@ export const metadata: Metadata = {
     url: 'https://robson.studio',
     siteName: 'Robson Studio',
     title: 'Dan Robson — Brand Systems & UX Designer',
-    description: 'I build digital brands that feel intentional. Brand systems, UX strategy, and AI-ready design systems for growing teams.',
+    description:
+      'Robson Studio is the personal design practice of Dan Robson, a UX and design-systems designer in Newcastle, Australia.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Dan Robson — Brand Systems & UX Designer',
+        alt: 'Robson Studio — the personal design practice of Dan Robson',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Dan Robson — Brand Systems & UX Designer',
-    description: 'I build digital brands that feel intentional. Brand systems, UX strategy, and AI-ready design systems for growing teams.',
+    description:
+      'Robson Studio is the personal design practice of Dan Robson, a UX and design-systems designer in Newcastle, Australia.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -71,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${ebGaramond.variable} ${cooperBlackItalic.variable}`}>
+    <html lang="en" className={ebGaramond.variable}>
       <head>
         <script
           type="application/ld+json"
@@ -81,8 +78,9 @@ export default function RootLayout({
               '@type': 'Person',
               name: 'Dan Robson',
               url: 'https://robson.studio',
-              jobTitle: 'Brand Systems / Lead UX Designer',
-              description: 'I build digital brands that feel intentional. Specialising in brand-to-product design systems, UX strategy, AI-ready design systems, and agentic governance.',
+              jobTitle: 'UX & Design Systems Designer',
+              description:
+                'Robson Studio is the personal design practice of Dan Robson, a UX and design-systems designer in Newcastle, Australia.',
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Newcastle',
@@ -90,27 +88,17 @@ export default function RootLayout({
                 addressCountry: 'AU',
               },
               email: 'dan@robson.studio',
-              knowsAbout: [
-                'UX Strategy',
-                'Brand Systems',
-                'Design Systems',
-                'Product Design',
-                'AI-ready Design Systems',
-                'Agentic Governance',
-                'Design-to-Code Production',
-              ],
+              knowsAbout: ['Design', 'Design Systems', 'User Experience', 'Product Design'],
               sameAs: [],
             }),
           }}
         />
       </head>
       <body>
-        <WordProvider>
-          <GridBackground />
-          <div className="relative z-10">
-            {children}
-          </div>
-        </WordProvider>
+        <GridBackground />
+        <div className="relative z-10">
+          {children}
+        </div>
       </body>
     </html>
   );

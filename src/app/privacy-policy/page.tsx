@@ -20,7 +20,7 @@ export default function PrivacyPolicy() {
               <h1
                 className="leading-[1.1]"
                 style={{
-                  fontFamily: "'Helvetica Neue', sans-serif",
+                  fontFamily: 'var(--font-sans)',
                   fontWeight: 400,
                   fontSize: 'clamp(2.5rem, 6vw, 3.5rem)',
                   letterSpacing: '-0.06rem',
@@ -31,8 +31,8 @@ export default function PrivacyPolicy() {
               </h1>
               <p
                 style={{
-                  fontFamily: 'var(--font-hero-serif)',
-                  color: '#241013',
+                  fontFamily: 'var(--font-serif)',
+                  color: 'var(--foreground)',
                   fontSize: '1.25rem',
                   lineHeight: 1.4,
                   marginBottom: '3rem',
@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
 
               <div
                 style={{
-                  fontFamily: "'Helvetica Neue', sans-serif",
+                  fontFamily: 'var(--font-sans)',
                   color: 'rgba(36,16,19,0.85)',
                   fontSize: '1rem',
                   lineHeight: 1.7,
@@ -219,13 +219,13 @@ function H2({ children }: { children: React.ReactNode }) {
   return (
     <h2
       style={{
-        fontFamily: "'Helvetica Neue', sans-serif",
+        fontFamily: 'var(--font-sans)',
         fontWeight: 400,
         fontSize: '1.5rem',
         letterSpacing: '-0.02rem',
         marginTop: '2.5rem',
         marginBottom: '0.75rem',
-        color: '#241013',
+        color: 'var(--foreground)',
       }}
     >
       {children}
@@ -286,7 +286,7 @@ function Meta({ children }: { children: React.ReactNode }) {
   return (
     <p
       style={{
-        fontFamily: "'Helvetica Neue', sans-serif",
+        fontFamily: 'var(--font-sans)',
         fontStyle: 'italic',
         color: 'rgba(36,16,19,0.5)',
         fontSize: '0.875rem',

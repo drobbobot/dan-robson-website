@@ -1,34 +1,39 @@
 'use client';
 
-import { useWord } from '@/lib/WordContext';
-import { wordStyles } from '@/lib/wordStyles';
+import { HandWaveIcon } from './HandWaveIcon';
 
 interface StyledButtonProps {
   href: string;
   children: React.ReactNode;
   className?: string;
+  /** Show a waving-hand icon before the label (the "Say hi" CTAs). */
+  wave?: boolean;
 }
 
-export function StyledButton({ href, children, className = '' }: StyledButtonProps) {
-  const { activeWord } = useWord();
-  const { buttonStyle } = wordStyles[activeWord];
-
+/**
+ * The single, consistent CTA for the whole site: a Lia-blue pill in the Söhne
+ * interface voice. No per-state restyling — one treatment everywhere.
+ */
+export function StyledButton({ href, children, className = '', wave = false }: StyledButtonProps) {
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center whitespace-nowrap transition-all duration-300 ease-in-out ${className}`}
+      className={`${wave ? 'say-hi ' : ''}pill inline-flex items-center justify-center whitespace-nowrap transition-[transform,box-shadow,background-color] duration-200 ease-out hover:-translate-y-px ${className}`}
       style={{
-        padding: '0.75rem 1.5rem',
-        fontSize: '0.875rem',
-        backgroundColor: buttonStyle.bg,
-        color: buttonStyle.text,
-        border: buttonStyle.border,
-        borderRadius: buttonStyle.radius,
-        boxShadow: buttonStyle.shadow,
-        fontFamily: buttonStyle.fontFamily,
-        fontWeight: buttonStyle.fontWeight,
+        gap: '0.5rem',
+        padding: '0.8125rem 1.5rem',
+        fontFamily: 'var(--font-sans)',
+        fontSize: '0.9375rem',
+        fontWeight: 500,
+        letterSpacing: '0.005em',
+        backgroundColor: 'var(--primary)',
+        color: 'var(--primary-foreground)',
+        boxShadow: 'var(--shadow-sm)',
       }}
     >
+      {wave && (
+        <HandWaveIcon className="wave-hand" style={{ fontSize: '1.15em' }} />
+      )}
       {children}
     </a>
   );

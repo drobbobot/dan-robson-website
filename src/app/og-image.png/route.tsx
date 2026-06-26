@@ -19,7 +19,7 @@ export async function GET() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#EDE9E1',
+          backgroundColor: '#F2F0EB',
           padding: '32px',
         }}
       >
@@ -31,10 +31,10 @@ export async function GET() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            backgroundColor: '#FAF7EF',
-            borderRadius: '16px',
-            border: '2px solid #E9E5DD',
-            boxShadow: '0px 8px 40px rgba(0,0,0,0.1)',
+            backgroundColor: '#FBFAF5',
+            borderRadius: '22px',
+            border: '1px solid #E7E5DF',
+            boxShadow: '0px 8px 40px rgba(26,23,20,0.1)',
             padding: '56px',
             position: 'relative',
           }}
@@ -50,17 +50,8 @@ export async function GET() {
               gap: '10px',
             }}
           >
-            <div
-              style={{
-                width: '14px',
-                height: '14px',
-                borderRadius: '50%',
-                backgroundColor: '#22C55E',
-                boxShadow: '0 0 10px rgba(34,197,94,0.6)',
-              }}
-            />
-            <span style={{ fontSize: '22px', color: '#241013', opacity: 0.6 }}>
-              Available
+            <span style={{ fontSize: '22px', color: '#1A1714', opacity: 0.6 }}>
+              Independent practice
             </span>
           </div>
 
@@ -68,7 +59,7 @@ export async function GET() {
           <h1
             style={{
               fontSize: '88px',
-              color: '#241013',
+              color: '#1A1714',
               fontWeight: 400,
               margin: 0,
               lineHeight: 1.05,
@@ -87,7 +78,7 @@ export async function GET() {
                 height: '96px',
                 borderRadius: '50%',
                 overflow: 'hidden',
-                border: '2px solid #E9E5DD',
+                border: '1px solid #E7E5DF',
                 display: 'flex',
                 flexShrink: 0,
               }}
@@ -101,13 +92,13 @@ export async function GET() {
               />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <p style={{ fontSize: '36px', color: '#241013', margin: 0, letterSpacing: '-0.5px' }}>
+              <p style={{ fontSize: '36px', color: '#1A1714', margin: 0, letterSpacing: '-0.5px' }}>
                 Dan Robson
               </p>
-              <p style={{ fontSize: '24px', color: 'rgba(36,16,19,0.7)', margin: 0 }}>
+              <p style={{ fontSize: '24px', color: 'rgba(26,23,20,0.7)', margin: 0 }}>
                 Brand Systems / Lead UX Designer · Newcastle, Australia
               </p>
-              <p style={{ fontSize: '20px', color: 'rgba(36,16,19,0.45)', margin: 0, marginTop: '2px' }}>
+              <p style={{ fontSize: '20px', color: 'rgba(26,23,20,0.45)', margin: 0, marginTop: '2px' }}>
                 robson.studio
               </p>
             </div>

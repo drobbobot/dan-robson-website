@@ -1,35 +1,127 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Robson Studio — re-skinned onto the Lia design system v4.
+   Warm-neutral surfaces + Martina Plantijn (voice) / Söhne (interface)
+   + squircle geometry + pill primary + warm paper-shadow scale.
+
+   Two things stay as Robson's own signature inside the v4 skin:
+     1. The accent is Robson VERMILION (#FF3C1A), not Lia brand-blue.
+     2. The faint desk grid (below) is kept instead of Lia's paper grain.
+
+   Tokens (neutrals, radius, shadows) are ported verbatim from the v4
+   source of truth: Lia-Creative/lia-design-system-v4 src/app/globals.css.
+   ============================================================ */
+
+/* ── v4 FONTS — Klim TEST licence (Söhne + Martina Plantijn) ──────────────
+   These woff2 are the Klim TEST fonts, self-hosted in /public/fonts and
+   GITIGNORED (see .gitignore: /public/fonts/test-*). They are present for
+   LOCAL PREVIEW ONLY and must never be committed or deployed publicly until
+   a full Klim licence lands.
+
+   Because the files are gitignored, a production build (Vercel) won't have
+   them: each src 404s and the family falls back to its system stack
+   (Helvetica Neue ≈ Söhne, EB Garamond / Georgia ≈ Martina Plantijn). So the
+   site stays licence-safe in production while rendering the real v4 type
+   locally. When licensed, swap these for the production woff2 (same family
+   names) and remove the .gitignore line. */
+@font-face { font-family: "Martina Plantijn"; src: url("/fonts/test-martina-plantijn-regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Martina Plantijn"; src: url("/fonts/test-martina-plantijn-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Martina Plantijn"; src: url("/fonts/test-martina-plantijn-medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Martina Plantijn"; src: url("/fonts/test-martina-plantijn-bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Sohne"; src: url("/fonts/test-soehne-buch.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Sohne"; src: url("/fonts/test-soehne-buch-kursiv.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Sohne"; src: url("/fonts/test-soehne-kraftig.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Sohne"; src: url("/fonts/test-soehne-halbfett.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Sohne Mono"; src: url("/fonts/test-soehne-mono-buch.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Sohne Mono"; src: url("/fonts/test-soehne-mono-kraftig.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-card: var(--card);
-  --color-card-border: var(--card-border);
+  --color-card-foreground: var(--card-foreground);
+  --color-card-border: var(--border);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
 }
 
-/* Brand System — single theme, never changes */
 :root {
-  --background: #FAF7EF;
-  --foreground: #241013;
-  --card: #FAF7EF;
-  --card-border: #E9E5DD;
-  --primary: #FF3C1A;
-  --primary-foreground: #FAF7EF;
-  --muted-foreground: rgba(36, 16, 19, 0.8);
-  --logo-brown: #482D21;
+  /* ── v4 NEUTRAL ramp (warm, hue ~89→55, very low chroma) — verbatim from
+     the v4 source. Cream desk at the light end, warm-charcoal at the dark. ── */
+  --neutral-50: oklch(0.978 0.006 89);  /* lightest warm white — cards / raised */
+  --neutral-100: oklch(0.957 0.007 89); /* cream — page background (#F2F0EB) */
+  --neutral-200: oklch(0.922 0.008 89); /* borders, muted */
+  --neutral-300: oklch(0.85 0.009 89);
+  --neutral-400: oklch(0.712 0.009 88);
+  --neutral-500: oklch(0.578 0.009 86);
+  --neutral-600: oklch(0.486 0.009 84); /* muted-foreground (~5.6:1 on paper) */
+  --neutral-700: oklch(0.371 0.006 57);
+  --neutral-800: oklch(0.269 0.0065 56);
+  --neutral-900: oklch(0.205 0.005 55); /* warm charcoal — ink */
 
-  --font-body: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  --font-hero-serif: var(--font-eb-garamond), 'Georgia', serif;
+  /* ── Robson Studio signature accent — RS vermilion (#FF3C1A), the CTA colour.
+     Cream ink on vermilion for button text (the original Robson treatment). ── */
+  --vermilion: #FF3C1A;                  /* RS vermilion — the accent */
+  --lia-orange: oklch(0.705 0.213 47.6); /* #f97316 — Lia v4 orange (kept for reference) */
+  --lia-blue: oklch(0.50 0.27 263.51);   /* #0044F9 — Lia blue (kept for reference) */
 
-  --radius: 8px;
-  --radius-full: 100px;
-  --shadow-card: 0px 4px 16px rgba(0, 0, 0, 0.08);
+  /* ── Semantic tokens — light mode (Lia v4 neutrals + RS vermilion accent) ── */
+  --background: var(--neutral-100);
+  --foreground: var(--neutral-900);
+  --card: var(--neutral-50);
+  --card-foreground: var(--neutral-900);
+  --muted: var(--neutral-200);
+  --muted-foreground: var(--neutral-600);
+  --border: var(--neutral-200);
+  --primary: var(--vermilion);
+  --primary-foreground: var(--neutral-50);
+  --accent: var(--vermilion);
+  --ring: var(--vermilion);
+
+  /* ── v4 type — Söhne = interface, Martina Plantijn = voice, Söhne Mono = data.
+     Each names the real face first, then a close fallback stack. ── */
+  --font-sans: "Sohne", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: "Martina Plantijn", var(--font-eb-garamond), "Georgia", "Times New Roman", serif;
+  --font-mono: "Sohne Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* ── v4 shape — radius 0.9rem base, 1.4rem cards, pill primary ── */
+  --radius: 0.9rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-card: 1.4rem;
+  --radius-control: 0.85rem;
+  --radius-pill: 9999px;
+
+  /* ── v4 warm paper-shadow scale (hue 55, low chroma) — verbatim ── */
+  --shadow-xs:
+    0.5px 0.5px 1px 0 oklch(0.20 0.01 55 / 0.15),
+    1px 1px 2px -0.5px oklch(0.20 0.01 55 / 0.05);
+  --shadow-sm:
+    0.5px 1px 1.5px 0 oklch(0.20 0.01 55 / 0.18),
+    1px 2px 3px -0.5px oklch(0.20 0.01 55 / 0.08);
+  --shadow:
+    0.5px 1px 1.5px 0 oklch(0.20 0.01 55 / 0.22),
+    1px 2px 4px -1px oklch(0.20 0.01 55 / 0.10);
+  --shadow-md:
+    0.5px 1.5px 2px 0 oklch(0.20 0.01 55 / 0.25),
+    1.5px 3px 5px -1px oklch(0.20 0.01 55 / 0.12);
+  --shadow-lg:
+    1px 2px 3px 0 oklch(0.20 0.01 55 / 0.25),
+    2px 4px 8px -2px oklch(0.20 0.01 55 / 0.14);
+  /* alias kept for any existing references */
+  --shadow-card: var(--shadow-sm);
 
   --duration-normal: 300ms;
   --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* exponential-ish ease-out (Impeccable) */
 }
 
 html {
@@ -39,8 +131,9 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-weight: 400;
+  font-feature-settings: "ss01";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -50,6 +143,36 @@ body {
   color: var(--primary-foreground);
 }
 
+/* Orphan / widow control (v4) — balance headings, tidy body last lines.
+   Chromium 117+ / Safari 17.5+, degrades gracefully elsewhere. */
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+p, li, figcaption, blockquote { text-wrap: pretty; }
+
+/* ── v4 SHAPE LANGUAGE — squircle surfaces, pill primary.
+   corner-shape: squircle is Chromium-only; the border-radius is the
+   graceful rounded fallback everywhere else. ── */
+.squircle { corner-shape: squircle; }
+.pill { border-radius: var(--radius-pill); corner-shape: round; }
+
+/* Waving hand on the "Say hi" CTA — waves on hover/focus */
+.wave-hand {
+  display: inline-block;
+  transform-origin: 70% 80%;
+}
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(14deg); }
+  30% { transform: rotate(-8deg); }
+  45% { transform: rotate(14deg); }
+  60% { transform: rotate(-4deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+.say-hi:hover .wave-hand,
+.say-hi:focus-visible .wave-hand {
+  animation: wave 0.9s ease-in-out;
+}
+
 /* Recent activity carousel — hide scrollbar, keep native scroll/snap */
 .now-carousel {
   scrollbar-width: none;
@@ -57,4 +180,12 @@ body {
 }
 .now-carousel::-webkit-scrollbar {
   display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

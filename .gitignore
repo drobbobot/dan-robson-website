@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# v4 fonts — Klim TEST licence (Söhne + Martina Plantijn). Local preview ONLY,
+# never commit/deploy until a full licence lands. See globals.css @font-face.
+/public/fonts/test-*
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

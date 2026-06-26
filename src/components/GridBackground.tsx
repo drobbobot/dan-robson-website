@@ -53,7 +53,7 @@ function GridPattern() {
             fill="none"
             stroke="currentColor"
             strokeWidth="0.5"
-            className="text-[#241013]"
+            className="text-[color:var(--foreground)]"
           />
         </pattern>
       </defs>

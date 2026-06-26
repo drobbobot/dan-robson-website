@@ -7,10 +7,10 @@ import { humanise, type NowPayload, type NowItem } from '@/lib/now';
 
 const data = nowData as NowPayload;
 
-const FONT = "'Helvetica Neue', sans-serif";
-const FG = '#241013';
-const MUTED = 'rgba(36, 16, 19, 0.55)';
-const BORDER = 'var(--card-border)';
+const FONT = 'var(--font-sans)';
+const FG = 'var(--foreground)';
+const MUTED = 'var(--muted-foreground)';
+const BORDER = 'var(--border)';
 const EASE = [0.4, 0, 0.2, 1] as const;
 const GAP_PX = 12; // matches the 0.75rem track gap
 
@@ -63,7 +63,7 @@ function NavButton({ dir, disabled, onClick }: { dir: 'left' | 'right'; disabled
 function Card({ item }: { item: NowItem }) {
   return (
     <li
-      className="now-card"
+      className="now-card squircle"
       style={{
         flex: '0 0 auto',
         width: 'clamp(14rem, 60vw, 17rem)',
@@ -73,11 +73,11 @@ function Card({ item }: { item: NowItem }) {
         background: 'var(--card)',
         border: `1px solid ${BORDER}`,
         borderRadius: 'var(--radius)',
-        boxShadow: 'var(--shadow-card)',
-        padding: '1.125rem 1.125rem 1.25rem',
+        boxShadow: 'var(--shadow-sm)',
+        padding: '1.25rem 1.25rem 1.375rem',
       }}
     >
-      <h3 style={{ fontFamily: FONT, fontSize: '1rem', fontWeight: 500, color: 'rgba(36,16,19,0.9)', lineHeight: 1.35, margin: 0 }}>
+      <h3 style={{ fontFamily: FONT, fontSize: '1rem', fontWeight: 600, color: 'var(--foreground)', lineHeight: 1.35, margin: 0 }}>
         {item.title}
       </h3>
 
@@ -86,7 +86,7 @@ function Card({ item }: { item: NowItem }) {
         {item.category ? (
           <>
             <span aria-hidden style={{ color: MUTED, fontSize: '0.8125rem' }}>·</span>
-            <span style={{ fontFamily: FONT, fontSize: '0.8125rem', color: 'rgba(36,16,19,0.7)' }}>{item.category}</span>
+            <span style={{ fontFamily: FONT, fontSize: '0.8125rem', color: 'var(--foreground)' }}>{item.category}</span>
           </>
         ) : null}
       </div>
@@ -96,7 +96,7 @@ function Card({ item }: { item: NowItem }) {
           fontFamily: FONT,
           fontSize: '0.875rem',
           lineHeight: 1.5,
-          color: 'rgba(36,16,19,0.8)',
+          color: 'var(--muted-foreground)',
           margin: 0,
           display: '-webkit-box',
           WebkitLineClamp: 4,
@@ -173,15 +173,13 @@ export function NowFeed() {
 
   if (!data.items || data.items.length === 0) return null;
 
-  // Only fade the RIGHT edge, where a partial card genuinely peeks. The left edge always sits
-  // flush against a snapped card, so fading it just clips a fully-visible card — leave it crisp.
-  const FADE_RIGHT = '2.5rem';
-  const edgeMask = atEnd
-    ? 'none'
-    : `linear-gradient(to right, rgba(0,0,0,1) 0, rgba(0,0,0,1) calc(100% - ${FADE_RIGHT}), rgba(0,0,0,0) 100%)`;
+  // Cards start crisp at the content margin (left) and bleed off the RIGHT page
+  // edge, with the fade starting well in from the edge so they blur sooner.
+  const edgeMask = 'linear-gradient(to right, black 0%, black 78%, transparent 100%)';
 
   return (
     <section className="relative" style={{ padding: '6rem 1.5rem' }}>
+      {/* Heading column (stays within the content margin) */}
       <div className="w-full md:pl-[calc(25%-5rem)]" style={{ maxWidth: '90rem', margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -212,33 +210,40 @@ export function NowFeed() {
 
           {/* Explainer */}
           {data.how ? (
-            <p style={{ fontFamily: FONT, fontSize: '0.875rem', lineHeight: 1.5, color: 'rgba(36,16,19,0.65)', margin: '0.75rem 0 0', maxWidth: '32rem' }}>
+            <p style={{ fontFamily: FONT, fontSize: '0.875rem', lineHeight: 1.5, color: 'var(--muted-foreground)', margin: '0.75rem 0 0', maxWidth: '32rem' }}>
               {data.how}
             </p>
           ) : null}
+        </motion.div>
+      </div>
 
-          {/* Horizontal carousel */}
-          <div
-            ref={viewportRef}
-            className="now-carousel"
-            onScroll={updateBounds}
-            style={{
-              marginTop: '1.75rem',
-              overflowX: 'auto',
-              scrollSnapType: 'x mandatory',
-              padding: '0.25rem 0 0.75rem',
-              maskImage: edgeMask,
-              WebkitMaskImage: edgeMask,
-            }}
-          >
-            <ul className="list-none flex" style={{ margin: 0, padding: 0, gap: '0.75rem', width: 'max-content' }}>
-              {data.items.map((item, i) => (
-                <Card key={`${item.date}-${i}`} item={item} />
-              ))}
-            </ul>
-          </div>
+      {/* Carousel — left edge aligned to the content margin, bleeds off the right
+          edge (negative right margin cancels the section gutter). */}
+      <div className="w-full md:pl-[calc(25%-5rem)]" style={{ maxWidth: '90rem', margin: '0 auto' }}>
+        <div
+          ref={viewportRef}
+          className="now-carousel"
+          onScroll={updateBounds}
+          style={{
+            marginTop: '1.75rem',
+            marginRight: '-1.5rem',
+            overflowX: 'auto',
+            scrollSnapType: 'x mandatory',
+            maskImage: edgeMask,
+            WebkitMaskImage: edgeMask,
+          }}
+        >
+          <ul className="list-none flex" style={{ margin: 0, padding: '0.25rem 1.5rem 0.75rem 0', gap: '0.75rem', width: 'max-content' }}>
+            {data.items.map((item, i) => (
+              <Card key={`${item.date}-${i}`} item={item} />
+            ))}
+          </ul>
+        </div>
+      </div>
 
-          {/* Arrows + position dots */}
+      {/* Controls + closer (back within the content margin) */}
+      <div className="w-full md:pl-[calc(25%-5rem)]" style={{ maxWidth: '90rem', margin: '0 auto' }}>
+        <div style={{ maxWidth: '48rem' }}>
           {count > 1 ? (
             <div className="flex items-center" style={{ gap: '1rem', marginTop: '1.25rem' }}>
               <div className="flex items-center" style={{ gap: '0.5rem' }}>
@@ -255,7 +260,7 @@ export function NowFeed() {
                     aria-current={p === active}
                     animate={{
                       width: p === active ? '18px' : '6px',
-                      backgroundColor: p === active ? '#FF3C1A' : 'rgba(36,16,19,0.2)',
+                      backgroundColor: p === active ? 'var(--primary)' : 'color-mix(in oklch, var(--foreground) 22%, transparent)',
                     }}
                     transition={{ duration: 0.3, ease: EASE }}
                     style={{ height: '6px', borderRadius: '100px', border: 'none', padding: 0, cursor: 'pointer', display: 'block' }}
@@ -265,13 +270,12 @@ export function NowFeed() {
             </div>
           ) : null}
 
-          {/* Closer */}
           {data.closer ? (
             <p style={{ fontFamily: FONT, fontStyle: 'italic', fontSize: '0.8125rem', color: MUTED, marginTop: '1.75rem' }}>
               {data.closer}
             </p>
           ) : null}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -20,7 +20,7 @@ export default function TermsOfService() {
               <h1
                 className="leading-[1.1]"
                 style={{
-                  fontFamily: "'Helvetica Neue', sans-serif",
+                  fontFamily: 'var(--font-sans)',
                   fontWeight: 400,
                   fontSize: 'clamp(2.5rem, 6vw, 3.5rem)',
                   letterSpacing: '-0.06rem',
@@ -31,8 +31,8 @@ export default function TermsOfService() {
               </h1>
               <p
                 style={{
-                  fontFamily: 'var(--font-hero-serif)',
-                  color: '#241013',
+                  fontFamily: 'var(--font-serif)',
+                  color: 'var(--foreground)',
                   fontSize: '1.25rem',
                   lineHeight: 1.4,
                   marginBottom: '3rem',
@@ -44,7 +44,7 @@ export default function TermsOfService() {
 
               <div
                 style={{
-                  fontFamily: "'Helvetica Neue', sans-serif",
+                  fontFamily: 'var(--font-sans)',
                   color: 'rgba(36,16,19,0.85)',
                   fontSize: '1rem',
                   lineHeight: 1.7,
@@ -66,6 +66,12 @@ export default function TermsOfService() {
                   The Services are operated by Robson Studio, a sole-operator design studio
                   run by Dan Robson, based in Newcastle, New South Wales, Australia. You can
                   contact us at <A href="mailto:dan@robson.studio">dan@robson.studio</A>.
+                </P>
+                <P>
+                  Robson Studio operates separately from Dan Robson&rsquo;s employment. It does
+                  not solicit or accept work from his employer&rsquo;s clients, and does not use
+                  or share confidential information. Any independent engagement is subject to
+                  conflict and confidentiality checks, and to approval where required.
                 </P>
 
                 <H2>3. Eligibility</H2>
@@ -200,13 +206,13 @@ function H2({ children }: { children: React.ReactNode }) {
   return (
     <h2
       style={{
-        fontFamily: "'Helvetica Neue', sans-serif",
+        fontFamily: 'var(--font-sans)',
         fontWeight: 400,
         fontSize: '1.5rem',
         letterSpacing: '-0.02rem',
         marginTop: '2.5rem',
         marginBottom: '0.75rem',
-        color: '#241013',
+        color: 'var(--foreground)',
       }}
     >
       {children}
@@ -267,7 +273,7 @@ function Meta({ children }: { children: React.ReactNode }) {
   return (
     <p
       style={{
-        fontFamily: "'Helvetica Neue', sans-serif",
+        fontFamily: 'var(--font-sans)',
         fontStyle: 'italic',
         color: 'rgba(36,16,19,0.5)',
         fontSize: '0.875rem',

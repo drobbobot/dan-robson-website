@@ -7,14 +7,14 @@
     {
       "date": "2026-06-23",
       "display_date": "23 Jun",
-      "title": "Wired a primitive guard into our design-system repo",
+      "title": "Wired a primitive guard into a design system",
       "category": "Agent governance",
       "tools": [
         "Claude Code",
         "Bash",
         "Git"
       ],
-      "body": "Installed a commit-time guard hook in our design-system repo that blocks hand-rolled dialogs, tooltips and tabs and forces the shared primitive instead, so drift cannot creep in component by component. Tested it both ways, a hand-rolled component trips it and the proper import clears it, then committed it with the rule written into the repo's agent guide."
+      "body": "Added a commit-time guard hook to a design system that blocks hand-rolled dialogs, tooltips and tabs and forces the shared primitive instead, so drift cannot creep in component by component. Tested it both ways, a hand-rolled component trips it and the proper import clears it, then wrote the rule into the contributor guide."
     },
     {
       "date": "2026-06-23",
@@ -31,71 +31,71 @@
     {
       "date": "2026-06-19",
       "display_date": "19 Jun",
-      "title": "Rebalanced the type scale in our design system",
+      "title": "Rebalanced the type scale in a design system",
       "category": "Design system",
       "tools": [
         "Next.js",
         "Tailwind",
         "shadcn/ui"
       ],
-      "body": "Reworked the UI type scale in our design system, bringing functional controls down a notch to a macOS-style 13px base for density while leaving editorial reading text at its larger size. Unified the mono onto one foundry, pulled secondary CTAs back to a single action colour, and added a hair of positive tracking at small sizes so the interface holds up as it shrinks."
+      "body": "Reworked the UI type scale in a design system, bringing functional controls down a notch to a macOS-style 13px base for density while leaving editorial reading text at its larger size. Unified the mono onto one foundry, pulled secondary actions back to a single action colour, and added a hair of positive tracking at small sizes so the interface holds up as it shrinks."
     },
     {
       "date": "2026-06-09",
       "display_date": "9 Jun",
-      "title": "Stood up the design foundation for a rate-comparison site",
+      "title": "Stood up the design foundation for a rate-comparison product",
       "category": "Design system",
       "tools": [
         "Next.js",
         "shadcn/ui",
         "Storybook"
       ],
-      "body": "Built and deployed the token kit for a home-loan rate comparison site, a componentised shadcn front end so it hands over to the client's dev team ready to wire up to live data. Anchored colour, type and spacing as reusable tokens and pulled a deep teal base toward a more authoritative tone, so the pages read sharp and trustworthy rather than poppy."
+      "body": "Built and deployed a token kit for a rate-comparison product, a componentised shadcn front end ready to hand to a dev team to wire up to live data. Anchored colour, type and spacing as reusable tokens and pulled the base toward a more authoritative tone, so the pages read sharp and trustworthy rather than poppy."
     },
     {
       "date": "2026-06-09",
       "display_date": "9 Jun",
-      "title": "Built an internal company hub wired to our design system",
+      "title": "Built an internal hub wired to a design system",
       "category": "Design system",
       "tools": [
         "Next.js",
         "Tailwind",
         "Vercel"
       ],
-      "body": "Stood up a private internal site that consumes our design system at the component level, so a change to the system flows straight through to the live pages instead of being copied across by hand. Got the propagation test passing, then created the repo and pushed it ready to deploy."
+      "body": "Stood up a private internal site that consumes a design system at the component level, so a change to the system flows straight through to the live pages instead of being copied across by hand. Got the propagation test passing, then set up the repo ready to deploy."
     },
     {
       "date": "2026-06-09",
       "display_date": "9 Jun",
-      "title": "Token-bound component work in a fintech design system",
+      "title": "Token-bound component work in a design system",
       "category": "Design system",
       "tools": [
         "Figma"
       ],
-      "body": "Redesigned a key-points module in a client's Figma library, keeping every colour, type and spacing value bound to the design tokens rather than hand-set. Pushed the eyebrow style down into the component set so the rule lives in one place, and switched the cards to hug-and-stretch so longer copy stops clipping."
+      "body": "Redesigned a key-points module in a Figma library, keeping every colour, type and spacing value bound to design tokens rather than hand-set. Pushed the eyebrow style down into the component set so the rule lives in one place, and switched the cards to hug-and-stretch so longer copy stops clipping."
     },
     {
       "date": "2026-06-09",
       "display_date": "9 Jun",
-      "title": "Designed a privacy dial for a newsletter product",
+      "title": "Designed a privacy control for a newsletter product",
       "category": "Content tool",
       "tools": [
         "React",
         "shadcn/ui"
       ],
-      "body": "Designed an interactive privacy control for a community newsletter product, a dial that sets each story to Owned, Open or Public with the active state lit in its own zone colour. Built it click-to-select with the labels pinned to the arc, so the privacy posture reads at a glance instead of hiding in a settings menu."
+      "body": "Designed an interactive privacy control for a newsletter product, a dial that sets each story to Owned, Open or Public with the active state lit in its own zone colour. Built it click-to-select with the labels pinned to the arc, so the privacy posture reads at a glance instead of hiding in a settings menu."
     },
     {
       "date": "2026-06-04",
       "display_date": "4 Jun",
-      "title": "Rebuilt our founder Slack bot as a native service",
+      "title": "Rebuilt a founder bot as a native service",
       "category": "Agent infra",
       "tools": [
         "Python",
         "Slack",
         "LaunchAgent"
       ],
-      "body": "Converted the founder bot from a scheduled poller into an event-driven macOS service, so it answers in our founder Slack the moment it's addressed by name and follows up in-thread. Packaged it so each founder installs their own with one command, each bot running off its own vault and signing every reply as a proxy rather than the person."
+      "body": "Converted a founder bot from a scheduled poller into an event-driven macOS service, so it answers the moment it is addressed by name and follows up in thread. Packaged it so it installs with one command, each instance running off its own vault and signing every reply as a proxy rather than the person."
     }
   ]
 }

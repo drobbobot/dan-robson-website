@@ -2,13 +2,9 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useWord } from '@/lib/WordContext';
-import { wordStyles } from '@/lib/wordStyles';
 import { StyledButton } from './StyledButton';
 
 export function Contact() {
-  const { activeWord } = useWord();
-  const style = wordStyles[activeWord];
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -24,41 +20,53 @@ export function Contact() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-start"
           style={{ gap: '1.5rem' }}
         >
           <h2
-            className="leading-[1.1] transition-colors duration-300 text-[clamp(3rem,8vw,4rem)]"
+            className="text-[clamp(2.5rem,7vw,4rem)]"
             style={{
-              fontFamily: style.contactStyle.fontFamily,
-              color: style.contactStyle.color,
-              fontWeight: style.contactStyle.fontWeight,
-              fontStyle: style.contactStyle.fontStyle,
-              letterSpacing: style.contactStyle.letterSpacing,
+              fontFamily: 'var(--font-serif)',
+              color: 'var(--foreground)',
+              fontWeight: 400,
+              lineHeight: 1.04,
+              letterSpacing: '-0.025em',
               maxWidth: '36.75rem',
             }}
           >
-            {style.letsTalkText}
+            Say hi.
           </h2>
 
-          <div className="flex items-center relative" style={{ gap: '0.75rem' }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-sans)',
+              color: 'var(--muted-foreground)',
+              fontSize: 'clamp(1rem, 1.3vw, 1.125rem)',
+              lineHeight: 1.55,
+              maxWidth: '34rem',
+            }}
+          >
+            I&rsquo;d love to connect with people doing interesting work.
+          </p>
+
+          <div className="flex items-center relative" style={{ gap: '0.75rem', marginTop: '0.25rem' }}>
             <StyledButton href="mailto:dan@robson.studio">
               dan@robson.studio
             </StyledButton>
             <button
               onClick={handleCopy}
-              className="transition-all duration-200 active:scale-95"
+              className="squircle transition-all duration-200 active:scale-95"
               style={{
                 padding: '0.75rem',
-                borderRadius: '0.5rem',
-                border: '1px solid #E9E5DD',
-                background: 'transparent',
+                borderRadius: 'var(--radius-control)',
+                border: '1px solid var(--border)',
+                background: 'var(--card)',
                 cursor: 'pointer',
-                color: '#241013',
-                opacity: 0.6,
+                color: 'var(--muted-foreground)',
               }}
               title="Copy email"
+              aria-label="Copy email address"
             >
               {copied ? (
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -73,11 +81,11 @@ export function Contact() {
             </button>
             {copied && (
               <span
-                className="absolute left-full ml-3 whitespace-nowrap animate-fade-in"
+                className="absolute left-full ml-3 whitespace-nowrap"
                 style={{
                   fontSize: '0.875rem',
-                  color: 'rgba(36,16,19,0.6)',
-                  fontFamily: "'Helvetica Neue', sans-serif",
+                  color: 'var(--muted-foreground)',
+                  fontFamily: 'var(--font-sans)',
                 }}
               >
                 Copied to clipboard
