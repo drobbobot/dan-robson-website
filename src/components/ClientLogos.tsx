@@ -32,7 +32,7 @@ const logos = [
 // The blur is baked into the source PNGs (that's what makes it unrecoverable).
 // This CSS blur is an extra visual layer on top — removing it in devtools only
 // reveals the already-blurred baked pixels, never the real logo.
-const BLUR = 'blur(5px)';
+const BLUR = 'blur(2px)';
 
 function LogoStrip() {
   return (
