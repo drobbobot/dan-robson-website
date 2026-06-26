@@ -13,18 +13,13 @@
    source of truth: Lia-Creative/lia-design-system-v4 src/app/globals.css.
    ============================================================ */
 
-/* ── v4 FONTS — Klim TEST licence (Söhne + Martina Plantijn) ──────────────
-   These woff2 are the Klim TEST fonts, self-hosted in /public/fonts and
-   GITIGNORED (see .gitignore: /public/fonts/test-*). They are present for
-   LOCAL PREVIEW ONLY and must never be committed or deployed publicly until
-   a full Klim licence lands.
-
-   Because the files are gitignored, a production build (Vercel) won't have
-   them: each src 404s and the family falls back to its system stack
-   (Helvetica Neue ≈ Söhne, EB Garamond / Georgia ≈ Martina Plantijn). So the
-   site stays licence-safe in production while rendering the real v4 type
-   locally. When licensed, swap these for the production woff2 (same family
-   names) and remove the .gitignore line. */
+/* ── v4 FONTS — Söhne + Martina Plantijn ──────────────────────────────────
+   These woff2 are the Klim TRIAL fonts, self-hosted in /public/fonts and now
+   committed + deployed per Dan's call (2026-06-26) while the full Klim licence
+   is being finalised. Swap them for the full-licence files (same family names)
+   once it lands — no other change needed. If they're ever missing, each src
+   404s and the family falls back to its system stack (Helvetica Neue ≈ Söhne,
+   EB Garamond / Georgia ≈ Martina Plantijn). */
 @font-face { font-family: "Martina Plantijn"; src: url("/fonts/test-martina-plantijn-regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "Martina Plantijn"; src: url("/fonts/test-martina-plantijn-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
 @font-face { font-family: "Martina Plantijn"; src: url("/fonts/test-martina-plantijn-medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
