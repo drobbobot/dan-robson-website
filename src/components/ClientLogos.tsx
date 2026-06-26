@@ -4,21 +4,17 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 /**
- * Credibility strip — interim treatment (2026-06-26).
+ * Credibility strip (2026-06-26).
  *
- * The client logos are shown but heavily BLURRED so the strip keeps its
- * visual rhythm without the marks being legible. `alt` is intentionally blank
- * and the strip is aria-hidden so the client names are not in the DOM / SEO.
- *
- * NOTE (compliance): this is a visual obscure, not a removal — the image
- * filenames (e.g. logo-prezzee.png) still identify the clients in page source,
- * and a blur is only a visual screen. Stronger option on the bench: the
- * descriptor-card version (no logo, no name) from the earlier pass.
+ * The blur is BAKED INTO THE PIXELS: the PNG files in /public/images are the
+ * pre-blurred images (heavy Gaussian, done with Pillow), so the sharp original
+ * is never served and removing CSS can't recover it. On top of that the marks
+ * carry no CSS blur dependency, the filenames are type-descriptive (not company
+ * names), `alt` is blank, and the strip is aria-hidden — so nothing in the page
+ * source identifies the clients. Residual that remains by nature: dominant
+ * colour and rough silhouette. (Zero-residual option on the bench: abstract
+ * blobs or the descriptor-card version.)
  */
-
-// Filenames are deliberately type-descriptive, not company names, so the
-// client identities aren't exposed in page source. The marks are blurred and
-// the strip is aria-hidden on top of that.
 const logos = [
   { src: '/images/logo-giftcard.png', width: 412, height: 344 },
   { src: '/images/logo-insurance.png', width: 736, height: 344 },
@@ -31,7 +27,8 @@ const logos = [
   { src: '/images/logo-fitness.png', width: 412, height: 344 },
 ];
 
-const BLUR = 'blur(11px)';
+// Blur is baked into the source PNGs (see file header); no CSS blur needed.
+const BLUR = 'none';
 
 function LogoStrip() {
   return (
