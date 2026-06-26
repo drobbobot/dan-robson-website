@@ -18,15 +18,15 @@ import Image from 'next/image';
 // Dimensions include the transparent padding baked around each blurred mark so
 // the blur feathers to nothing (no hard bounding-box edge).
 const logos = [
-  { src: '/images/logo-giftcard.png', width: 556, height: 488 },
-  { src: '/images/logo-insurance.png', width: 880, height: 488 },
-  { src: '/images/logo-marketplace.png', width: 496, height: 488 },
-  { src: '/images/logo-furniture.png', width: 656, height: 488 },
-  { src: '/images/logo-travel.png', width: 644, height: 488 },
-  { src: '/images/logo-finance.png', width: 836, height: 488 },
-  { src: '/images/logo-nonprofit.png', width: 624, height: 488 },
-  { src: '/images/logo-logistics.png', width: 716, height: 488 },
-  { src: '/images/logo-fitness.png', width: 556, height: 488 },
+  { src: '/images/logo-giftcard.png', width: 580, height: 512 },
+  { src: '/images/logo-insurance.png', width: 904, height: 512 },
+  { src: '/images/logo-marketplace.png', width: 520, height: 512 },
+  { src: '/images/logo-furniture.png', width: 680, height: 512 },
+  { src: '/images/logo-travel.png', width: 668, height: 512 },
+  { src: '/images/logo-finance.png', width: 860, height: 512 },
+  { src: '/images/logo-nonprofit.png', width: 648, height: 512 },
+  { src: '/images/logo-logistics.png', width: 740, height: 512 },
+  { src: '/images/logo-fitness.png', width: 580, height: 512 },
 ];
 
 // Blur is baked into the source PNGs (see file header); no CSS blur needed.
@@ -43,7 +43,7 @@ function LogoStrip() {
           width={logo.width}
           height={logo.height}
           className="object-contain shrink-0 select-none pointer-events-none"
-          style={{ height: '5rem', width: 'auto', filter: BLUR, opacity: 0.85 }}
+          style={{ height: '5.2rem', width: 'auto', filter: BLUR, opacity: 0.85 }}
         />
       ))}
     </div>
