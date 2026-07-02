@@ -1,8 +1,31 @@
 {
-  "updated": "2026-07-01",
+  "updated": "2026-07-02",
   "cadence": "refreshes every 3 days",
   "how": "These activity cards are automatically generated based on activity in my memory system. I review them every few days, and they automatically publish here.",
   "items": [
+    {
+      "date": "2026-07-01",
+      "display_date": "1 Jul",
+      "title": "Packaged an internal skill as a marketplace plugin",
+      "category": "Agent infra",
+      "tools": [
+        "Claude Code",
+        "Git"
+      ],
+      "body": "Packaged a canonical agent skill as a marketplace plugin so it installs once and version-updates cleanly for a whole team, instead of everyone hand-copying stale files. Set it up as a one-way sync from the source of truth, byte-identical, with a version bump that triggers the update on install."
+    },
+    {
+      "date": "2026-06-26",
+      "display_date": "26 Jun",
+      "title": "Rebuilt a static calculator as a design-system route",
+      "category": "Design system",
+      "tools": [
+        "Next.js",
+        "React",
+        "shadcn/ui"
+      ],
+      "body": "Converted a standalone HTML deal calculator into a native React route that consumes a design system at the component level, so it tracks the system's tokens, shapes and type instead of carrying its own hand-picked CSS. Ported the calculation logic across untouched, swapped every surface to real Card, Slider and Button components with a class-based dark and light toggle, and verified it rendered clean before publishing."
+    },
     {
       "date": "2026-06-25",
       "display_date": "25 Jun",
@@ -73,27 +96,6 @@
         "Vercel"
       ],
       "body": "Stood up a private internal site that consumes a design system at the component level, so a change to the system flows straight through to the live pages instead of being copied across by hand. Got the propagation test passing, then set up the repo ready to deploy."
-    },
-    {
-      "date": "2026-06-09",
-      "display_date": "9 Jun",
-      "title": "Token-bound component work in a design system",
-      "category": "Design system",
-      "tools": [
-        "Figma"
-      ],
-      "body": "Redesigned a key-points module in a Figma library, keeping every colour, type and spacing value bound to design tokens rather than hand-set. Pushed the eyebrow style down into the component set so the rule lives in one place, and switched the cards to hug-and-stretch so longer copy stops clipping."
-    },
-    {
-      "date": "2026-06-09",
-      "display_date": "9 Jun",
-      "title": "Designed a privacy control for a newsletter product",
-      "category": "Content tool",
-      "tools": [
-        "React",
-        "shadcn/ui"
-      ],
-      "body": "Designed an interactive privacy control for a newsletter product, a dial that sets each story to Owned, Open or Public with the active state lit in its own zone colour. Built it click-to-select with the labels pinned to the arc, so the privacy posture reads at a glance instead of hiding in a settings menu."
     }
   ]
 }
