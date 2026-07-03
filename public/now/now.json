@@ -1,8 +1,54 @@
 {
-  "updated": "2026-07-02",
+  "updated": "2026-07-04",
   "cadence": "refreshes every 3 days",
   "how": "These activity cards are automatically generated based on activity in my memory system. I review them every few days, and they automatically publish here.",
   "items": [
+    {
+      "date": "2026-07-03",
+      "display_date": "3 Jul",
+      "title": "Turned scattered packaging feedback into a single change list",
+      "category": "Brand",
+      "tools": [
+        "Claude",
+        "WhatsApp"
+      ],
+      "body": "Pulled scattered packaging feedback from a supplier chat into one dated change list for an endurance nutrition brand, nine changes across production and compliance, with the single-serve sachet promoted to the sole compliance-bearing unit."
+    },
+    {
+      "date": "2026-07-02",
+      "display_date": "2 Jul",
+      "title": "Scaffolded a UI prototype straight on a design system",
+      "category": "Prototyping",
+      "tools": [
+        "Next.js",
+        "shadcn/ui",
+        "Claude Code"
+      ],
+      "body": "Stood up a look-and-feel prototype for a creative file-management tool on a design system's real components and tokens, fake data only, with a calendar front door as the baseline for a five-direction design exploration."
+    },
+    {
+      "date": "2026-07-01",
+      "display_date": "1 Jul",
+      "title": "Built Figma components inside a live product design library",
+      "category": "Design system",
+      "tools": [
+        "Figma",
+        "Claude Code"
+      ],
+      "body": "Built a set of Figma components for a rate-comparison product inside its live design library, wired to the library's real primitives, with source-mock crops placed beside each build for side-by-side review."
+    },
+    {
+      "date": "2026-07-01",
+      "display_date": "1 Jul",
+      "title": "Built a pipeline that distils a podcast back-catalogue into strategy pages",
+      "category": "Pipeline",
+      "tools": [
+        "Claude Code",
+        "Node.js",
+        "Linear"
+      ],
+      "body": "Built a research pipeline that turns three-hour business-podcast episodes into structured company pages, history, business model and a graded strategy read. Proved it on one episode, then fanned out across the back-catalogue with parallel agents."
+    },
     {
       "date": "2026-07-01",
       "display_date": "1 Jul",
@@ -48,54 +94,6 @@
         "Git"
       ],
       "body": "Added a commit-time guard hook to a design system that blocks hand-rolled dialogs, tooltips and tabs and forces the shared primitive instead, so drift cannot creep in component by component. Tested it both ways, a hand-rolled component trips it and the proper import clears it, then wrote the rule into the contributor guide."
-    },
-    {
-      "date": "2026-06-23",
-      "display_date": "23 Jun",
-      "title": "Built a drop-in scroll-animation tool for static pages",
-      "category": "Automation",
-      "tools": [
-        "Python",
-        "GSAP",
-        "HTML"
-      ],
-      "body": "Built a tool that takes any static HTML page and writes an animated copy, injecting GSAP scroll-reveal on the content blocks plus hover polish on cards and buttons, without touching the original file. Made it safe by default, so no-JS, load failures and reduced-motion preferences all fall back to fully visible content rather than hiding anything behind an animation that never runs."
-    },
-    {
-      "date": "2026-06-19",
-      "display_date": "19 Jun",
-      "title": "Rebalanced the type scale in a design system",
-      "category": "Design system",
-      "tools": [
-        "Next.js",
-        "Tailwind",
-        "shadcn/ui"
-      ],
-      "body": "Reworked the UI type scale in a design system, bringing functional controls down a notch to a macOS-style 13px base for density while leaving editorial reading text at its larger size. Unified the mono onto one foundry, pulled secondary actions back to a single action colour, and added a hair of positive tracking at small sizes so the interface holds up as it shrinks."
-    },
-    {
-      "date": "2026-06-09",
-      "display_date": "9 Jun",
-      "title": "Stood up the design foundation for a rate-comparison product",
-      "category": "Design system",
-      "tools": [
-        "Next.js",
-        "shadcn/ui",
-        "Storybook"
-      ],
-      "body": "Built and deployed a token kit for a rate-comparison product, a componentised shadcn front end ready to hand to a dev team to wire up to live data. Anchored colour, type and spacing as reusable tokens and pulled the base toward a more authoritative tone, so the pages read sharp and trustworthy rather than poppy."
-    },
-    {
-      "date": "2026-06-09",
-      "display_date": "9 Jun",
-      "title": "Built an internal hub wired to a design system",
-      "category": "Design system",
-      "tools": [
-        "Next.js",
-        "Tailwind",
-        "Vercel"
-      ],
-      "body": "Stood up a private internal site that consumes a design system at the component level, so a change to the system flows straight through to the live pages instead of being copied across by hand. Got the propagation test passing, then set up the repo ready to deploy."
     }
   ]
 }
