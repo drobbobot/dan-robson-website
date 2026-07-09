@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T19:35:10.463325+00:00",
+  "generated_at": "2026-07-09T19:36:47.948885+00:00",
   "dan_account": [
     {
       "pid": "7657837172090768648",
@@ -22,7 +22,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "I’ve also converted them to svg’s so that I can have this stamp effect everyyywhere #aidesign #chatgpt",
-      "views": 259,
+      "views": 261,
       "likes": 3,
       "pillar_primary": "design-craft",
       "pillar_secondary": "ai-tooling"
@@ -35,7 +35,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Designing with AI is less coding and more chatting on slack. Claude is working in the background while I focus on judgement calls, inspo and refinement. #claudedesign #branding #designsystem @Chris Quinton ",
-      "views": 472,
+      "views": 475,
       "likes": 9,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": "design-craft"
@@ -48,7 +48,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "I run more AI agents than I can keep up with, so I've been exploring what an air traffic control tower for them could look like.  #aitools #aiworkflow #uxdesign #aiforcreatives #claudeai",
-      "views": 312,
+      "views": 315,
       "likes": 12,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": "design-craft"
@@ -100,7 +100,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "I’m building design system components in Figma without drawing a single one by hand. Claude Code reads my tokens through an MCP and assembles them from my own atoms. Then I go in and refine with my eyes. Crazy how fast this is moving. #aiworkflow #claude #aidesign #figma",
-      "views": 2387,
+      "views": 2422,
       "likes": 44,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": "design-craft"
@@ -126,7 +126,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Building a design system in Claude code is getting easier and easier. I’ve been starting with ShadCN then skinning it with my adjustments - this would have taken a week or more in the old world. #ai #claude #designsystem #uxdesign",
-      "views": 514,
+      "views": 515,
       "likes": 26,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": "design-craft"
@@ -139,7 +139,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "I don’t get to use the ol Adobe Illustrator skills as often anymore. But there are still some projects that I can’t automate with Claude so it’s here to stay (for now). #ai #adobeillustrator #claude",
-      "views": 540,
+      "views": 541,
       "likes": 15,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": "design-craft"
@@ -152,7 +152,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Every day looks a bit different at the moment, but the start and finish rarely change. #routine #newcastle #creativedad @Chris Quinton",
-      "views": 250,
+      "views": 251,
       "likes": 5,
       "pillar_primary": "dad",
       "pillar_secondary": "tastemaker"
@@ -165,7 +165,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "It’s so easy to talk about doing something. Now that we are setting up our systems properly the reality of what we are trying to do it becoming a lot more tangible. #buildinpublic @Chris Quinton  ",
-      "views": 287,
+      "views": 289,
       "likes": 12,
       "pillar_primary": "founder",
       "pillar_secondary": null
@@ -178,7 +178,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Learning to surfski part 3 #surfski #newcastle #sunrise ",
-      "views": 301,
+      "views": 302,
       "likes": 1,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -191,7 +191,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Learning to surf ski: lesson 2 #newcastle #sunrise #surfski",
-      "views": 290,
+      "views": 292,
       "likes": 2,
       "pillar_primary": "tastemaker",
       "pillar_secondary": null
@@ -282,7 +282,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Automatically analysing menu design is a blessing and a curse #newcastle #datenight #menudesign #devilwearsprada2 ",
-      "views": 318,
+      "views": 320,
       "likes": 9,
       "pillar_primary": "tastemaker",
       "pillar_secondary": "design-craft"
@@ -438,7 +438,7 @@
       "hook_source": "spoken",
       "needs_review": false,
       "caption": "How I brainstorm a logo. Vision first, volume on paper, hard copy boo...",
-      "views": 264,
+      "views": 265,
       "likes": 3,
       "pillar_primary": "design-craft",
       "pillar_secondary": "tastemaker"
