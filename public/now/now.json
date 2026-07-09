@@ -1,8 +1,31 @@
 {
-  "updated": "2026-07-04",
+  "updated": "2026-07-10",
   "cadence": "refreshes every 3 days",
   "how": "These activity cards are automatically generated based on activity in my memory system. I review them every few days, and they automatically publish here.",
   "items": [
+    {
+      "date": "2026-07-07",
+      "display_date": "7 Jul",
+      "title": "Built a pipeline that turns a video walkthrough into screenshot-aligned feedback",
+      "category": "Automation",
+      "tools": [
+        "Claude Code",
+        "Whisper",
+        "ffmpeg"
+      ],
+      "body": "Built a pipeline that takes a screen-recorded walkthrough of a UI prototype and turns it into a structured feedback doc, transcribing the audio with timestamps, pulling a frame at each comment, and lining every note up against the exact screen it points at. Distilled the review into a running set of design checks so the next build catches the same drift earlier."
+    },
+    {
+      "date": "2026-07-03",
+      "display_date": "3 Jul",
+      "title": "Wrote an execution-discipline layer for a vault of agent skills",
+      "category": "Agent governance",
+      "tools": [
+        "Claude",
+        "Markdown"
+      ],
+      "body": "Wrote a mandatory execution-discipline rule that every agent skill loads before it runs, ground truth, stop conditions, a verification pass, and judgment calibration, so a skill can't quietly invent a status or skip a check. Hardened close to fifty skills across two knowledge vaults against it and fixed the reference drift the audit turned up."
+    },
     {
       "date": "2026-07-03",
       "display_date": "3 Jul",
@@ -71,29 +94,6 @@
         "shadcn/ui"
       ],
       "body": "Converted a standalone HTML deal calculator into a native React route that consumes a design system at the component level, so it tracks the system's tokens, shapes and type instead of carrying its own hand-picked CSS. Ported the calculation logic across untouched, swapped every surface to real Card, Slider and Button components with a class-based dark and light toggle, and verified it rendered clean before publishing."
-    },
-    {
-      "date": "2026-06-25",
-      "display_date": "25 Jun",
-      "title": "Built a synthetic-user research skill that fights AI flattery",
-      "category": "Agent infra",
-      "tools": [
-        "Claude",
-        "Markdown"
-      ],
-      "body": "Built a reusable research skill that runs synthetic-user focus groups without the usual AI sycophancy, forcing the model to lead with objections and to tag every claim as grounded, inferred or assumed rather than dressing hypotheses up as insight."
-    },
-    {
-      "date": "2026-06-23",
-      "display_date": "23 Jun",
-      "title": "Wired a primitive guard into a design system",
-      "category": "Agent governance",
-      "tools": [
-        "Claude Code",
-        "Bash",
-        "Git"
-      ],
-      "body": "Added a commit-time guard hook to a design system that blocks hand-rolled dialogs, tooltips and tabs and forces the shared primitive instead, so drift cannot creep in component by component. Tested it both ways, a hand-rolled component trips it and the proper import clears it, then wrote the rule into the contributor guide."
     }
   ]
 }
