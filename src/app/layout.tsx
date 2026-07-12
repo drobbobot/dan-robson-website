@@ -4,8 +4,8 @@ import { GridBackground } from '@/components/GridBackground';
 import './globals.css';
 
 // EB Garamond is loaded as the serif fallback for Martina Plantijn (the v4
-// display voice). When the licensed Martina woff2 lands it takes precedence;
-// until then headings render in this close serif rather than a gated font.
+// display voice). The licensed Martina woff2 (order 26061276) now takes
+// precedence; EB Garamond only shows if that file fails to load.
 const ebGaramond = EB_Garamond({
   subsets: ['latin'],
   weight: ['400'],

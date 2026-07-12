@@ -37,7 +37,7 @@ export function ProfileServices() {
               style={{
                 fontFamily: 'var(--font-sans)',
                 fontSize: '0.75rem',
-                fontWeight: 500,
+                fontWeight: 600,
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
                 color: 'var(--muted-foreground)',

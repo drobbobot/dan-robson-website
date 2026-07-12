@@ -36,9 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
-# NOTE: the v4 Söhne + Martina Plantijn woff2 in /public/fonts are Klim TRIAL
-# fonts, now committed + deployed per Dan's call (2026-06-26) while the full
-# licence is finalised. Swap these for the full-licence files once it lands.
+# NOTE: the v4 Söhne + Martina Plantijn woff2 in /public/fonts are the LICENSED
+# Klim files (order 26061276), committed + self-hosted. The web licence domain
+# is registered to lia.build, not robson.studio — served here on Dan's call.
 
 # typescript
 *.tsbuildinfo

@@ -24,7 +24,7 @@ export function StyledButton({ href, children, className = '', wave = false }: S
         padding: '0.8125rem 1.5rem',
         fontFamily: 'var(--font-sans)',
         fontSize: '0.9375rem',
-        fontWeight: 500,
+        fontWeight: 600,
         letterSpacing: '0.005em',
         backgroundColor: 'var(--primary)',
         color: 'var(--primary-foreground)',
