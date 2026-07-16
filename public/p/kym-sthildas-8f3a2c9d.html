@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Robson Studio · Memory System + Agent-ready Design System · Prepared for Kym Basoka</title>
+<style>
+  /* Site brand fonts — Martina Plantijn (voice) + Söhne (interface), self-hosted from robson.studio */
+  @font-face{font-family:"Martina Plantijn";src:url("/fonts/martina-plantijn-regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+  @font-face{font-family:"Martina Plantijn";src:url("/fonts/martina-plantijn-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+  @font-face{font-family:"Sohne";src:url("/fonts/soehne-buch.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+  @font-face{font-family:"Sohne";src:url("/fonts/soehne-buch-kursiv.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+  @font-face{font-family:"Sohne";src:url("/fonts/soehne-halbfett.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+  :root{
+    --stone:#E9E5DD;      /* warm ground */
+    --cream:#FAF7EF;      /* card surface */
+    --brown:#482D21;      /* deep ink */
+    --brown-soft:#6b5142; /* muted brown */
+    --red:#FF3C1A;        /* vermilion accent */
+    --line:#d9d2c4;       /* warm stone border */
+    --grid:rgba(72,45,33,0.05);
+    --font-head:'Martina Plantijn','Georgia','Times New Roman',serif;
+    --font-body:'Sohne','Helvetica Neue',Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{
+    font-family:var(--font-body);
+    color:var(--brown);
+    background:var(--stone);
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:32px 32px;
+    line-height:1.6;
+    font-size:16px;
+    letter-spacing:0.01em;
+    padding:clamp(20px,5vw,64px);
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  .sheet{
+    max-width:760px;margin:0 auto;
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 12px 40px rgba(72,45,33,0.09),0 2px 6px rgba(72,45,33,0.05);
+    overflow:hidden;
+  }
+  .pad{padding:clamp(28px,5.5vw,60px)}
+
+  /* Header */
+  header{border-bottom:1px solid var(--line)}
+  .brandrow{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+  .logo img{height:34px;width:auto;display:block}
+  .prepared{text-align:right;font-size:13px;color:var(--brown-soft);line-height:1.5}
+  .prepared strong{color:var(--brown);font-weight:600}
+  .dl-wrap{text-align:right;margin-top:26px}
+  .dl{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:12.5px;font-weight:600;letter-spacing:0.01em;color:var(--brown);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 15px 8px 13px;cursor:pointer;transition:border-color .2s ease,color .2s ease}
+  .dl:hover{border-color:var(--brown-soft);color:var(--red)}
+  .dl svg{width:15px;height:15px}
+
+  .kicker{
+    font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--brown);font-weight:600;margin-top:40px;
+  }
+  h1{
+    font-family:var(--font-head);font-weight:400;
+    font-size:clamp(30px,5.6vw,46px);line-height:1.1;letter-spacing:-0.015em;
+    margin-top:14px;max-width:20ch;color:var(--red);
+  }
+  h1 em{font-style:italic;color:var(--red)}
+
+  .note{margin-top:26px;font-size:16.5px;color:#4a352a;max-width:60ch}
+  .note p+p{margin-top:14px}
+
+  /* Sections */
+  section{border-top:1px solid var(--line)}
+  h2{
+    font-family:var(--font-head);font-weight:400;
+    font-size:clamp(21px,3.4vw,26px);line-height:1.2;letter-spacing:-0.01em;
+    margin-bottom:6px;
+  }
+  .sub{color:var(--brown-soft);font-size:15px;margin-bottom:26px;max-width:56ch}
+
+  /* Deliverables: two groups */
+  .deliv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .deliv-col{background:var(--cream);padding:24px 26px}
+  .deliv-label{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:16px}
+  .deliv-col ul{list-style:none}
+  .deliv-col li{font-size:14.5px;color:#54402f;line-height:1.5;margin-bottom:14px}
+  .deliv-col li:last-child{margin-bottom:0}
+  .deliv-col li strong{display:block;color:var(--brown);font-weight:600;font-size:15px;margin-bottom:2px}
+  @media (max-width:620px){.deliv{grid-template-columns:1fr}}
+
+  /* Sessions */
+  .session{padding:22px 0;border-bottom:1px dashed var(--line)}
+  .session:last-child{border-bottom:0;padding-bottom:0}
+  .session:first-of-type{padding-top:0}
+  .slabel{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:6px}
+  .session h3{font-family:var(--font-head);font-weight:500;font-size:19px;margin-bottom:8px}
+  .session p{font-size:15px;color:#54402f;max-width:62ch}
+
+  /* need list */
+  ul.need{list-style:none;margin-top:4px}
+  ul.need li{position:relative;padding-left:26px;margin-bottom:12px;font-size:15px;color:#54402f;max-width:60ch}
+  ul.need li:before{content:"";position:absolute;left:4px;top:9px;width:7px;height:7px;background:var(--red);border-radius:50%}
+
+  /* Price */
+  .price-wrap{background:var(--brown);color:var(--cream);border-radius:12px;padding:30px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .price-wrap .label{font-size:13px;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;margin-bottom:8px}
+  .price-wrap .amount{font-family:var(--font-head);font-size:clamp(34px,6vw,48px);font-weight:400;line-height:1}
+  .price-wrap .amount span{font-size:0.42em;opacity:0.72;letter-spacing:0.02em;margin-left:8px}
+  .price-wrap .aside{font-size:13.5px;opacity:0.78;max-width:26ch;text-align:right;line-height:1.5}
+
+  /* Pricing tiers */
+  .tiers{display:flex;flex-direction:column;gap:12px}
+  .tier{display:flex;justify-content:space-between;align-items:baseline;gap:22px;border:1px solid var(--line);border-radius:12px;padding:20px 24px;background:var(--cream)}
+  .tier.feat{border-color:var(--brown);border-width:1.5px;box-shadow:0 6px 18px rgba(72,45,33,0.08)}
+  .tier.addon{border-style:dashed;background:transparent}
+  .tier-left{flex:1}
+  .t-name{font-family:var(--font-head);font-weight:500;font-size:19px;color:var(--brown)}
+  .t-tag{display:inline-block;font-family:var(--font-body);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);font-weight:600;margin-left:10px}
+  .t-desc{font-size:14px;color:#54402f;line-height:1.5;margin-top:6px;max-width:56ch}
+  .t-price{font-family:var(--font-head);font-size:26px;font-weight:400;color:var(--brown);white-space:nowrap;text-align:right}
+  .t-price small{display:block;font-family:var(--font-body);font-size:11px;letter-spacing:0.03em;color:var(--brown-soft);margin-top:3px}
+  @media (max-width:560px){.tier{flex-direction:column;gap:8px}.t-price,.t-price small{text-align:left}}
+
+  /* Packages (scope picker) */
+  .pkgs{display:flex;flex-direction:column;gap:14px}
+  .pkg{border:1px solid var(--line);border-radius:12px;padding:22px 26px;background:var(--cream)}
+  .pkg.feat{border-color:var(--brown);border-width:1.5px;box-shadow:0 6px 18px rgba(72,45,33,0.08)}
+  .pkg.addon{border-style:dashed;background:transparent}
+  .pkg-head{display:flex;justify-content:space-between;align-items:baseline;gap:18px}
+  .pkg-name{font-family:var(--font-body);font-weight:600;font-size:20px;color:var(--brown)}
+  .pkg-price{font-family:var(--font-body);font-size:18px;font-weight:400;color:var(--brown);white-space:nowrap;text-align:right}
+  .pkg-price small{display:block;font-family:var(--font-body);font-size:11px;letter-spacing:0.03em;color:var(--brown-soft);margin-top:2px}
+
+  /* Hierarchy: core vs secondary add-ons */
+  .addons-label{font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--brown-soft);font-weight:600;margin:0 0 14px;padding-top:26px;border-top:1px solid var(--line)}
+  .pkgs.secondary{gap:12px}
+  .pkgs.secondary .pkg{padding:18px 22px}
+  .pkgs.secondary .pkg-name{font-size:16.5px}
+  .pkgs.secondary .pkg-price{font-size:15px}
+  .pkgs.secondary .pkg-ico svg{width:19px;height:19px}
+  .pkgs.secondary .pkg-sum{font-size:14px}
+
+  /* Interaction */
+  .pkg{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+  .pkg:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(72,45,33,0.10)}
+  .pkg:not(.feat):hover{border-color:var(--brown-soft)}
+  .sign a{transition:opacity .2s ease}
+  .sign a:hover{opacity:.65}
+  @media (prefers-reduced-motion:reduce){.pkg{transition:none}}
+
+  /* Password gate */
+  #gate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:var(--stone);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px;padding:24px}
+  .gate-card{background:var(--cream);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 40px rgba(72,45,33,0.09);padding:34px 32px;max-width:360px;width:100%;text-align:center}
+  .gate-card .gate-logo{height:32px;width:auto;display:block;margin:0 auto 18px}
+  .gate-card p{font-size:14.5px;color:#54402f;margin-bottom:18px;line-height:1.5}
+  .gate-card input{width:100%;font-family:var(--font-body);font-size:15px;color:var(--brown);background:#fff;border:1px solid var(--line);border-radius:9px;padding:11px 14px;outline:none;transition:border-color .2s ease}
+  .gate-card input:focus{border-color:var(--brown-soft)}
+  .gate-card button{width:100%;margin-top:12px;font-family:var(--font-body);font-size:14px;font-weight:600;color:var(--cream);background:var(--brown);border:0;border-radius:9px;padding:11px;cursor:pointer;transition:opacity .2s ease}
+  .gate-card button:hover{opacity:.9}
+  .gate-card .err{color:var(--red);font-size:13px;margin:10px 0 0}
+  body.locked{overflow:hidden}
+  .pkg-sum{font-size:14.5px;color:#54402f;margin-top:6px}
+  .pkg ul{list-style:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+  .pkg li{position:relative;padding-left:20px;font-size:14px;color:#54402f;line-height:1.5;margin-bottom:8px}
+  .pkg li:last-child{margin-bottom:0}
+  .pkg li:before{content:"–";position:absolute;left:0;top:0;color:var(--brown-soft)}
+  @media (max-width:560px){.pkg-head{flex-direction:column;gap:8px}.pkg-price,.pkg-price small{text-align:left}}
+
+  /* Scope icons — plain, no chips */
+  .pkg-head{align-items:center}
+  .pkg-title{display:flex;align-items:center;gap:11px;min-width:0}
+  .pkg-ico{color:var(--red);flex:none;display:inline-flex;align-items:center}
+  .pkg-ico svg{width:23px;height:23px;display:block}
+  .pkg-ico.combo{display:inline-flex;align-items:center;gap:3px}
+  .pkg-ico.combo svg{width:20px;height:20px}
+  .pkg-ico.combo .plus{font-family:var(--font-head);font-size:16px;color:var(--brown-soft);line-height:1;margin:0 1px}
+
+  /* Lists */
+  .pkg ul{border-top:none;margin-top:12px;padding-top:0}
+  .reqs{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .reqs li{position:relative;padding-left:22px;font-size:15px;color:#54402f;line-height:1.55;max-width:62ch}
+  .reqs li:before{content:"–";position:absolute;left:0;top:0;color:var(--brown-soft)}
+  .reqs li strong{color:var(--brown);font-weight:600}
+
+  /* Next */
+  .next p{font-size:16px;color:#4a352a;max-width:58ch}
+  .sign{margin-top:26px;font-size:15px;line-height:1.5}
+  .sign strong{font-family:var(--font-head);font-weight:400;font-size:18px;display:block;color:var(--brown)}
+  .sign a{color:var(--red);text-decoration:none}
+
+  footer{border-top:1px solid var(--line);padding:20px clamp(28px,5.5vw,60px);font-size:12.5px;color:var(--brown-soft);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  @media print{
+    :root{--cream:#fff;--stone:#fff}
+    body{background:#fff;background-image:none;padding:0}
+    .sheet{box-shadow:none;border:0;max-width:100%;border-radius:0;background:#fff}
+    .dl,.dl-wrap,#gate{display:none !important}
+    .note,.pkg,.addons-label,.reqs li,.sign,section h2{opacity:1 !important;transform:none !important}
+    .pkg,.reqs li{break-inside:avoid}
+    a{color:var(--red)}
+  }
+</style>
+</head>
+<body class="locked">
+  <div id="gate">
+    <form class="gate-card" id="gateForm">
+      <img class="gate-logo" id="gateLogo" alt="Robson Studio">
+      <p>This proposal is private. Enter the password to view it.</p>
+      <input type="password" id="gatePass" placeholder="Password" autocomplete="off" autofocus>
+      <button type="submit">View proposal</button>
+      <p class="err" id="gateErr" hidden>That’s not quite right, try again.</p>
+    </form>
+  </div>
+  <div class="sheet">
+    <header class="pad">
+      <div class="brandrow">
+        <div class="logo">
+          <img alt="Robson Studio" src="data:image/png;base64,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">
+        </div>
+        <div class="prepared">
+          <strong>Prepared for Kym Basoka</strong><br>
+          Manager, Marketing<br>
+          St Hilda’s School, Gold Coast<br>
+          15 July 2026
+        </div>
+      </div>
+
+      <div class="kicker">Robson Studio · Proposal</div>
+      <h1>Bespoke AI <em>Memory System</em> setup and training.</h1>
+      <div class="note">
+        <p>Good to catch up, Kym!</p>
+        <p>This is a package I’ve put together off the back of our chat.</p>
+        <p>What I’m hearing is that your aim is to upskill in agentic workflows, so you can produce and ship more of the work yourself, faster, while keeping the output consistent (and on brand).</p>
+        <p>The key to this is a memory system, so any AI tool (Claude, ChatGPT, Copilot, Gemini) can read your whole context.</p>
+        <p>I’ve put together a few packages. Each one’s built <em>with you</em>, so you own it and understand how it works, and I’ll leave you with a whole bunch of tried and tested workflow skills and templates to get your content pipelines <em>humming</em>!</p>
+      </div>
+    </header>
+
+    <section class="pad">
+      <h2>Scope options</h2>
+      <p class="sub">All prices exclude GST.</p>
+      <div class="pkgs">
+
+        <div class="pkg">
+          <div class="pkg-head">
+            <div class="pkg-title"><span class="pkg-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M212,76V72a44,44,0,0,0-74.86-31.31,3.93,3.93,0,0,0-1.14,2.8v88.72a4,4,0,0,0,6.2,3.33A47.67,47.67,0,0,1,167.68,128a8.18,8.18,0,0,1,8.31,7.58,8,8,0,0,1-8,8.42,32,32,0,0,0-32,32v33.88a4,4,0,0,0,1.49,3.12,47.92,47.92,0,0,0,74.21-17.16,4,4,0,0,0-4.49-5.56A68.06,68.06,0,0,1,192,192h-7.73a8.18,8.18,0,0,1-8.25-7.47,8,8,0,0,1,8-8.53h8a51.6,51.6,0,0,0,24-5.88v0A52,52,0,0,0,212,76Zm-12,36h-4a36,36,0,0,1-36-36V72a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4a8,8,0,0,1,0,16ZM88,28A44.05,44.05,0,0,0,44,72v4a52,52,0,0,0-4,94.12h0A51.6,51.6,0,0,0,64,176h7.73A8.18,8.18,0,0,1,80,183.47,8,8,0,0,1,72,192H64a67.48,67.48,0,0,1-15.21-1.73,4,4,0,0,0-4.5,5.55A47.93,47.93,0,0,0,118.51,213a4,4,0,0,0,1.49-3.12V176a32,32,0,0,0-32-32,8,8,0,0,1-8-8.42A8.18,8.18,0,0,1,88.32,128a47.67,47.67,0,0,1,25.48,7.54,4,4,0,0,0,6.2-3.33V43.49a4,4,0,0,0-1.14-2.81A43.85,43.85,0,0,0,88,28Zm8,48a36,36,0,0,1-36,36H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,76V72a8,8,0,0,1,16,0Z"/></svg></span><span class="pkg-name">Memory System</span></div>
+            <div class="pkg-price">$1,800</div>
+          </div>
+          <p class="pkg-sum">Your own AI memory system, set up, trained, and yours to keep.</p>
+          <ul>
+            <li>Two guided sessions on your machine: a 2–3 hour setup (vault, integrations, onboarding questionnaire), then a 1–2 hour follow-up once you’ve done an initial ingest</li>
+            <li>Onboarding and memory-system templates, ready to use</li>
+            <li>Content skills built in — Tone of Voice, Design, Layout, Research, Animation</li>
+            <li>Scheduled maintenance skills that keep it healthy — Promote, Discover, Enrich, Ingest, Lint</li>
+            <li>A follow-up call two weeks in</li>
+          </ul>
+        </div>
+
+        <div class="pkg feat">
+          <div class="pkg-head">
+            <div class="pkg-title"><span class="pkg-ico combo"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M212,76V72a44,44,0,0,0-74.86-31.31,3.93,3.93,0,0,0-1.14,2.8v88.72a4,4,0,0,0,6.2,3.33A47.67,47.67,0,0,1,167.68,128a8.18,8.18,0,0,1,8.31,7.58,8,8,0,0,1-8,8.42,32,32,0,0,0-32,32v33.88a4,4,0,0,0,1.49,3.12,47.92,47.92,0,0,0,74.21-17.16,4,4,0,0,0-4.49-5.56A68.06,68.06,0,0,1,192,192h-7.73a8.18,8.18,0,0,1-8.25-7.47,8,8,0,0,1,8-8.53h8a51.6,51.6,0,0,0,24-5.88v0A52,52,0,0,0,212,76Zm-12,36h-4a36,36,0,0,1-36-36V72a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4a8,8,0,0,1,0,16ZM88,28A44.05,44.05,0,0,0,44,72v4a52,52,0,0,0-4,94.12h0A51.6,51.6,0,0,0,64,176h7.73A8.18,8.18,0,0,1,80,183.47,8,8,0,0,1,72,192H64a67.48,67.48,0,0,1-15.21-1.73,4,4,0,0,0-4.5,5.55A47.93,47.93,0,0,0,118.51,213a4,4,0,0,0,1.49-3.12V176a32,32,0,0,0-32-32,8,8,0,0,1-8-8.42A8.18,8.18,0,0,1,88.32,128a47.67,47.67,0,0,1,25.48,7.54,4,4,0,0,0,6.2-3.33V43.49a4,4,0,0,0-1.14-2.81A43.85,43.85,0,0,0,88,28Zm8,48a36,36,0,0,1-36,36H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,76V72a8,8,0,0,1,16,0Z"/></svg><span class="plus">+</span><svg viewBox="0 0 256 256" fill="currentColor"><path d="M200.77,53.89A103.27,103.27,0,0,0,128,24h-1.07A104,104,0,0,0,24,128c0,43,26.58,79.06,69.36,94.17A32,32,0,0,0,136,192a16,16,0,0,1,16-16h46.21a31.81,31.81,0,0,0,31.2-24.88,104.43,104.43,0,0,0,2.59-24A103.28,103.28,0,0,0,200.77,53.89ZM84,168a12,12,0,1,1,12-12A12,12,0,0,1,84,168Zm0-56a12,12,0,1,1,12-12A12,12,0,0,1,84,112Zm44-24a12,12,0,1,1,12-12A12,12,0,0,1,128,88Zm44,24a12,12,0,1,1,12-12A12,12,0,0,1,172,112Z"/></svg></span><span class="pkg-name">Memory + Design System <span class="t-tag">Recommended</span></span></div>
+            <div class="pkg-price">$2,900</div>
+          </div>
+          <p class="pkg-sum">Everything above, plus an agent-ready design system wired into Figma.</p>
+          <ul>
+            <li>Everything in the Memory System</li>
+            <li>An additional guided session (2–4 hours): connect the Figma MCP to your agent, then build a tokenised design and components together</li>
+            <li>A design-system base built from your brand, ready to extend</li>
+            <li>Set up for the school, with the Foundation brand and a roadmap for Carey Lane and Aquatics</li>
+            <li>Option to explore other outputs — interactive webpages, widgets and more</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="addons-label">Add-ons &amp; extensions</div>
+      <div class="pkgs secondary">
+
+        <div class="pkg addon">
+          <div class="pkg-head">
+            <div class="pkg-title"><span class="pkg-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M88.57,35A8,8,0,0,1,103.43,29l8,20A8,8,0,0,1,96.57,55ZM29,103.43l20,8A8,8,0,1,0,55,96.57l-20-8A8,8,0,0,0,29,103.43ZM227,152.57l-20-8A8,8,0,1,0,201,159.43l20,8A8,8,0,0,0,227,152.57ZM159.43,201A8,8,0,0,0,144.57,207l8,20A8,8,0,1,0,167.43,221ZM237.91,18.52a8,8,0,0,0-11.5-.18L174,70.75l-5.38-5.38a32,32,0,0,0-45.28,0L106.14,82.54a4,4,0,0,0,0,5.66l61.7,61.66a4,4,0,0,0,5.66,0l16.74-16.74a32.76,32.76,0,0,0,9.81-22.52,31.82,31.82,0,0,0-9.37-23.17l-5.38-5.37,52.2-52.17A8.22,8.22,0,0,0,237.91,18.52ZM85.64,90.34a8,8,0,0,0-11.49.18,8.22,8.22,0,0,0,.41,11.37L80.67,108,65.34,123.31A31.82,31.82,0,0,0,56,146.47,32.75,32.75,0,0,0,65.77,169l5,4.94L18.49,226.13a8.21,8.21,0,0,0-.61,11.1,8,8,0,0,0,11.72.43L82,185.25l5.37,5.38a32.1,32.1,0,0,0,45.29,0L148,175.31l6.34,6.35a8,8,0,0,0,11.32-11.32Z"/></svg></span><span class="pkg-name">Add-on · Automations &amp; integrations</span></div>
+            <div class="pkg-price">+$1,200</div>
+          </div>
+          <p class="pkg-sum">Adds to either package. We map where your work can run itself, then wire it up.</p>
+          <ul>
+            <li>A scoping pass across your stack: which tools to connect, and where an agent can take repetitive work off your plate</li>
+            <li>The integrations that matter, wired in, so context and tasks move between your tools instead of being copied by hand</li>
+            <li>Targeted automations for the jobs worth automating (for example, an intake form that lands straight into triaged tasks, pending your internal AI-safety approvals)</li>
+          </ul>
+        </div>
+
+        <div class="pkg">
+          <div class="pkg-head">
+            <div class="pkg-title"><span class="pkg-ico"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M64.12,147.8a4,4,0,0,1-4,4.2H16a8,8,0,0,1-7.8-6.17,8.35,8.35,0,0,1,1.62-6.93A67.79,67.79,0,0,1,37,117.51a40,40,0,1,1,66.46-35.8,3.94,3.94,0,0,1-2.27,4.18A64.08,64.08,0,0,0,64,144C64,145.28,64,146.54,64.12,147.8Zm182-8.91A67.76,67.76,0,0,0,219,117.51a40,40,0,1,0-66.46-35.8,3.94,3.94,0,0,0,2.27,4.18A64.08,64.08,0,0,1,192,144c0,1.28,0,2.54-.12,3.8a4,4,0,0,0,4,4.2H240a8,8,0,0,0,7.8-6.17A8.33,8.33,0,0,0,246.17,138.89Zm-89,43.18a48,48,0,1,0-58.37,0A72.13,72.13,0,0,0,65.07,212,8,8,0,0,0,72,224H184a8,8,0,0,0,6.93-12A72.15,72.15,0,0,0,157.19,182.07Z"/></svg></span><span class="pkg-name">Team Kit</span></div>
+            <div class="pkg-price">From $8,000</div>
+          </div>
+          <p class="pkg-sum">Roll it out to the whole marketing team.</p>
+          <ul>
+            <li>A team workshop to get everyone set up and working the same way</li>
+            <li>A shared team brain alongside each person’s own memory system: the team pushes its best templates, brand rules and workflows into it, and everyone’s agent can pull from it, so a workflow solved once is one the whole team has</li>
+            <li>Templates and skills for the team to build from</li>
+            <li>Priced on enquiry, based on team size and integrations</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="pad">
+      <h2>What you’ll need</h2>
+      <ul class="reqs">
+        <li><strong>Time</strong> for the working sessions (or two, depending on scope) over screen share.</li>
+        <li><strong>A high subscription tier for this month.</strong> If you’re using Claude, you may need an upgraded token limit this month so your agent can ingest bulk amounts of your context.</li>
+        <li><strong>A collection of ‘context’</strong> we can use to seed your vault with information about you and your work. I can explain this in more detail before the session.</li>
+        <li><strong>Access to the tools</strong> you’d like connected, and a sample of your current brand collateral to build the system from.</li>
+      </ul>
+    </section>
+
+    <section class="pad next">
+      <h2>Next steps</h2>
+      <p>Have a read and if a scope fits, lock in some dates. There’s plenty of room to tailor it further based on your needs.</p>
+      <div class="sign">
+        <strong>Dan Robson</strong>
+        Robson Studio · <a href="mailto:dan@robson.studio">dan@robson.studio</a>
+      </div>
+      <div class="dl-wrap"><button class="dl" type="button" onclick="window.print()"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M224,152v56a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V152a8,8,0,0,1,16,0v56H208V152a8,8,0,0,1,16,0ZM122.34,141.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,116.69V32a8,8,0,0,0-16,0v84.69L90.34,90.34a8,8,0,0,0-11.32,11.32Z"/></svg>Download PDF</button></div>
+    </section>
+
+    <footer>
+      <span>Robson Studio</span>
+      <span>Prepared for Kym Basoka, St Hilda’s School · July 2026</span>
+    </footer>
+  </div>
+<script>
+(function(){
+  var gate = document.getElementById('gate'), form = document.getElementById('gateForm'),
+      pass = document.getElementById('gatePass'), err = document.getElementById('gateErr');
+  var gl=document.getElementById('gateLogo'), hl=document.querySelector('.logo img'); if(gl&&hl) gl.src=hl.src;
+  function unlock(){ gate.style.display='none'; document.body.classList.remove('locked'); }
+  try { if (sessionStorage.getItem('shs_ok')==='1') unlock(); } catch(e){}
+  if (form) form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if ((pass.value||'').trim().toLowerCase()==='sthildas'){
+      try { sessionStorage.setItem('shs_ok','1'); } catch(e){}
+      unlock();
+    } else { err.hidden=false; pass.value=''; pass.focus(); }
+  });
+})();
+(function(){
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.pkgs, .reqs').forEach(function(g){
+    Array.prototype.forEach.call(g.children, function(c,i){ c.setAttribute('data-i', i); });
+  });
+  var els = document.querySelectorAll('.note, section h2, .pkg, .addons-label, .reqs li, .sign');
+  els.forEach(function(el){
+    el.style.opacity = 0; el.style.transform = 'translateY(12px)';
+    el.style.transition = 'opacity .55s ease, transform .55s ease';
+  });
+  var io = new IntersectionObserver(function(ents){
+    ents.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target, d = (parseInt(el.getAttribute('data-i')||'0',10))*55;
+      el.style.transitionDelay = d + 'ms';
+      el.style.opacity = 1; el.style.transform = 'none';
+      io.unobserve(el);
+    });
+  }, {threshold:0.08});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
