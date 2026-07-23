@@ -1,8 +1,20 @@
 {
-  "updated": "2026-07-15",
+  "updated": "2026-07-24",
   "cadence": "refreshes every 3 days",
   "how": "These activity cards are automatically generated based on activity in my memory system. I review them every few days, and they automatically publish here.",
   "items": [
+    {
+      "date": "2026-07-17",
+      "display_date": "17 Jul",
+      "title": "Scripted a Vox-style explainer and stood up the pipeline to make it",
+      "category": "Content tool",
+      "tools": [
+        "Claude Code",
+        "Unsora",
+        "ffmpeg"
+      ],
+      "body": "Wrote and tightened a paper-collage explainer script on how agent memory systems work, cut to a one-point-per-beat structure and plain enough for a ten-year-old to follow. Audited the community-built video skill behind it line by line for hidden payloads before trusting it, then wired up the generation pipeline ready to render."
+    },
     {
       "date": "2026-07-10",
       "display_date": "10 Jul",
@@ -83,17 +95,6 @@
         "Claude Code"
       ],
       "body": "Stood up a look-and-feel prototype for a creative file-management tool on a design system's real components and tokens, fake data only, with a calendar front door as the baseline for a five-direction design exploration."
-    },
-    {
-      "date": "2026-07-01",
-      "display_date": "1 Jul",
-      "title": "Built Figma components inside a live product design library",
-      "category": "Design system",
-      "tools": [
-        "Figma",
-        "Claude Code"
-      ],
-      "body": "Built a set of Figma components for a rate-comparison product inside its live design library, wired to the library's real primitives, with source-mock crops placed beside each build for side-by-side review."
     }
   ]
 }
