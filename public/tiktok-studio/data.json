@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T19:30:14.794Z",
+  "generated_at": "2026-07-31T19:31:17.160Z",
   "dan_account": [
     {
       "pid": "7657837172090768648",
@@ -9,7 +9,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Having fun designnng with Claude’s Fable 5 today. #aidesign #claude ",
-      "views": 335,
+      "views": 339,
       "likes": 5,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": "design-craft"
@@ -22,7 +22,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "I’ve also converted them to svg’s so that I can have this stamp effect everyyywhere #aidesign #chatgpt",
-      "views": 278,
+      "views": 279,
       "likes": 3,
       "pillar_primary": "design-craft",
       "pillar_secondary": "ai-tooling"
@@ -35,7 +35,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "Designing with AI is less coding and more chatting on slack. Claude is working in the background while I focus on judgement calls, inspo and refinement. #claudedesign #branding #designsystem @Chris Quinton ",
-      "views": 517,
+      "views": 520,
       "likes": 9,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": "design-craft"
@@ -100,7 +100,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "I’m building design system components in Figma without drawing a single one by hand. Claude Code reads my tokens through an MCP and assembles them from my own atoms. Then I go in and refine with my eyes. Crazy how fast this is moving. #aiworkflow #claude #aidesign #figma",
-      "views": 2534,
+      "views": 2543,
       "likes": 44,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": "design-craft"
@@ -230,7 +230,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "I feel like more and more people are how incredibly useful a well set up memory system is. Context is everything with AI. #creativedad #memorysystem #secondbrain #ai",
-      "views": 232,
+      "views": 234,
       "likes": 3,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": null
@@ -347,7 +347,7 @@
       "hook_source": "caption",
       "needs_review": true,
       "caption": "this is my why #workingdad #dadlife #fatherhood #firsttimedad #fyp",
-      "views": 303,
+      "views": 304,
       "likes": null,
       "pillar_primary": "dad",
       "pillar_secondary": null
@@ -464,7 +464,7 @@
       "hook_source": "spoken",
       "needs_review": false,
       "caption": "Claude Design prototyping is SO handy for exploring different flows. ...",
-      "views": 1151,
+      "views": 1153,
       "likes": 29,
       "pillar_primary": "ai-tooling",
       "pillar_secondary": "design-craft"
