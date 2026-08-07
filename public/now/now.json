@@ -1,8 +1,44 @@
 {
-  "updated": "2026-07-24",
+  "updated": "2026-08-07",
   "cadence": "refreshes every 3 days",
   "how": "These activity cards are automatically generated based on activity in my memory system. I review them every few days, and they automatically publish here.",
   "items": [
+    {
+      "date": "2026-08-07",
+      "display_date": "7 Aug",
+      "title": "Packaged a team knowledge-system rollout as a runbook another agent executes",
+      "category": "Agent infra",
+      "tools": [
+        "Claude Code",
+        "Codex",
+        "Markdown"
+      ],
+      "body": "Turned a team knowledge-system rollout into a self-contained install runbook a second coding agent runs top to bottom, five skills installed, the config edits quoted back for review, each skill run once to prove it works, and the scheduled tasks handed back at the end because an agent cannot create them. Built a sensitivity classification into the sharing step so anything marked confidential is refused rather than surfaced, and instructed the runbook to halt and report on a structure mismatch rather than improvise a bridge."
+    },
+    {
+      "date": "2026-08-06",
+      "display_date": "6 Aug",
+      "title": "Wrote a reusable store-launch playbook out of a live build",
+      "category": "Ops",
+      "tools": [
+        "Shopify",
+        "Claude Code",
+        "Markdown"
+      ],
+      "body": "Fixed a checkout where local pickup silently refused payment, reconciled parcel weights and the free-shipping threshold against real test orders, and rebuilt the order confirmation email so it reads branded rather than default. Wrote the build up afterwards as a reusable launch playbook, an ordered config-to-cosmetics checklist plus the ten traps that cost real time on the way through, including a password-gated storefront quietly making automated checks pass on the wrong page."
+    },
+    {
+      "date": "2026-08-05",
+      "display_date": "5 Aug",
+      "title": "Untangled a product catalogue so bundles draw down real stock",
+      "category": "E-commerce",
+      "tools": [
+        "Shopify",
+        "Klaviyo",
+        "Claude Code"
+      ],
+      "body": "Rebuilt a product catalogue where bundles, single flavours and multipacks had drifted into competing listings, collapsing them into one pack ladder with variants so stock still draws down from the component packets rather than the bundle. Traced a welcome email that had never fired to a flow triggered on list membership instead of the subscribe event, rebuilt it on the correct trigger with a branded template, and confirmed it live end to end."
+    },
     {
       "date": "2026-07-17",
       "display_date": "17 Jul",
@@ -61,40 +97,6 @@
         "ffmpeg"
       ],
       "body": "Built a pipeline that takes a screen-recorded walkthrough of a UI prototype and turns it into a structured feedback doc, transcribing the audio with timestamps, pulling a frame at each comment, and lining every note up against the exact screen it points at. Distilled the review into a running set of design checks so the next build catches the same drift earlier."
-    },
-    {
-      "date": "2026-07-03",
-      "display_date": "3 Jul",
-      "title": "Wrote an execution-discipline layer for a vault of agent skills",
-      "category": "Agent governance",
-      "tools": [
-        "Claude",
-        "Markdown"
-      ],
-      "body": "Wrote a mandatory execution-discipline rule that every agent skill loads before it runs, ground truth, stop conditions, a verification pass, and judgment calibration, so a skill can't quietly invent a status or skip a check. Hardened close to fifty skills across two knowledge vaults against it and fixed the reference drift the audit turned up."
-    },
-    {
-      "date": "2026-07-03",
-      "display_date": "3 Jul",
-      "title": "Turned scattered packaging feedback into a single change list",
-      "category": "Brand",
-      "tools": [
-        "Claude",
-        "WhatsApp"
-      ],
-      "body": "Pulled scattered packaging feedback from a supplier chat into one dated change list for an endurance nutrition brand, nine changes across production and compliance, with the single-serve sachet promoted to the sole compliance-bearing unit."
-    },
-    {
-      "date": "2026-07-02",
-      "display_date": "2 Jul",
-      "title": "Scaffolded a UI prototype straight on a design system",
-      "category": "Prototyping",
-      "tools": [
-        "Next.js",
-        "shadcn/ui",
-        "Claude Code"
-      ],
-      "body": "Stood up a look-and-feel prototype for a creative file-management tool on a design system's real components and tokens, fake data only, with a calendar front door as the baseline for a five-direction design exploration."
     }
   ]
 }
